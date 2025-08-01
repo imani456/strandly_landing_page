@@ -13,7 +13,7 @@ const Index = () => {
         <ProcessSteps />
         <ForClientsSection />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

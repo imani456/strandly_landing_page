@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "title": "Strandly",
+    "subtitle": "Discover the app for Afro hairstylists and their clients.",
+    "learn_more": "Learn more",
+    "join_waitlist": "Join waitlist"
+  },
+  "for_clients": {
+    "title": "For Clients",
+    "subtitle": "Browse top styles and book skilled Afro hair stylists with ease."
+  },
+  "for_stylists": {
+    "title": "For Stylists",
+    "subtitle": "Reach more clients and grow your business with our platform."
+  },
+  "waitlist": {
+    "title": "Ready to transform your hair journey?",
+    "subtitle": "Join thousands of women who trust Strandly for their Afro hair care needs",
+    "join_waitlist": "Join the waitlist"
+  }
+}

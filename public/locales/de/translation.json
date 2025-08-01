@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "title": "Strandly",
+    "subtitle": "Entdecken Sie die App für Afro-Hairstylisten und ihre Kunden.",
+    "learn_more": "Mehr erfahren",
+    "join_waitlist": "Warteliste beitreten"
+  },
+  "for_clients": {
+    "title": "Für Kunden",
+    "subtitle": "Durchsuchen Sie Top-Styles und buchen Sie ganz einfach qualifizierte Afro-Hairstylisten."
+  },
+  "for_stylists": {
+    "title": "Für Stylisten",
+    "subtitle": "Erreichen Sie mehr Kunden und erweitern Sie Ihr Geschäft mit unserer Plattform."
+  },
+  "waitlist": {
+    "title": "Bereit, Ihre Haarreise zu verändern?",
+    "subtitle": "Schließen Sie sich Tausenden von Frauen an, die Strandly für ihre Afro-Haarpflegebedürfnisse vertrauen",
+    "join_waitlist": "Der Warteliste beitreten"
+  }
+}

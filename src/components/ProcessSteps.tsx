@@ -18,22 +18,27 @@ const ProcessSteps = () => {
   ];
 
   return (
-    <section className="py-20 bg-card">
+    <section className="py-24 bg-background">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="relative grid md:grid-cols-3 gap-x-12 gap-y-16">
+          {/* Dashed line */}
+          <div className="absolute top-8 left-0 right-0 hidden md:block">
+            <div className="w-full border-t-2 border-dashed border-muted"></div>
+          </div>
+
           {steps.map((step, index) => (
-            <div key={index} className="text-center space-y-6">
-              <div className="mx-auto w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center shadow-warm">
+            <div key={index} className="relative text-center space-y-6">
+              <div className="mx-auto w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center shadow-warm z-10 relative">
                 <span className="font-display text-2xl font-bold text-primary-foreground">
                   {step.number}
                 </span>
               </div>
               
-              <h3 className="font-display text-2xl text-foreground">
+              <h3 className="font-display text-3xl text-foreground pt-4">
                 {step.title}
               </h3>
               
-              <p className="font-body text-lg text-muted-foreground leading-relaxed">
+              <p className="font-body text-lg text-muted-foreground leading-relaxed max-w-xs mx-auto">
                 {step.description}
               </p>
             </div>

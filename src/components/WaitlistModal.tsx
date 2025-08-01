@@ -80,10 +80,10 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
           <DialogTitle className="font-display text-3xl text-cocoa-brown">
             Join the Strandly Waitlist
           </DialogTitle>
-          <p className="font-body text-cocoa-brown/80 leading-relaxed">
+          {/* <p className="font-body text-cocoa-brown/80 leading-relaxed">
             Be the first to experience premium Afro hair services in Europe. 
             Join thousands of women who trust us for their hair care journey.
-          </p>
+          </p> */}
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6 mt-6">

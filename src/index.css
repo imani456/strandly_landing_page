@@ -9,8 +9,8 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Strandly Brand Colors */
-    --background: 35 25% 95%; /* Beige #f5efe7 */
-    --foreground: 25 28% 26%; /* Cocoa Brown #4e342e */
+    --background: 34 53% 80%; /* Beige #e8d0b0 */
+    --foreground: 26 100% 10%; /* Cocoa Brown #321700 */
 
     --card: 0 0% 100%; /* Warm White */
     --card-foreground: 25 28% 26%;
@@ -41,7 +41,7 @@ All colors MUST be HSL.
 
     /* Editorial Design Tokens */
     --warm-beige: 35 25% 95%;
-    --cocoa-brown: 25 28% 26%;
+    --cocoa-brown: 26 100% 10%;
     --warm-white: 0 0% 100%;
     --caramel-gold: 32 45% 65%;
     --soft-caramel: 32 35% 75%;

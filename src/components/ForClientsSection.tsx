@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "./ui/button";
-import mobileMockup from "@/assets/mobile-mockup.png";
+import mobileMockup from "@/assets/phone-transparent.png";
 import WaitlistModal from "./WaitlistModal";
 
 const ForClientsSection = () => {
+  const { t } = useTranslation();
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
 
   return (
@@ -14,24 +16,24 @@ const ForClientsSection = () => {
     />
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center justify-center">
           {/* Left Content */}
           <div className="space-y-12">
             <div className="space-y-8">
-              <h2 className="font-display text-5xl md:text-5xl text-foreground leading-tight">
-                For Clients
+              <h2 className="font-display text-8xl md:text-5xl text-foreground leading-tight">
+                {t("for_clients.title")}
               </h2>
               <p className="font-body text-xl text-foreground leading-relaxed">
-                Browse top styles and book skilled Afro hair stylists with ease.
+                {t("for_clients.subtitle")}
               </p>
             </div>
 
             <div className="space-y-8">
-              <h3 className="font-display text-4xl md:text-5xl text-foreground leading-tight">
-                For Stylists
+              <h3 className="font-display text-8xl md:text-5xl text-foreground leading-tight">
+                {t("for_stylists.title")}
               </h3>
               <p className="font-body text-xl text-foreground leading-relaxed">
-                Reach more clients and grow your business with our platform.
+                {t("for_stylists.subtitle")}
               </p>
             </div>
 
@@ -69,20 +71,20 @@ const ForClientsSection = () => {
         <div className="mt-20 text-center">
           <div className="max-w-2xl mx-auto space-y-8">
             <div className="space-y-4">
-              <h3 className="font-display text-4xl md:text-5xl text-foreground">
-                Ready to transform your hair journey?
-              </h3>
-              <p className="font-body text-xl text-muted-foreground">
-                Join thousands of women who trust Strandly for their Afro hair care needs
-              </p>
+              {/* <h3 className="font-display text-4xl md:text-5xl text-foreground">
+                {t("waitlist.title")}
+              </h3> */}
+              {/* <p className="font-body text-xl text-muted-foreground">
+                {t("waitlist.subtitle")}
+              </p> */}
             </div>
             <Button 
               variant="hero" 
               size="xl" 
-              className="font-body px-12"
+              className="font-body px-16 py-6 text-2xl"
               onClick={() => setShowWaitlistModal(true)}
             >
-              Join the waitlist
+              {t("waitlist.join_waitlist")}
             </Button>
           </div>
         </div>
