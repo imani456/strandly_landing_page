@@ -1,0 +1,7 @@
+services:
+  - type: staticSite
+    name: strandly-europage-glow
+    env: static
+    rootDir: ./
+    buildCommand: npm run build
+    staticPublishPath: dist
