@@ -10,10 +10,10 @@ const Index = () => {
       {/* <Navigation /> */}
       <main>
         <HeroSection />
-        <ProcessSteps />
-        <ForClientsSection />
+        <ProcessSteps id="how-it-works" />
+        <ForClientsSection id="for-stylists" />
       </main>
-      <Footer />
+      <Footer id="contact" />
     </div>
   );
 };

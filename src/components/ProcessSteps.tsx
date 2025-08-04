@@ -1,26 +1,29 @@
-const ProcessSteps = () => {
+import { useTranslation } from "react-i18next";
+
+const ProcessSteps = ({ id }: { id?: string }) => {
+  const { t } = useTranslation();
   const steps = [
     {
       number: "1",
-      title: "Find your style",
-      description: "Browse our curated collection of Afro hair inspiration and connect with skilled stylists."
+      title: t("process_steps.step1_title"),
+      description: t("process_steps.step1_description"),
     },
     {
-      number: "2", 
-      title: "Book in seconds",
-      description: "Choose your preferred stylist, select services, and book your appointment instantly."
+      number: "2",
+      title: t("process_steps.step2_title"),
+      description: t("process_steps.step2_description"),
     },
     {
       number: "3",
-      title: "Look and feel your best", 
-      description: "Experience premium Afro hair care that celebrates your natural beauty."
-    }
+      title: t("process_steps.step3_title"),
+      description: t("process_steps.step3_description"),
+    },
   ];
 
   return (
-    <section className="py-24 bg-background">
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="relative grid md:grid-cols-3 gap-x-12 gap-y-16">
+    <section id={id} className="py-24 bg-background">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 py-16 sm:py-20 lg:py-24">
+        <div className="relative grid gap-y-12 sm:gap-y-16 md:grid-cols-3 md:gap-x-12">
           {/* Dashed line */}
           <div className="absolute top-8 left-0 right-0 hidden md:block">
             <div className="w-full border-t-2 border-dashed border-muted"></div>

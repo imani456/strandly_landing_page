@@ -1,56 +1,58 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-const Footer = () => {
+const Footer = ({ id }: { id?: string }) => {
+  const { t } = useTranslation();
   return (
-    <footer className="bg-cocoa-brown border-t border-border py-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid md:grid-cols-4 gap-12">
+    <footer id={id} className="bg-cocoa-brown border-t border-border py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="font-display text-2xl text-white">
-              Strandly
+              {t("footer.brand")}
             </h3>
             <p className="font-body text-warm-white leading-relaxed">
-              Premium Afro hair services across Europe. Connecting stylists and clients with elegance.
+              {t("footer.brand_description")}
             </p>
           </div>
 
           {/* Product */}
           <div className="space-y-4">
             <h4 className="font-body font-semibold text-white">
-              Product
+              {t("footer.product_title")}
             </h4>
             <div className="space-y-3 font-body text-warm-white">
-              <Link to="#" className="block hover:text-accent transition-colors">Features</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">Pricing</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">For Stylists</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">For Clients</Link>
+              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.features")}</Link>
+              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.pricing")}</Link>
+              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.for_stylists")}</Link>
+              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.for_clients")}</Link>
             </div>
           </div>
 
           {/* Company */}
           <div className="space-y-4">
             <h4 className="font-body font-semibold text-white">
-              Company
+              {t("footer.company_title")}
             </h4>
             <div className="space-y-3 font-body text-warm-white">
-              <Link to="#" className="block hover:text-accent transition-colors">About</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">Blog</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">Careers</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">Contact</Link>
+              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.about")}</Link>
+              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.blog")}</Link>
+              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.careers")}</Link>
+              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.contact")}</Link>
             </div>
           </div>
 
           {/* Legal */}
           <div className="space-y-4">
             <h4 className="font-body font-semibold text-white">
-              Legal
+              {t("footer.legal_title")}
             </h4>
             <div className="space-y-3 font-body text-warm-white">
-              <Link to="/privacy-policy" className="block hover:text-accent transition-colors">Privacy Policy</Link>
-              <Link to="/terms-of-service" className="block hover:text-accent transition-colors">Terms of Service</Link>
-              <Link to="/cookie-policy" className="block hover:text-accent transition-colors">Cookie Policy</Link>
-              <Link to="/impressum" className="block hover:text-accent transition-colors">Impressum</Link>
+              <Link to="/privacy-policy" className="block hover:text-accent transition-colors">{t("footer.privacy_policy")}</Link>
+              <Link to="/terms-of-service" className="block hover:text-accent transition-colors">{t("footer.terms_of_service")}</Link>
+              <Link to="/cookie-policy" className="block hover:text-accent transition-colors">{t("footer.cookie_policy")}</Link>
+              <Link to="/impressum" className="block hover:text-accent transition-colors">{t("footer.impressum")}</Link>
             </div>
           </div>
         </div>
@@ -58,17 +60,17 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="font-body text-warm-white">
-              © 2024 Strandly. All rights reserved.
+              {t("footer.copyright")}
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-warm-white hover:text-accent transition-colors">
-                Instagram
+                {t("footer.instagram")}
               </a>
               <a href="#" className="text-warm-white hover:text-accent transition-colors">
-                Twitter
+                {t("footer.twitter")}
               </a>
               <a href="#" className="text-warm-white hover:text-accent transition-colors">
-                LinkedIn
+                {t("footer.linkedin")}
               </a>
             </div>
           </div>

@@ -1,6 +1,13 @@
 {
+  "navigation": {
+    "how_it_works": "How it works",
+    "for_stylists": "For stylists",
+    "contact": "Contact",
+    "sign_in": "Sign in",
+    "join_waitlist": "Join waitlist"
+  },
   "hero": {
-    "title": "Strandly",
+    "title": "STRANDLY",
     "subtitle": "Discover the app for Afro hairstylists and their clients.",
     "learn_more": "Learn more",
     "join_waitlist": "Join waitlist"
@@ -17,5 +24,105 @@
     "title": "Ready to transform your hair journey?",
     "subtitle": "Join thousands of women who trust Strandly for their Afro hair care needs",
     "join_waitlist": "Join the waitlist"
+  },
+  "process_steps": {
+    "step1_title": "Find your style",
+    "step1_description": "Browse our curated collection of Afro hair inspiration and connect with skilled stylists.",
+    "step2_title": "Book in seconds",
+    "step2_description": "Choose your preferred stylist, select services, and book your appointment instantly.",
+    "step3_title": "Look and feel your best",
+    "step3_description": "Experience premium Afro hair care that celebrates your natural beauty."
+  },
+  "waitlist_modal": {
+    "title": "Join the Strandly Waitlist",
+    "first_name_label": "First Name",
+    "last_name_label": "Last Name",
+    "email_label": "Email Address",
+    "phone_label": "Phone Number",
+    "phone_placeholder": "Optional",
+    "user_type_label": "I'm interested as a",
+    "user_type_client": "Client",
+    "user_type_stylist": "Stylist",
+    "join_button": "Join Waitlist",
+    "joining_button": "Joining...",
+    "privacy_notice": "We respect your privacy. Unsubscribe at any time.",
+    "already_registered_title": "Already registered",
+    "already_registered_description": "This email is already on our waitlist!",
+    "welcome_title": "Welcome to Strandly!",
+    "welcome_description": "You've been added to our waitlist. We'll be in touch soon!",
+    "error_title": "Something went wrong",
+    "error_description": "Please try again later."
+  },
+  "footer": {
+    "brand": "Strandly",
+    "brand_description": "Premium Afro hair services across Europe. Connecting stylists and clients with elegance.",
+    "product_title": "Product",
+    "features": "Features",
+    "pricing": "Pricing",
+    "for_stylists": "For Stylists",
+    "for_clients": "For Clients",
+    "company_title": "Company",
+    "about": "About",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact",
+    "legal_title": "Legal",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "cookie_policy": "Cookie Policy",
+    "impressum": "Impressum",
+    "copyright": "© 2024 Strandly. All rights reserved.",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn"
+  },
+  "impressum": {
+    "title": "Impressum (Legal Notice)",
+    "company_name_label": "Company Name:",
+    "company_name": "Strandly",
+    "address_label": "Address:",
+    "address": "Musterstraße 1, 12345 Musterstadt, Germany",
+    "email_label": "Email:",
+    "email": "contact@strandly.com",
+    "phone_label": "Phone:",
+    "phone": "+49 123 4567890",
+    "responsible_label": "Responsible for Content (Verantwortlich nach § 55 RStV):",
+    "responsible_name": "Max Mustermann",
+    "responsible_address": "Musterstraße 1, 12345 Musterstadt, Germany",
+    "vat_id_label": "VAT ID (USt-IdNr.):",
+    "vat_id": "DE123456789",
+    "vat_id_note": "Alternatively, if you are a Kleinunternehmer (small business owner): \"Umsatzsteuerbefreit nach §19 UStG\" (VAT exempt according to §19 UStG).",
+    "commercial_register_label": "Commercial Register (Handelsregister):",
+    "commercial_register_value": "Amtsgericht Musterstadt, HRB 12345",
+    "commercial_register_note": "(Only if applicable)"
+  },
+  "privacy_policy": {
+    "title": "Privacy Policy",
+    "intro": "Your privacy is important to us. This privacy statement explains the personal data Strandly processes, how Strandly processes it, and for what purposes.",
+    "information_we_collect_title": "Information We Collect",
+    "information_we_collect_text": "We collect data to operate effectively and provide you with the best experiences with our services. You provide some of this data directly, such as when you create an account, while other data is collected automatically based on your interaction with our services.",
+    "how_we_use_your_information_title": "How We Use Your Information",
+    "how_we_use_your_information_text": "We use the information we collect to provide, maintain, and improve our services, to develop new ones, and to protect Strandly and our users. We also use this information to offer you tailored content – like giving you more relevant search results and ads.",
+    "your_rights_title": "Your Rights Under GDPR/DSGVO",
+    "your_rights_text": "You have the right to access, rectify, or erase your personal data, as well as the right to restrict or object to certain processing of your data. To exercise these rights, please contact us at"
+  },
+  "terms_of_service": {
+    "title": "Terms of Service",
+    "intro": "These terms and conditions outline the rules and regulations for the use of Strandly's Website, located at strandly.com.",
+    "acceptance": "By accessing this website we assume you accept these terms and conditions. Do not continue to use Strandly if you do not agree to take all of the terms and conditions stated on this page.",
+    "license_title": "License",
+    "license_text": "Unless otherwise stated, Strandly and/or its licensors own the intellectual property rights for all material on Strandly. All intellectual property rights are reserved. You may access this from Strandly for your own personal use subjected to restrictions set in these terms and conditions.",
+    "user_comments_title": "User Comments",
+    "user_comments_text": "This Agreement shall begin on the date hereof. Certain parts of this website offer an opportunity for users to post and exchange opinions and information. Strandly does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Strandly, its agents and/or affiliates."
+  },
+  "cookie_policy": {
+    "title": "Cookie Policy",
+    "intro": "This is the Cookie Policy for Strandly, accessible from strandly.com",
+    "what_are_cookies_title": "What Are Cookies",
+    "what_are_cookies_text": "As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies.",
+    "how_we_use_cookies_title": "How We Use Cookies",
+    "how_we_use_cookies_text": "We use cookies for a variety of reasons detailed below. Unfortunately in most cases there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site. It is recommended that you leave on all cookies if you are not sure whether you need them or not in case they are used to provide a service that you use.",
+    "disabling_cookies_title": "Disabling Cookies",
+    "disabling_cookies_text": "You can prevent the setting of cookies by adjusting the settings on your browser (see your browser Help for how to do this). Be aware that disabling cookies will affect the functionality of this and many other websites that you visit. Disabling cookies will usually result in also disabling certain functionality and features of this site."
   }
 }

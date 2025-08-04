@@ -67,7 +67,9 @@ export default {
 				'cocoa-brown': 'hsl(var(--cocoa-brown))',
 				'warm-white': 'hsl(var(--warm-white))',
 				'caramel-gold': 'hsl(var(--caramel-gold))',
-				'soft-caramel': 'hsl(var(--soft-caramel))'
+				'soft-caramel': 'hsl(var(--soft-caramel))',
+				'brown-custom': '#8B4513',
+				'beige-custom': '#F5F5DC'
 			},
 			fontFamily: {
 				'display': ['var(--font-display)'],

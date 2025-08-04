@@ -1,0 +1,128 @@
+{
+  "navigation": {
+    "how_it_works": "Hoe het werkt",
+    "for_stylists": "Voor stylisten",
+    "contact": "Contact",
+    "sign_in": "Inloggen",
+    "join_waitlist": "Deelnemen aan wachtlijst"
+  },
+  "hero": {
+    "title": "STRANDLY",
+    "subtitle": "Ontdek de app voor Afro-haarstylisten en hun klanten.",
+    "learn_more": "Meer informatie",
+    "join_waitlist": "Deelnemen aan wachtlijst"
+  },
+  "for_clients": {
+    "title": "Voor Klanten",
+    "subtitle": "Blader door topstijlen en boek eenvoudig bekwame Afro-haarstylisten."
+  },
+  "for_stylists": {
+    "title": "Voor Stylisten",
+    "subtitle": "Bereik meer klanten en laat uw bedrijf groeien met ons platform."
+  },
+  "waitlist": {
+    "title": "Klaar om uw haarreis te transformeren?",
+    "subtitle": "Sluit u aan bij duizenden vrouwen die Strandly vertrouwen voor hun Afro-haarverzorgingsbehoeften",
+    "join_waitlist": "Deelnemen aan de wachtlijst"
+  },
+  "process_steps": {
+    "step1_title": "Vind uw stijl",
+    "step1_description": "Blader door onze samengestelde collectie Afro-haarinspiratie en kom in contact met bekwame stylisten.",
+    "step2_title": "Boek in seconden",
+    "step2_description": "Kies uw favoriete stylist, selecteer diensten en boek uw afspraak direct.",
+    "step3_title": "Zie er op uw best uit en voel u op uw best",
+    "step3_description": "Ervaar premium Afro-haarverzorging die uw natuurlijke schoonheid viert."
+  },
+  "waitlist_modal": {
+    "title": "Deelnemen aan de Strandly wachtlijst",
+    "first_name_label": "Voornaam",
+    "last_name_label": "Achternaam",
+    "email_label": "E-mailadres",
+    "phone_label": "Telefoonnummer",
+    "phone_placeholder": "Optioneel",
+    "user_type_label": "Ik ben geïnteresseerd als een",
+    "user_type_client": "Klant",
+    "user_type_stylist": "Stylist",
+    "join_button": "Deelnemen aan wachtlijst",
+    "joining_button": "Deelnemen...",
+    "privacy_notice": "Wij respecteren uw privacy. U kunt zich op elk moment afmelden.",
+    "already_registered_title": "Al geregistreerd",
+    "already_registered_description": "Dit e-mailadres staat al op onze wachtlijst!",
+    "welcome_title": "Welkom bij Strandly!",
+    "welcome_description": "U bent toegevoegd aan onze wachtlijst. We nemen spoedig contact met u op!",
+    "error_title": "Er is iets misgegaan",
+    "error_description": "Probeer het later opnieuw."
+  },
+  "footer": {
+    "brand": "Strandly",
+    "brand_description": "Premium Afro-haardiensten in heel Europa. Stylisten en klanten elegant verbinden.",
+    "product_title": "Product",
+    "features": "Functies",
+    "pricing": "Prijzen",
+    "for_stylists": "Voor Stylisten",
+    "for_clients": "Voor Klanten",
+    "company_title": "Bedrijf",
+    "about": "Over ons",
+    "blog": "Blog",
+    "careers": "Carrières",
+    "contact": "Contact",
+    "legal_title": "Juridisch",
+    "privacy_policy": "Privacybeleid",
+    "terms_of_service": "Servicevoorwaarden",
+    "cookie_policy": "Cookiebeleid",
+    "impressum": "Impressum",
+    "copyright": "© 2024 Strandly. Alle rechten voorbehouden.",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn"
+  },
+  "impressum": {
+    "title": "Impressum (Wettelijke kennisgeving)",
+    "company_name_label": "Bedrijfsnaam:",
+    "company_name": "Strandly",
+    "address_label": "Adres:",
+    "address": "Musterstraße 1, 12345 Musterstadt, Duitsland",
+    "email_label": "E-mail:",
+    "email": "contact@strandly.com",
+    "phone_label": "Telefoon:",
+    "phone": "+49 123 4567890",
+    "responsible_label": "Verantwoordelijk voor de inhoud (Verantwortlich nach § 55 RStV):",
+    "responsible_name": "Max Mustermann",
+    "responsible_address": "Musterstraße 1, 12345 Musterstadt, Duitsland",
+    "vat_id_label": "Btw-nummer (USt-IdNr.):",
+    "vat_id": "DE123456789",
+    "vat_id_note": "Als u een Kleinunternehmer (kleine ondernemer) bent: \"Umsatzsteuerbefreit nach §19 UStG\" (Btw-vrijgesteld volgens §19 UStG).",
+    "commercial_register_label": "Handelsregister:",
+    "commercial_register_value": "Amtsgericht Musterstadt, HRB 12345",
+    "commercial_register_note": "(Alleen indien van toepassing)"
+  },
+  "privacy_policy": {
+    "title": "Privacybeleid",
+    "intro": "Uw privacy is belangrijk voor ons. Deze privacyverklaring legt uit welke persoonlijke gegevens Strandly verwerkt, hoe Strandly deze verwerkt en voor welke doeleinden.",
+    "information_we_collect_title": "Informatie die we verzamelen",
+    "information_we_collect_text": "We verzamelen gegevens om effectief te kunnen werken en u de beste ervaringen met onze diensten te bieden. U verstrekt een deel van deze gegevens rechtstreeks, bijvoorbeeld wanneer u een account aanmaakt, terwijl andere gegevens automatisch worden verzameld op basis van uw interactie met onze diensten.",
+    "how_we_use_your_information_title": "Hoe we uw informatie gebruiken",
+    "how_we_use_your_information_text": "We gebruiken de verzamelde informatie om onze diensten te leveren, te onderhouden en te verbeteren, om nieuwe te ontwikkelen en om Strandly en onze gebruikers te beschermen. We gebruiken deze informatie ook om u op maat gemaakte inhoud aan te bieden – zoals relevantere zoekresultaten en advertenties.",
+    "your_rights_title": "Uw rechten onder GDPR/DSGVO",
+    "your_rights_text": "U hebt het recht om uw persoonlijke gegevens in te zien, te corrigeren of te wissen, evenals het recht om bepaalde verwerkingen van uw gegevens te beperken of hiertegen bezwaar te maken. Neem contact met ons op via"
+  },
+  "terms_of_service": {
+    "title": "Servicevoorwaarden",
+    "intro": "Deze algemene voorwaarden beschrijven de regels en voorschriften voor het gebruik van de website van Strandly, te vinden op strandly.com.",
+    "acceptance": "Door deze website te bezoeken, gaan we ervan uit dat u deze algemene voorwaarden accepteert. Blijf Strandly niet gebruiken als u niet akkoord gaat met alle algemene voorwaarden die op deze pagina worden vermeld.",
+    "license_title": "Licentie",
+    "license_text": "Tenzij anders vermeld, bezitten Strandly en/of haar licentiegevers de intellectuele eigendomsrechten voor al het materiaal op Strandly. Alle intellectuele eigendomsrechten zijn voorbehouden. U mag dit van Strandly bekijken voor uw eigen persoonlijk gebruik, onderworpen aan de beperkingen die in deze algemene voorwaarden zijn vastgelegd.",
+    "user_comments_title": "Gebruikersreacties",
+    "user_comments_text": "Deze Overeenkomst gaat in op de datum hiervan. Bepaalde delen van deze website bieden gebruikers de mogelijkheid om meningen en informatie te plaatsen en uit te wisselen. Strandly filtert, bewerkt, publiceert of beoordeelt geen Reacties voordat ze op de website verschijnen. Reacties weerspiegelen niet de standpunten en meningen van Strandly, haar agenten en/of gelieerde ondernemingen."
+  },
+  "cookie_policy": {
+    "title": "Cookiebeleid",
+    "intro": "Dit is het Cookiebeleid voor Strandly, toegankelijk via strandly.com",
+    "what_are_cookies_title": "Wat zijn cookies",
+    "what_are_cookies_text": "Zoals gebruikelijk is bij bijna alle professionele websites, maakt deze site gebruik van cookies, kleine bestanden die op uw computer worden gedownload om uw ervaring te verbeteren. Deze pagina beschrijft welke informatie ze verzamelen, hoe we die gebruiken en waarom we deze cookies soms moeten opslaan.",
+    "how_we_use_cookies_title": "Hoe we cookies gebruiken",
+    "how_we_use_cookies_text": "We gebruiken cookies om verschillende redenen die hieronder worden beschreven. Helaas zijn er in de meeste gevallen geen industriestandaardopties om cookies uit te schakelen zonder de functionaliteit en functies die ze aan deze site toevoegen volledig uit te schakelen. Het wordt aanbevolen om alle cookies ingeschakeld te laten als u niet zeker weet of u ze nodig heeft, voor het geval ze worden gebruikt om een dienst te leveren die u gebruikt.",
+    "disabling_cookies_title": "Cookies uitschakelen",
+    "disabling_cookies_text": "U kunt het plaatsen van cookies voorkomen door de instellingen in uw browser aan te passen (zie de Help van uw browser voor hoe u dit doet). Houd er rekening mee dat het uitschakelen van cookies de functionaliteit van deze en vele andere websites die u bezoekt zal beïnvloeden. Het uitschakelen van cookies zal meestal ook leiden tot het uitschakelen van bepaalde functionaliteit en functies van deze site."
+  }
+}

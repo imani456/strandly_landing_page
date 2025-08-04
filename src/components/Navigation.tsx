@@ -1,55 +1,90 @@
-import { useState } from "react";
+import { useCallback } from "react";
 import { Button } from "./ui/button";
-import WaitlistModal from "./WaitlistModal";
+import { useTranslation } from "react-i18next";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Globe } from "lucide-react";
+
+const languageFlags: Record<string, string> = {
+  en: "🇬🇧",
+  de: "🇩🇪",
+  fr: "🇫🇷",
+  es: "🇪🇸",
+  pt: "🇵🇹",
+  nl: "🇳🇱",
+  pl: "🇵🇱",
+  cs: "🇨🇿",
+};
 
 const Navigation = () => {
-  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = useCallback((lng: string) => {
+    i18n.changeLanguage(lng);
+  }, [i18n]);
 
   return (
     <>
-    <WaitlistModal 
-      open={showWaitlistModal} 
-      onOpenChange={setShowWaitlistModal} 
-    />
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-lg border-b border-border z-50">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center">
-            <h1 className="font-display text-3xl text-foreground">
-              Strandly
-            </h1>
-          </div>
-
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#how-it-works" className="font-body text-foreground hover:text-accent transition-colors">
-              How it works
-            </a>
-            <a href="#for-stylists" className="font-body text-foreground hover:text-accent transition-colors">
-              For stylists
-            </a>
-            <a href="#contact" className="font-body text-foreground hover:text-accent transition-colors">
-              Contact
-            </a>
-          </div>
-
-          {/* CTA Button */}
-          <div className="flex items-center space-x-4">
-            <Button variant="minimal" size="sm" className="hidden sm:inline-flex">
-              Sign in
-            </Button>
-            <Button 
-              variant="hero" 
-              size="sm" 
-              onClick={() => setShowWaitlistModal(true)}
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground rounded-lg shadow-lg z-50 mb-8 sm:mb-12">
+        <div className="flex items-center justify-center h-12 px-3 space-x-2 md:h-16 md:px-6 md:space-x-4">
+          <div className="hidden md:flex items-center space-x-4">
+            <a
+              href="#how-it-works"
+              className="font-body text-primary-foreground hover:underline transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
-              Join waitlist
-            </Button>
+              {t("navigation.how_it_works")}
+            </a>
+            <a
+              href="#for-stylists"
+              className="font-body text-primary-foreground hover:underline transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('for-stylists')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              {t("navigation.for_stylists")}
+            </a>
+            <a
+              href="#contact"
+              className="font-body text-primary-foreground hover:underline transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              {t("navigation.contact")}
+            </a>
           </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="text-primary-foreground">
+                {languageFlags[i18n.language]} <Globe className="h-[1.2rem] w-[1.2rem]" />
+                <span className="sr-only">Change language</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => changeLanguage("en")}>
+                🇬🇧 English
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage("de")}>🇩🇪 German</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage("fr")}>🇫🇷 French</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage("es")}>🇪🇸 Spanish</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage("pt")}>🇵🇹 Portuguese</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage("nl")}>🇳🇱 Dutch</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage("pl")}>🇵🇱 Polish</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage("cs")}>🇨🇿 Czech</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
-      </div>
-    </nav>
+      </nav>
     </>
   );
 };

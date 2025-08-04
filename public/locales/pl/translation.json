@@ -1,0 +1,128 @@
+{
+  "navigation": {
+    "how_it_works": "Jak to działa",
+    "for_stylists": "Dla stylistów",
+    "contact": "Kontakt",
+    "sign_in": "Zaloguj się",
+    "join_waitlist": "Dołącz do listy oczekujących"
+  },
+  "hero": {
+    "title": "STRANDLY",
+    "subtitle": "Odkryj aplikację dla stylistów afro i ich klientów.",
+    "learn_more": "Dowiedz się więcej",
+    "join_waitlist": "Dołącz do listy oczekujących"
+  },
+  "for_clients": {
+    "title": "Dla Klientów",
+    "subtitle": "Przeglądaj najlepsze style i z łatwością rezerwuj wykwalifikowanych stylistów afro."
+  },
+  "for_stylists": {
+    "title": "Dla Stylistów",
+    "subtitle": "Docieraj do większej liczby klientów i rozwijaj swój biznes dzięki naszej platformie."
+  },
+  "waitlist": {
+    "title": "Gotowy, aby odmienić swoją podróż z włosami?",
+    "subtitle": "Dołącz do tysięcy kobiet, które ufają Strandly w zakresie pielęgnacji włosów afro",
+    "join_waitlist": "Dołącz do listy oczekujących"
+  },
+  "process_steps": {
+    "step1_title": "Znajdź swój styl",
+    "step1_description": "Przeglądaj naszą wyselekcjonowaną kolekcję inspiracji do włosów afro i łącz się z wykwalifikowanymi stylistami.",
+    "step2_title": "Zarezerwuj w kilka sekund",
+    "step2_description": "Wybierz preferowanego stylistę, wybierz usługi i natychmiast zarezerwuj wizytę.",
+    "step3_title": "Wyglądaj i czuj się najlepiej",
+    "step3_description": "Doświadcz najwyższej jakości pielęgnacji włosów afro, która celebruje Twoje naturalne piękno."
+  },
+  "waitlist_modal": {
+    "title": "Dołącz do listy oczekujących Strandly",
+    "first_name_label": "Imię",
+    "last_name_label": "Nazwisko",
+    "email_label": "Adres e-mail",
+    "phone_label": "Numer telefonu",
+    "phone_placeholder": "Opcjonalnie",
+    "user_type_label": "Jestem zainteresowany jako",
+    "user_type_client": "Klient",
+    "user_type_stylist": "Stylista",
+    "join_button": "Dołącz do listy oczekujących",
+    "joining_button": "Dołączanie...",
+    "privacy_notice": "Szanujemy Twoją prywatność. Anuluj subskrypcję w dowolnym momencie.",
+    "already_registered_title": "Już zarejestrowany",
+    "already_registered_description": "Ten adres e-mail jest już na naszej liście oczekujących!",
+    "welcome_title": "Witaj w Strandly!",
+    "welcome_description": "Zostałeś dodany do naszej listy oczekujących. Wkrótce się z Tobą skontaktujemy!",
+    "error_title": "Coś poszło nie tak",
+    "error_description": "Spróbuj ponownie później."
+  },
+  "footer": {
+    "brand": "Strandly",
+    "brand_description": "Usługi premium dla włosów afro w całej Europie. Eleganckie łączenie stylistów i klientów.",
+    "product_title": "Produkt",
+    "features": "Funkcje",
+    "pricing": "Cennik",
+    "for_stylists": "Dla Stylistów",
+    "for_clients": "Dla Klientów",
+    "company_title": "Firma",
+    "about": "O nas",
+    "blog": "Blog",
+    "careers": "Kariera",
+    "contact": "Kontakt",
+    "legal_title": "Prawne",
+    "privacy_policy": "Polityka prywatności",
+    "terms_of_service": "Warunki świadczenia usług",
+    "cookie_policy": "Polityka plików cookie",
+    "impressum": "Impressum",
+    "copyright": "© 2024 Strandly. Wszelkie prawa zastrzeżone.",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn"
+  },
+  "impressum": {
+    "title": "Impressum (Informacje prawne)",
+    "company_name_label": "Nazwa firmy:",
+    "company_name": "Strandly",
+    "address_label": "Adres:",
+    "address": "Musterstraße 1, 12345 Musterstadt, Niemcy",
+    "email_label": "E-mail:",
+    "email": "contact@strandly.com",
+    "phone_label": "Telefon:",
+    "phone": "+49 123 4567890",
+    "responsible_label": "Odpowiedzialny za treść (Verantwortlich nach § 55 RStV):",
+    "responsible_name": "Max Mustermann",
+    "responsible_address": "Musterstraße 1, 12345 Musterstadt, Niemcy",
+    "vat_id_label": "NIP (USt-IdNr.):",
+    "vat_id": "DE123456789",
+    "vat_id_note": "Alternatywnie, jeśli jesteś Kleinunternehmerem (małym przedsiębiorcą): \"Umsatzsteuerbefreit nach §19 UStG\" (Zwolniony z VAT zgodnie z §19 UStG).",
+    "commercial_register_label": "Rejestr handlowy (Handelsregister):",
+    "commercial_register_value": "Amtsgericht Musterstadt, HRB 12345",
+    "commercial_register_note": "(Tylko w stosownych przypadkach)"
+  },
+  "privacy_policy": {
+    "title": "Polityka prywatności",
+    "intro": "Twoja prywatność jest dla nas ważna. Niniejsze oświadczenie o ochronie prywatności wyjaśnia, jakie dane osobowe przetwarza Strandly, w jaki sposób je przetwarza i w jakich celach.",
+    "information_we_collect_title": "Informacje, które zbieramy",
+    "information_we_collect_text": "Zbieramy dane, aby skutecznie działać i zapewniać najlepsze doświadczenia z naszymi usługami. Niektóre z tych danych podajesz bezpośrednio, na przykład podczas tworzenia konta, podczas gdy inne dane są zbierane automatycznie na podstawie Twojej interakcji z naszymi usługami.",
+    "how_we_use_your_information_title": "Jak wykorzystujemy Twoje informacje",
+    "how_we_use_your_information_text": "Wykorzystujemy zebrane informacje do świadczenia, utrzymywania i ulepszania naszych usług, do tworzenia nowych oraz do ochrony Strandly i naszych użytkowników. Wykorzystujemy również te informacje do oferowania spersonalizowanych treści – takich jak bardziej trafne wyniki wyszukiwania i reklamy.",
+    "your_rights_title": "Twoje prawa zgodnie z RODO/DSGVO",
+    "your_rights_text": "Masz prawo dostępu, sprostowania lub usunięcia swoich danych osobowych, a także prawo do ograniczenia lub sprzeciwu wobec przetwarzania niektórych danych. Aby skorzystać z tych praw, skontaktuj się z nami pod adresem"
+  },
+  "terms_of_service": {
+    "title": "Warunki świadczenia usług",
+    "intro": "Niniejsze warunki określają zasady i przepisy dotyczące korzystania z witryny Strandly, znajdującej się pod adresem strandly.com.",
+    "acceptance": "Uzyskując dostęp do tej witryny, zakładamy, że akceptujesz niniejsze warunki. Nie kontynuuj korzystania ze Strandly, jeśli nie zgadzasz się na wszystkie warunki określone na tej stronie.",
+    "license_title": "Licencja",
+    "license_text": "O ile nie zaznaczono inaczej, Strandly i/lub jej licencjodawcy posiadają prawa własności intelektualnej do wszystkich materiałów na Strandly. Wszelkie prawa własności intelektualnej są zastrzeżone. Możesz uzyskać do nich dostęp ze Strandly do własnego użytku osobistego, z zastrzeżeniem ograniczeń określonych w niniejszych warunkach.",
+    "user_comments_title": "Komentarze użytkowników",
+    "user_comments_text": "Niniejsza Umowa rozpoczyna się z dniem jej zawarcia. Niektóre części tej witryny oferują użytkownikom możliwość publikowania i wymiany opinii i informacji. Strandly nie filtruje, nie edytuje, nie publikuje ani nie przegląda Komentarzy przed ich pojawieniem się na stronie internetowej. Komentarze nie odzwierciedlają poglądów i opinii Strandly, jej agentów i/lub podmiotów stowarzyszonych."
+  },
+  "cookie_policy": {
+    "title": "Polityka plików cookie",
+    "intro": "To jest Polityka plików cookie dla Strandly, dostępna pod adresem strandly.com",
+    "what_are_cookies_title": "Czym są pliki cookie",
+    "what_are_cookies_text": "Jak to jest powszechną praktyką w przypadku prawie wszystkich profesjonalnych witryn internetowych, ta witryna używa plików cookie, które są małymi plikami pobieranymi na komputer, aby poprawić Twoje wrażenia. Ta strona opisuje, jakie informacje zbierają, jak ich używamy i dlaczego czasami musimy przechowywać te pliki cookie.",
+    "how_we_use_cookies_title": "Jak używamy plików cookie",
+    "how_we_use_cookies_text": "Używamy plików cookie z różnych powodów, szczegółowo opisanych poniżej. Niestety w większości przypadków nie ma standardowych opcji branżowych do wyłączania plików cookie bez całkowitego wyłączania funkcjonalności i funkcji, które dodają one do tej witryny. Zaleca się pozostawienie wszystkich plików cookie, jeśli nie masz pewności, czy ich potrzebujesz, czy nie, na wypadek, gdyby były używane do świadczenia usługi, z której korzystasz.",
+    "disabling_cookies_title": "Wyłączanie plików cookie",
+    "disabling_cookies_text": "Możesz zapobiec ustawianiu plików cookie, dostosowując ustawienia w przeglądarce (zobacz Pomoc przeglądarki, jak to zrobić). Pamiętaj, że wyłączenie plików cookie wpłynie na funkcjonalność tej i wielu innych odwiedzanych witryn. Wyłączenie plików cookie zazwyczaj spowoduje również wyłączenie niektórych funkcji i cech tej witryny."
+  }
+}

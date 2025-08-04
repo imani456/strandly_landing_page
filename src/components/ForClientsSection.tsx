@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import mobileMockup from "@/assets/phone-transparent.png";
 import WaitlistModal from "./WaitlistModal";
 
-const ForClientsSection = () => {
+const ForClientsSection = ({ id }: { id?: string }) => {
   const { t } = useTranslation();
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
 
@@ -14,13 +14,13 @@ const ForClientsSection = () => {
       open={showWaitlistModal} 
       onOpenChange={setShowWaitlistModal} 
     />
-    <section className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center justify-center">
+    <section id={id} className="py-16 sm:py-20 md:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center justify-center">
           {/* Left Content */}
           <div className="space-y-12">
             <div className="space-y-8">
-              <h2 className="font-display text-8xl md:text-5xl text-foreground leading-tight">
+              <h2 className="font-display text-5xl sm:text-6xl md:text-5xl lg:text-6xl text-foreground leading-tight">
                 {t("for_clients.title")}
               </h2>
               <p className="font-body text-xl text-foreground leading-relaxed">
@@ -29,7 +29,7 @@ const ForClientsSection = () => {
             </div>
 
             <div className="space-y-8">
-              <h3 className="font-display text-8xl md:text-5xl text-foreground leading-tight">
+              <h3 className="font-display text-5xl sm:text-6xl md:text-5xl lg:text-6xl text-foreground leading-tight">
                 {t("for_stylists.title")}
               </h3>
               <p className="font-body text-xl text-foreground leading-relaxed">
@@ -60,9 +60,6 @@ const ForClientsSection = () => {
                 alt="Strandly mobile app booking interface"
                 className="w-full h-auto drop-shadow-elegant"
               />
-              {/* Decorative elements */}
-              <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-warm rounded-full opacity-20 blur-xl"></div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-soft-caramel rounded-full opacity-15 blur-lg"></div>
             </div>
           </div>
         </div>
@@ -81,7 +78,7 @@ const ForClientsSection = () => {
             <Button 
               variant="hero" 
               size="xl" 
-              className="font-body px-16 py-6 text-2xl"
+              className="font-body px-16 py-6 text-xl"
               onClick={() => setShowWaitlistModal(true)}
             >
               {t("waitlist.join_waitlist")}

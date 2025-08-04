@@ -10,32 +10,29 @@ const HeroSection = () => {
 
   return (
     <>
-      <WaitlistModal
+    <WaitlistModal
         open={showWaitlistModal}
         onOpenChange={setShowWaitlistModal}
       />
-      <section className="min-h-screen grid lg:grid-cols-2 items-center bg-background relative overflow-hidden">
+      <section className="min-h-screen grid lg:grid-cols-2 items-center bg-background relative overflow-hidden px-4 sm:px-6 py-0 lg:px-0 lg:py-0">
         {/* Left Image - fills height */}
-        <div className="relative order-2 lg:order-1 h-full flex items-end justify-end">
-          <div className="relative h-4/5 w-full pl-20">
+        <div className="relative order-2 lg:order-1 h-full flex items-end justify-center lg:justify-end pt-0">
+          <div className="relative h-full w-full px-0 lg:pl-20 flex">
             <img
               src={heroPortrait}
               alt="Woman with natural afro hair"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-bottom"
             />
           </div>
-          {/* Decorative elements */}
-          <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-warm rounded-full opacity-20 blur-xl"></div>
-          <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-caramel-gold rounded-full opacity-15 blur-lg"></div>
         </div>
 
         {/* Right Content */}
-        <div className="space-y-8 lg:pl-2 order-1 lg:order-2 px-6 md:px-12 lg:px-32 py-20 lg:py-0 max-w-2xl w-full mx-auto">
+        <div className="space-y-8 pt-12 sm:pt-28 lg:pt-0 lg:pl-2 order-1 lg:order-2 px-6 md:px-12 lg:px-32 pb-30 lg:py-0 max-w-2xl w-full mx-auto text-center lg:text-left">
           <div className="space-y-4">
-            <h1 className="font-display text-8xl md:text-8xl lg:text-8xl text-foreground leading-tight">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-8xl text-foreground leading-tight">
               {t("hero.title")}
             </h1>
-            <p className="font-body text-xl md:text-2xl text-foreground leading-relaxed max-w-lg">
+            <p className="font-body text-base md:text-2xl text-foreground leading-relaxed max-w-lg">
               {t("hero.subtitle")}
             </p>
           </div>

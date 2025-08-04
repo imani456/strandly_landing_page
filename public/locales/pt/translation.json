@@ -1,0 +1,128 @@
+{
+  "navigation": {
+    "how_it_works": "Como funciona",
+    "for_stylists": "Para estilistas",
+    "contact": "Contato",
+    "sign_in": "Entrar",
+    "join_waitlist": "Entrar na lista de espera"
+  },
+  "hero": {
+    "title": "STRANDLY",
+    "subtitle": "Descubra o aplicativo para cabeleireiros afro e seus clientes.",
+    "learn_more": "Saiba mais",
+    "join_waitlist": "Entrar na lista de espera"
+  },
+  "for_clients": {
+    "title": "Para Clientes",
+    "subtitle": "Navegue pelos melhores estilos e agende facilmente cabeleireiros afro qualificados."
+  },
+  "for_stylists": {
+    "title": "Para Estilistas",
+    "subtitle": "Alcance mais clientes e expanda seu negócio com nossa plataforma."
+  },
+  "waitlist": {
+    "title": "Pronto para transformar sua jornada capilar?",
+    "subtitle": "Junte-se a milhares de mulheres que confiam na Strandly para suas necessidades de cuidados com os cabelos afro",
+    "join_waitlist": "Entrar na lista de espera"
+  },
+  "process_steps": {
+    "step1_title": "Encontre seu estilo",
+    "step1_description": "Navegue em nossa coleção selecionada de inspirações de cabelo afro e conecte-se com estilistas qualificados.",
+    "step2_title": "Reserve em segundos",
+    "step2_description": "Escolha seu estilista preferido, selecione os serviços e agende seu horário instantaneamente.",
+    "step3_title": "Sinta-se e pareça o seu melhor",
+    "step3_description": "Experimente cuidados capilares afro premium que celebram sua beleza natural."
+  },
+  "waitlist_modal": {
+    "title": "Entre na lista de espera da Strandly",
+    "first_name_label": "Primeiro Nome",
+    "last_name_label": "Sobrenome",
+    "email_label": "Endereço de E-mail",
+    "phone_label": "Número de Telefone",
+    "phone_placeholder": "Opcional",
+    "user_type_label": "Estou interessado como",
+    "user_type_client": "Cliente",
+    "user_type_stylist": "Estilista",
+    "join_button": "Entrar na lista de espera",
+    "joining_button": "Entrando...",
+    "privacy_notice": "Respeitamos sua privacidade. Cancele a inscrição a qualquer momento.",
+    "already_registered_title": "Já registrado",
+    "already_registered_description": "Este e-mail já está em nossa lista de espera!",
+    "welcome_title": "Bem-vindo à Strandly!",
+    "welcome_description": "Você foi adicionado à nossa lista de espera. Entraremos em contato em breve!",
+    "error_title": "Algo deu errado",
+    "error_description": "Por favor, tente novamente mais tarde."
+  },
+  "footer": {
+    "brand": "Strandly",
+    "brand_description": "Serviços de cabelo afro premium em toda a Europa. Conectando estilistas e clientes com elegância.",
+    "product_title": "Produto",
+    "features": "Recursos",
+    "pricing": "Preços",
+    "for_stylists": "Para Estilistas",
+    "for_clients": "Para Clientes",
+    "company_title": "Empresa",
+    "about": "Sobre",
+    "blog": "Blog",
+    "careers": "Carreiras",
+    "contact": "Contato",
+    "legal_title": "Legal",
+    "privacy_policy": "Política de Privacidade",
+    "terms_of_service": "Termos de Serviço",
+    "cookie_policy": "Política de Cookies",
+    "impressum": "Impressum",
+    "copyright": "© 2024 Strandly. Todos os direitos reservados.",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn"
+  },
+  "impressum": {
+    "title": "Impressum (Aviso Legal)",
+    "company_name_label": "Nome da Empresa:",
+    "company_name": "Strandly",
+    "address_label": "Endereço:",
+    "address": "Musterstraße 1, 12345 Musterstadt, Alemanha",
+    "email_label": "E-mail:",
+    "email": "contact@strandly.com",
+    "phone_label": "Telefone:",
+    "phone": "+49 123 4567890",
+    "responsible_label": "Responsável pelo Conteúdo (Verantwortlich nach § 55 RStV):",
+    "responsible_name": "Max Mustermann",
+    "responsible_address": "Musterstraße 1, 12345 Musterstadt, Alemanha",
+    "vat_id_label": "NIF (USt-IdNr.):",
+    "vat_id": "DE123456789",
+    "vat_id_note": "Alternativamente, se você é um Kleinunternehmer (pequeno empresário): \"Umsatzsteuerbefreit nach §19 UStG\" (Isento de IVA de acordo com §19 UStG).",
+    "commercial_register_label": "Registro Comercial (Handelsregister):",
+    "commercial_register_value": "Amtsgericht Musterstadt, HRB 12345",
+    "commercial_register_note": "(Somente se aplicável)"
+  },
+  "privacy_policy": {
+    "title": "Política de Privacidade",
+    "intro": "Sua privacidade é importante para nós. Esta declaração de privacidade explica os dados pessoais que a Strandly processa, como a Strandly os processa e para quais finalidades.",
+    "information_we_collect_title": "Informações que Coletamos",
+    "information_we_collect_text": "Coletamos dados para operar de forma eficaz e fornecer as melhores experiências com nossos serviços. Você fornece alguns desses dados diretamente, como ao criar uma conta, enquanto outros dados são coletados automaticamente com base em sua interação com nossos serviços.",
+    "how_we_use_your_information_title": "Como Usamos Suas Informações",
+    "how_we_use_your_information_text": "Usamos as informações que coletamos para fornecer, manter e melhorar nossos serviços, para desenvolver novos e para proteger a Strandly e nossos usuários. Também usamos essas informações para oferecer conteúdo personalizado – como fornecer resultados de pesquisa e anúncios mais relevantes.",
+    "your_rights_title": "Seus Direitos sob GDPR/DSGVO",
+    "your_rights_text": "Você tem o direito de acessar, retificar ou apagar seus dados pessoais, bem como o direito de restringir ou se opor a certos processamentos de seus dados. Para exercer esses direitos, entre em contato conosco em"
+  },
+  "terms_of_service": {
+    "title": "Termos de Serviço",
+    "intro": "Estes termos e condições descrevem as regras e regulamentos para o uso do site da Strandly, localizado em strandly.com.",
+    "acceptance": "Ao acessar este site, presumimos que você aceita estes termos e condições. Não continue a usar a Strandly se não concordar com todos os termos e condições declarados nesta página.",
+    "license_title": "Licença",
+    "license_text": "Salvo indicação em contrário, a Strandly e/ou seus licenciadores detêm os direitos de propriedade intelectual de todo o material na Strandly. Todos os direitos de propriedade intelectual são reservados. Você pode acessar isso da Strandly para seu uso pessoal, sujeito às restrições definidas nestes termos e condições.",
+    "user_comments_title": "Comentários do Usuário",
+    "user_comments_text": "Este Acordo terá início na data presente. Certas partes deste site oferecem uma oportunidade para os usuários postarem e trocarem opiniões e informações. A Strandly não filtra, edita, publica ou revisa os Comentários antes de sua presença no site. Os Comentários não refletem as opiniões e pontos de vista da Strandly, seus agentes e/ou afiliados."
+  },
+  "cookie_policy": {
+    "title": "Política de Cookies",
+    "intro": "Esta é a Política de Cookies da Strandly, acessível em strandly.com",
+    "what_are_cookies_title": "O que são Cookies",
+    "what_are_cookies_text": "Como é prática comum em quase todos os sites profissionais, este site usa cookies, que são pequenos arquivos baixados para o seu computador, para melhorar sua experiência. Esta página descreve quais informações eles coletam, como as usamos e por que às vezes precisamos armazenar esses cookies.",
+    "how_we_use_cookies_title": "Como Usamos Cookies",
+    "how_we_use_cookies_text": "Usamos cookies por uma variedade de razões detalhadas abaixo. Infelizmente, na maioria dos casos, não há opções padrão da indústria para desativar cookies sem desativar completamente a funcionalidade e os recursos que eles adicionam a este site. Recomenda-se que você mantenha todos os cookies ativados se não tiver certeza se precisa deles ou não, caso sejam usados para fornecer um serviço que você usa.",
+    "disabling_cookies_title": "Desativando Cookies",
+    "disabling_cookies_text": "Você pode impedir a configuração de cookies ajustando as configurações em seu navegador (consulte a Ajuda do seu navegador para saber como fazer isso). Esteja ciente de que a desativação de cookies afetará a funcionalidade deste e de muitos outros sites que você visita. A desativação de cookies geralmente resultará também na desativação de certas funcionalidades e recursos deste site."
+  }
+}
