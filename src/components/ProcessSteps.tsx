@@ -1,20 +1,23 @@
 import { useTranslation } from "react-i18next";
+import lensSvg from "/public/lens.svg";
+import phoneSvg from "/public/phone.svg";
+import hairSvg from "/public/hair.svg";
 
 const ProcessSteps = ({ id }: { id?: string }) => {
   const { t } = useTranslation();
   const steps = [
     {
-      number: "1",
+      icon: lensSvg,
       title: t("process_steps.step1_title"),
       description: t("process_steps.step1_description"),
     },
     {
-      number: "2",
+      icon: phoneSvg,
       title: t("process_steps.step2_title"),
       description: t("process_steps.step2_description"),
     },
     {
-      number: "3",
+      icon: hairSvg,
       title: t("process_steps.step3_title"),
       description: t("process_steps.step3_description"),
     },
@@ -32,9 +35,7 @@ const ProcessSteps = ({ id }: { id?: string }) => {
           {steps.map((step, index) => (
             <div key={index} className="relative text-center space-y-6">
               <div className="mx-auto w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center shadow-warm z-10 relative">
-                <span className="font-display text-2xl font-bold text-primary-foreground">
-                  {step.number}
-                </span>
+                <img src={step.icon} alt={`Step ${index + 1} icon`} className="w-8 h-8" />
               </div>
               
               <h3 className="font-display text-3xl text-foreground pt-4">

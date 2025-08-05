@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 const AboutUs = () => {
   const { t } = useTranslation();
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto px-4 py-32">
       <h1 className="text-4xl font-bold text-center mb-8">{t("aboutUs.title")}</h1>
       <div className="prose lg:prose-xl mx-auto">
         <p>{t("aboutUs.paragraph1")}</p>

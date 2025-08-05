@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import heroPortrait from "@/assets/hero-transparent.png";
 import WaitlistModal from "./WaitlistModal";
 
 const HeroSection = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
 
   return (
@@ -41,7 +43,7 @@ const HeroSection = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Button variant="hero-outline" size="xl" className="font-body">
+            <Button variant="hero-outline" size="xl" className="font-body" onClick={() => navigate('/learn-more')}>
               {t("hero.learn_more")}
             </Button>
             <Button

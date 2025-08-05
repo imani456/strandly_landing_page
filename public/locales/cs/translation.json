@@ -5,5 +5,17 @@
     "contact": "Kontakt",
     "sign_in": "Přihlásit se",
     "join_waitlist": "Připojit se k čekací listině"
+  },
+  "hero": {
+    "title": "STRANDLY",
+    "subtitle": "The app for Afro hairstylists and their clients.",
+    "learn_more": "Learn more",
+    "join_waitlist": "Join waitlist"
+  },
+  "learn_more": {
+    "title": "Your Hair. Your Style. Your Strandly.",
+    "paragraph1": "Finding the perfect Afro hairstylist used to mean scrolling for hours, saving screenshots, and hoping for a reply. Strandly changes that. We’ve created a space where beauty meets convenience: Explore hairstyles that inspire you—braids, twists, locs, silk presses, and everything in between.",
+    "paragraph2": "Connect with trusted stylists near you, see their work, and check real reviews. Book with confidence in just a few taps, no calls or waiting required. And if you’re a stylist, Strandly was built for you too. Showcase your craft, grow your bookings, and let your talent shine while we handle the admin. Your hair journey deserves to feel effortless and with Strandly, it finally does.",
+    "paragraph3": "Join the waitlist today and be first to experience the future of Afro hair care."
   }
 }

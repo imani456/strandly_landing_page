@@ -36,10 +36,9 @@ const Footer = ({ id }: { id?: string }) => {
               {t("footer.company_title")}
             </h4>
             <div className="space-y-3 font-body text-warm-white">
-              <Link to="/about-us" className="block hover:text-accent transition-colors">{t("footer.about")}</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.blog")}</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.careers")}</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.contact")}</Link>
+              <Link to="/about-us" className="block hover:text-accent transition-colors">{t("footer.about_us")}</Link>
+              <Link to="/learn-more" className="block hover:text-accent transition-colors">{t("footer.learn_more")}</Link>
+              {/* <Link to="#" className="block hover:text-accent transition-colors">{t("footer.contact")}</Link> */}
             </div>
           </div>
 
@@ -72,8 +71,8 @@ const Footer = ({ id }: { id?: string }) => {
               <a href="#" className="text-warm-white hover:text-accent transition-colors">
                 {t("footer.linkedin")}
               </a> */}
-              <a href="mailto:Hello@strandlyeu.com" className="text-warm-white hover:text-accent transition-colors">
-                Hello@strandlyeu.com
+              <a href="mailto:hello@strandlyeu.com" className="text-warm-white hover:text-accent transition-colors">
+                hello@strandlyeu.com
               </a>
             </div>
           </div>

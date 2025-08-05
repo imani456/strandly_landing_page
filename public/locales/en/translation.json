@@ -63,7 +63,8 @@
     "for_stylists": "For Stylists",
     "for_clients": "For Clients",
     "company_title": "Company",
-    "about": "About",
+    "about_us": "About Us",
+    "learn_more": "Learn More",
     "blog": "Blog",
     "careers": "Careers",
     "contact": "Contact",
@@ -76,6 +77,17 @@
     "instagram": "Instagram",
     "twitter": "Twitter",
     "linkedin": "LinkedIn"
+  },
+  "aboutUs": {
+    "title": "About Strandly",
+    "paragraph1": "At Strandly, we believe your hair is your crown—and finding the right hands to care for it should feel effortless.",
+    "paragraph2": "We are a premium booking platform for Afro hairstylists across Europe, connecting clients with trusted stylists who understand the beauty and versatility of Afro hair.",
+    "paragraph3": "Whether you’re looking for braids, twists, locs, silk presses, or a new protective style, Strandly makes the journey simple:",
+    "bullet1": "Discover inspiration from curated Afro hairstyles.",
+    "bullet2": "Connect with verified stylists and explore their portfolios.",
+    "bullet3": "Book your appointment in seconds—no DMs, no waiting, just beautiful results.",
+    "paragraph4": "For stylists, Strandly is more than a booking tool—it’s a stage for your talent. We help you showcase your work, attract new clients, and manage your schedule with ease, so you can focus on what you do best: creating beauty and confidence.",
+    "paragraph5": "Strandly isn’t just an app. It’s a community where Afro hair is celebrated, cared for, and elevated."
   },
   "impressum": {
     "title": "Impressum (Legal Notice)",
@@ -110,7 +122,7 @@
     "intro": "These terms and conditions outline the rules and regulations for the use of Strandly's Website, located at strandly.com.",
     "acceptance": "By accessing this website we assume you accept these terms and conditions. Do not continue to use Strandly if you do not agree to take all of the terms and conditions stated on this page.",
     "license_title": "License",
-    "license_text": "Unless otherwise stated, Strandly and/or its licensors own the intellectual property rights for all material on Strandly. All intellectual property rights are reserved. You may access this from Strandly for your own personal use subjected to restrictions set in these terms and conditions.",
+    "license_text": "Unless otherwise stated, Strandly and/or its licensors own the intellectual property rights for all material on Strandly. All rights reserved. You may access this from Strandly for your own personal use subjected to restrictions set in these terms and conditions.",
     "user_comments_title": "User Comments",
     "user_comments_text": "This Agreement shall begin on the date hereof. Certain parts of this website offer an opportunity for users to post and exchange opinions and information. Strandly does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Strandly, its agents and/or affiliates."
   },
@@ -123,5 +135,16 @@
     "how_we_use_cookies_text": "We use cookies for a variety of reasons detailed below. Unfortunately in most cases there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site. It is recommended that you leave on all cookies if you are not sure whether you need them or not in case they are used to provide a service that you use.",
     "disabling_cookies_title": "Disabling Cookies",
     "disabling_cookies_text": "You can prevent the setting of cookies by adjusting the settings on your browser (see your browser Help for how to do this). Be aware that disabling cookies will affect the functionality of this and many other websites that you visit. Disabling cookies will usually result in also disabling certain functionality and features of this site."
+  },
+  "learn_more": {
+    "title": "Your Hair. Your Style. Your Strandly.",
+    "intro": "Finding the perfect Afro hairstylist used to mean scrolling for hours, saving screenshots, and hoping for a repin. Strandly changes that.",
+    "features_intro": "We've created a space where beauty meets convenience.",
+    "feature1": "Explore hairstyles that inspire you—braids, twists, silk presses, and everything in between.",
+    "feature2": "Connect with trusted stylists near you, see their work and check real reviews.",
+    "feature3": "Book with confidence in just a few taps, no calls or waiting required.",
+    "stylist_section": "And if you're a stylist. Strandly was built for you too. Showcase your craft, grow your bookings, and let your talent shine while we handle the admin.",
+    "conclusion": "Your hair journey deserves to feel effortless—and with Strandly, it finally does.",
+    "cta": "Join the waitlist today and be first to experience"
   }
 }

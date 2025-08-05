@@ -1,11 +1,15 @@
 
 import { useTranslation } from "react-i18next";
+import BackButton from "@/components/BackButton";
 
 const Impressum = () => {
   const { t } = useTranslation();
   return (
     <div className="bg-background text-foreground min-h-screen">
       <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-20 py-16">
+        <div className="mb-8">
+          <BackButton />
+        </div>
         <h1 className="font-display text-4xl font-bold mb-8">{t("impressum.title")}</h1>
         <div className="space-y-6 font-body text-lg">
           <p>
