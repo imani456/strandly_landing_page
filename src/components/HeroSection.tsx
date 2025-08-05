@@ -35,9 +35,9 @@ const HeroSection = () => {
             <p className="font-body text-base md:text-2xl text-foreground leading-relaxed max-w-lg">
               {t("hero.subtitle")}
             </p>
-            <p className="font-body text-base md:text-2xl text-foreground leading-relaxed max-w-lg">
+            {/* <p className="font-body text-base md:text-2xl text-foreground leading-relaxed max-w-lg">
               {t("hero.tagline")}
-            </p>
+            </p> */}
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
