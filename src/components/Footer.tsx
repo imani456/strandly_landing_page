@@ -6,7 +6,7 @@ const Footer = ({ id }: { id?: string }) => {
   return (
     <footer id={id} className="bg-cocoa-brown border-t border-border py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-16 md:gap-24">
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="font-display text-2xl text-white">
@@ -17,18 +17,7 @@ const Footer = ({ id }: { id?: string }) => {
             </p>
           </div>
 
-          {/* Product */}
-          <div className="space-y-4">
-            <h4 className="font-body font-semibold text-white">
-              {t("footer.product_title")}
-            </h4>
-            <div className="space-y-3 font-body text-warm-white">
-              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.features")}</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.pricing")}</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.for_stylists")}</Link>
-              <Link to="#" className="block hover:text-accent transition-colors">{t("footer.for_clients")}</Link>
-            </div>
-          </div>
+          
 
           {/* Company */}
           <div className="space-y-4">

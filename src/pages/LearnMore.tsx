@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import WaitlistModal from "@/components/WaitlistModal";
 import BackButton from "@/components/BackButton";
-import heroPortrait from "@/assets/learn-more.jpeg";
+import heroPortrait from "@/assets/learn-more.png";
 
 const LearnMore = () => {
   const { t } = useTranslation();
