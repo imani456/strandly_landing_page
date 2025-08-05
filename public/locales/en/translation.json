@@ -8,17 +8,18 @@
   },
   "hero": {
     "title": "STRANDLY",
-    "subtitle": "Discover the app for Afro hairstylists and their clients.",
+    "subtitle": "The app for Afro hairstylists and their clients.",
+    "tagline": "Elevating Afro hair care across Europe. Where premium styling meets effortless booking.",
     "learn_more": "Learn more",
     "join_waitlist": "Join waitlist"
   },
   "for_clients": {
     "title": "For Clients",
-    "subtitle": "Browse top styles and book skilled Afro hair stylists with ease."
+    "subtitle": "No more scrolling social media for stylists, Compare prices, reviews and styles - all in one app."
   },
   "for_stylists": {
     "title": "For Stylists",
-    "subtitle": "Reach more clients and grow your business with our platform."
+    "subtitle": "Fill your schedule, showcase your work, and get discovered by clients near you."
   },
   "waitlist": {
     "title": "Ready to transform your hair journey?",
@@ -27,11 +28,11 @@
   },
   "process_steps": {
     "step1_title": "Find your style",
-    "step1_description": "Browse our curated collection of Afro hair inspiration and connect with skilled stylists.",
+    "step1_description": "Browse skilled Afro hair stylist and find the perfect match.",
     "step2_title": "Book in seconds",
-    "step2_description": "Choose your preferred stylist, select services, and book your appointment instantly.",
+    "step2_description": "Select a service and confirm your appointment instantly.",
     "step3_title": "Look and feel your best",
-    "step3_description": "Experience premium Afro hair care that celebrates your natural beauty."
+    "step3_description": "Enjoy premium Afro hair care that celebrates your natural beauty."
   },
   "waitlist_modal": {
     "title": "Join the Strandly Waitlist",
@@ -55,7 +56,7 @@
   },
   "footer": {
     "brand": "Strandly",
-    "brand_description": "Premium Afro hair services across Europe. Connecting stylists and clients with elegance.",
+    "brand_description": "Elevating Afro hair care across Europe Where premium styling meets effortless booking.",
     "product_title": "Product",
     "features": "Features",
     "pricing": "Pricing",

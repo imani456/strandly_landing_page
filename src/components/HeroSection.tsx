@@ -35,9 +35,12 @@ const HeroSection = () => {
             <p className="font-body text-base md:text-2xl text-foreground leading-relaxed max-w-lg">
               {t("hero.subtitle")}
             </p>
+            <p className="font-body text-base md:text-2xl text-foreground leading-relaxed max-w-lg">
+              {t("hero.tagline")}
+            </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <Button variant="hero-outline" size="xl" className="font-body">
               {t("hero.learn_more")}
             </Button>
