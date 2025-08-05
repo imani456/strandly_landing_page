@@ -22,7 +22,7 @@ const HeroSection = () => {
               src={heroPortrait}
               alt="Woman with natural afro hair"
               className="w-full h-full object-cover object-bottom"
-            />
+            />  
           </div>
         </div>
 

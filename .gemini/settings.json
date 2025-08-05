@@ -1,0 +1,55 @@
+{
+    "theme": "Ayu",
+    "selectedAuthType": "oauth-personal",
+    "preferredEditor": "cursor",
+    "mcpServers": {
+      "browsermcp": {
+        "command": "npx",
+        "args": [
+          "@browsermcp/mcp@latest"
+        ]
+      },
+      "context7": {
+        "url": "https://mcp.context7.com/mcp"
+      },
+      "directus": {
+        "command": "npx",
+        "args": [
+          "@directus/content-mcp@latest"
+        ],
+        "env": {
+          "DIRECTUS_URL": "https://hidden-gems-vkzr.onrender.com",
+          "DIRECTUS_TOKEN": "Y-CiI-I4KvObxAmv-Nqgzf7_ZYiAGZiN"
+        }
+      },
+      "supabase": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@supabase/mcp-server-supabase@latest",
+          "--access-token",
+          "sbp_f578135d3d781e6a21dc9be1f80dd4f2f3c98d2a",
+          "--project-ref",
+          "ewrkztljwalbnqwltncg"
+        ]
+      },
+      "Framelink Figma MCP": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "figma-developer-mcp",
+          "--figma-api-key=YOUR-KEY",
+          "--stdio"
+        ]
+      }
+    },
+    "@21st-dev/magic": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@21st-dev/magic@latest",
+        "API_KEY=\"daf11ec8169eb9f32ad7a347af8d5bc158fbd2f5195930c172ccd03700947031\""
+      ]
+    }
+  }
+  

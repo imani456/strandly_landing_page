@@ -6,18 +6,55 @@ const TermsOfService = () => {
         <h1 className="font-display text-4xl font-bold mb-8">Terms of Service</h1>
         <div className="space-y-6 font-body text-lg">
           <p>
-            These terms and conditions outline the rules and regulations for the use of Strandly's Website, located at strandly.com.
+            Effective Date: 01.08.2025
           </p>
           <p>
-            By accessing this website we assume you accept these terms and conditions. Do not continue to use Strandly if you do not agree to take all of the terms and conditions stated on this page.
+            Welcome to Strandly, the platform connecting clients and Afro hairstylists across Europe. By using our website or services, you agree to the following terms:
           </p>
-          <h2 className="font-display text-2xl font-semibold mt-8">License</h2>
+
+          <h2 className="font-display text-2xl font-semibold mt-8">Our Service</h2>
           <p>
-            Unless otherwise stated, Strandly and/or its licensors own the intellectual property rights for all material on Strandly. All intellectual property rights are reserved. You may access this from Strandly for your own personal use subjected to restrictions set in these terms and conditions.
+            Strandly is a booking platform. We connect clients with hairstylists but do not operate salons or provide hairstyling services directly.
           </p>
-          <h2 className="font-display text-2xl font-semibold mt-8">User Comments</h2>
+
+          <h2 className="font-display text-2xl font-semibold mt-8">Bookings & Payments</h2>
+          <ul className="list-disc list-inside ml-4">
+            <li>Bookings are agreements between clients and stylists.</li>
+            <li>Payments and cancellations follow the stylist’s terms.</li>
+            <li>Strandly is not responsible for service quality but encourages honest reviews to maintain trust.</li>
+          </ul>
+
+          <h2 className="font-display text-2xl font-semibold mt-8">User Responsibilities</h2>
+          <ul className="list-disc list-inside ml-4">
+            <li>Provide accurate information when using the platform.</li>
+            <li>Respect stylists and other users in all interactions.</li>
+            <li>Do not misuse Strandly for spam, fraud, or harmful activity.</li>
+          </ul>
+
+          <h2 className="font-display text-2xl font-semibold mt-8">Stylist Responsibilities</h2>
+          <ul className="list-disc list-inside ml-4">
+            <li>Share accurate service details and pricing.</li>
+            <li>Deliver safe, professional services.</li>
+            <li>Comply with local regulations and licensing requirements.</li>
+          </ul>
+
+          <h2 className="font-display text-2xl font-semibold mt-8">Liability</h2>
           <p>
-            This Agreement shall begin on the date hereof. Certain parts of this website offer an opportunity for users to post and exchange opinions and information. Strandly does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Strandly, its agents and/or affiliates.
+            Strandly acts solely as a platform.
+            We are not liable for damages, injuries, or dissatisfaction arising from services booked through our site.
+          </p>
+
+          <h2 className="font-display text-2xl font-semibold mt-8">Privacy</h2>
+          <p>
+            We value your privacy.
+            See our <a href="/privacy-policy" className="text-accent hover:underline">Privacy Policy</a> for details on how we handle your personal data in line with GDPR.
+          </p>
+
+          <h2 className="font-display text-2xl font-semibold mt-8">Contact</h2>
+          <p>
+            Questions about these terms? Reach us at:
+            <br />
+            Email: <a href="mailto:legal@strandlyeu.com" className="text-accent hover:underline">legal@strandlyeu.com</a>
           </p>
         </div>
       </div>
