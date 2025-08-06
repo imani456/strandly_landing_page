@@ -9,7 +9,7 @@ const klaroConfig = {
   default: false,
   acceptAll: true,
   hideDeclineAll: false,
-  lang: 'en',
+  
   translations: {
     de: {
       consentModal: {
