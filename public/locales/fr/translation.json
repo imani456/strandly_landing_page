@@ -62,7 +62,8 @@
     "for_stylists": "Pour les stylistes",
     "for_clients": "Pour les clients",
     "company_title": "Entreprise",
-    "about": "À propos",
+    "about_us": "À propos de nous",
+    "learn_more": "En savoir plus",
     "blog": "Blog",
     "careers": "Carrières",
     "contact": "Contact",
@@ -127,8 +128,13 @@
   },
   "learn_more": {
     "title": "Vos Cheveux. Votre Style. Votre Strandly.",
-    "paragraph1": "Trouver le coiffeur afro parfait signifiait auparavant des heures de défilement, d'enregistrement de captures d'écran et d'attente d'une réponse. Strandly change cela. Nous avons créé un espace où la beauté rencontre la commodité : Explorez les coiffures qui vous inspirent — tresses, torsades, locks, lissages à la soie et tout le reste.",
-    "paragraph2": "Connectez-vous avec des stylistes de confiance près de chez vous, découvrez leur travail et consultez de vrais avis. Réservez en toute confiance en quelques clics, sans appels ni attente. Et si vous êtes styliste, Strandly a également été conçu pour vous. Mettez en valeur votre savoir-faire, augmentez vos réservations et laissez votre talent briller pendant que nous nous occupons de l'administration. Votre parcours capillaire mérite d'être sans effort et avec Strandly, c'est enfin le cas.",
-    "paragraph3": "Rejoignez la liste d'attente aujourd'hui et soyez le premier à découvrir l'avenir des soins capillaires afro."
+    "intro": "Trouver le coiffeur afro parfait signifiait auparavant des heures de défilement, d'enregistrement de captures d'écran et d'attente d'une réponse. Strandly change cela.",
+    "features_intro": "Nous avons créé un espace où la beauté rencontre la commodité.",
+    "feature1": "Explorez les coiffures qui vous inspirent — tresses, torsades, lissages à la soie et tout le reste.",
+    "feature2": "Connectez-vous avec des stylistes de confiance près de chez vous, découvrez leur travail et consultez de vrais avis.",
+    "feature3": "Réservez en toute confiance en quelques clics, sans appels ni attente.",
+    "stylist_section": "Et si vous êtes styliste, Strandly a également été conçu pour vous. Mettez en valeur votre savoir-faire, augmentez vos réservations et laissez votre talent briller pendant que nous nous occupons de l'administration.",
+    "conclusion": "Votre parcours capillaire mérite d'être sans effort — et avec Strandly, c'est enfin le cas.",
+    "cta": "Rejoignez la liste d'attente aujourd'hui et soyez le premier à découvrir"
   }
 }

@@ -40,3 +40,190 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Modern Klaro Theme Styles */
+.modern-klaro-theme {
+  --klaro-accent-color: #a16207;
+  --klaro-accent-hover-color: #92400e;
+  --klaro-background-color: #1f2937;
+  --klaro-text-color: #ffffff;
+  --klaro-border-color: #374151;
+  --klaro-button-background: #374151;
+  --klaro-button-hover-background: #4b5563;
+  --klaro-primary-button-background: #a16207;
+  --klaro-primary-button-hover-background: #92400e;
+  --klaro-border-radius: 8px;
+  --klaro-font-family: Inter, system-ui, sans-serif;
+  --klaro-font-size: 14px;
+  --klaro-line-height: 1.5;
+  --klaro-padding: 16px;
+  --klaro-margin: 8px;
+  --klaro-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --klaro-transition: all 0.2s ease-in-out;
+}
+
+.modern-klaro-theme .klaro {
+  font-family: var(--klaro-font-family);
+  font-size: var(--klaro-font-size);
+  line-height: var(--klaro-line-height);
+}
+
+.modern-klaro-theme .cookie-notice {
+  background: var(--klaro-background-color);
+  color: var(--klaro-text-color);
+  border-radius: var(--klaro-border-radius);
+  box-shadow: var(--klaro-shadow);
+  padding: var(--klaro-padding);
+  border: 1px solid var(--klaro-border-color);
+  transition: var(--klaro-transition);
+}
+
+.modern-klaro-theme .cookie-notice .cm-btn {
+  background: var(--klaro-button-background);
+  color: var(--klaro-text-color);
+  border: 1px solid var(--klaro-border-color);
+  border-radius: var(--klaro-border-radius);
+  padding: 8px 16px;
+  font-size: var(--klaro-font-size);
+  font-weight: 500;
+  transition: var(--klaro-transition);
+  cursor: pointer;
+  margin: var(--klaro-margin);
+}
+
+.modern-klaro-theme .cookie-notice .cm-btn:hover {
+  background: var(--klaro-button-hover-background);
+  transform: translateY(-1px);
+}
+
+.modern-klaro-theme .cookie-notice .cm-btn.cm-btn-success {
+  background: var(--klaro-primary-button-background);
+  border-color: var(--klaro-primary-button-background);
+}
+
+.modern-klaro-theme .cookie-notice .cm-btn.cm-btn-success:hover {
+  background: var(--klaro-primary-button-hover-background);
+}
+
+.modern-klaro-theme .cookie-notice .cm-link {
+  color: var(--klaro-accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--klaro-transition);
+}
+
+.modern-klaro-theme .cookie-notice .cm-link:hover {
+  color: var(--klaro-accent-hover-color);
+  text-decoration: underline;
+}
+
+.modern-klaro-theme .cm-modal {
+  background: var(--klaro-background-color);
+  color: var(--klaro-text-color);
+  border-radius: var(--klaro-border-radius);
+  box-shadow: var(--klaro-shadow);
+  border: 1px solid var(--klaro-border-color);
+}
+
+.modern-klaro-theme .cm-modal .cm-header {
+  background: var(--klaro-background-color);
+  border-bottom: 1px solid var(--klaro-border-color);
+  padding: var(--klaro-padding);
+}
+
+.modern-klaro-theme .cm-modal .cm-body {
+  padding: var(--klaro-padding);
+}
+
+.modern-klaro-theme .cm-modal .cm-footer {
+  background: var(--klaro-background-color);
+  border-top: 1px solid var(--klaro-border-color);
+  padding: var(--klaro-padding);
+}
+
+.modern-klaro-theme .cm-modal .cm-btn {
+  background: var(--klaro-button-background);
+  color: var(--klaro-text-color);
+  border: 1px solid var(--klaro-border-color);
+  border-radius: var(--klaro-border-radius);
+  padding: 8px 16px;
+  font-size: var(--klaro-font-size);
+  font-weight: 500;
+  transition: var(--klaro-transition);
+  cursor: pointer;
+  margin: var(--klaro-margin);
+}
+
+.modern-klaro-theme .cm-modal .cm-btn:hover {
+  background: var(--klaro-button-hover-background);
+  transform: translateY(-1px);
+}
+
+.modern-klaro-theme .cm-modal .cm-btn.cm-btn-success {
+  background: var(--klaro-primary-button-background);
+  border-color: var(--klaro-primary-button-background);
+}
+
+.modern-klaro-theme .cm-modal .cm-btn.cm-btn-success:hover {
+  background: var(--klaro-primary-button-hover-background);
+}
+
+.modern-klaro-theme .cm-app {
+  background: var(--klaro-background-color);
+  border: 1px solid var(--klaro-border-color);
+  border-radius: var(--klaro-border-radius);
+  margin: var(--klaro-margin) 0;
+  padding: var(--klaro-padding);
+  transition: var(--klaro-transition);
+}
+
+.modern-klaro-theme .cm-app:hover {
+  border-color: var(--klaro-accent-color);
+}
+
+.modern-klaro-theme .cm-app .cm-toggle-all {
+  background: var(--klaro-accent-color);
+  border-color: var(--klaro-accent-color);
+}
+
+.modern-klaro-theme .cm-app .cm-toggle-all:hover {
+  background: var(--klaro-accent-hover-color);
+}
+
+.modern-klaro-theme .cm-app .cm-toggle {
+  background: var(--klaro-button-background);
+  border-color: var(--klaro-border-color);
+}
+
+.modern-klaro-theme .cm-app .cm-toggle:hover {
+  background: var(--klaro-button-hover-background);
+}
+
+.modern-klaro-theme .cm-app .cm-toggle.cm-active {
+  background: var(--klaro-accent-color);
+  border-color: var(--klaro-accent-color);
+}
+
+.modern-klaro-theme .cm-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .modern-klaro-theme .cookie-notice {
+    margin: 8px;
+    padding: 12px;
+  }
+  
+  .modern-klaro-theme .cookie-notice .cm-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    margin: 4px;
+  }
+  
+  .modern-klaro-theme .cm-modal {
+    margin: 16px;
+    max-width: calc(100vw - 32px);
+  }
+}

@@ -62,7 +62,8 @@
     "for_stylists": "Für Stylisten",
     "for_clients": "Für Kunden",
     "company_title": "Firma",
-    "about": "Über uns",
+    "about_us": "Über uns",
+    "learn_more": "Mehr erfahren",
     "blog": "Blog",
     "careers": "Karriere",
     "contact": "Kontakt",
@@ -77,24 +78,22 @@
     "linkedin": "LinkedIn"
   },
   "impressum": {
-    "title": "Impressum",
-    "company_name_label": "Firmenname:",
+    "title": "Impressum (Rechtlicher Hinweis)",
     "company_name": "Strandly",
+    "represented_by_label": "Vertreten durch:",
+    "represented_by_name": "Sheila Chelangat",
     "address_label": "Adresse:",
-    "address": "Musterstraße 1, 12345 Musterstadt, Deutschland",
+    "address": "Gehestraße 13\n01127 Dresden\nDeutschland",
+    "contact_label": "Kontakt:",
     "email_label": "E-Mail:",
     "email": "contact@strandly.com",
-    "phone_label": "Telefon:",
-    "phone": "+49 123 4567890",
-    "responsible_label": "Verantwortlich für den Inhalt (nach § 55 RStV):",
-    "responsible_name": "Max Mustermann",
-    "responsible_address": "Musterstraße 1, 12345 Musterstadt, Deutschland",
-    "vat_id_label": "USt-IdNr.:",
-    "vat_id": "DE123456789",
-    "vat_id_note": "Alternativ, wenn Sie Kleinunternehmer sind: \"Umsatzsteuerbefreit nach §19 UStG\".",
-    "commercial_register_label": "Handelsregister:",
-    "commercial_register_value": "Amtsgericht Musterstadt, HRB 12345",
-    "commercial_register_note": "(Nur wenn zutreffend)"
+    "business_information_label": "Geschäftsinformationen:",
+    "business_type_label": "Geschäftstyp:",
+    "business_type": "Einzelunternehmen",
+    "registered_at_label": "Registriert in:",
+    "registered_at": "Dresden, Deutschland",
+    "responsible_for_content_label": "Verantwortlich für den Inhalt (§ 55 Abs. 2 RStV):",
+    "responsible_for_content_name": "Sheila Chelangat"
   },
   "privacy_policy": {
     "title": "Datenschutzrichtlinie",
@@ -127,9 +126,14 @@
   },
   "learn_more": {
     "title": "Ihr Haar. Ihr Stil. Ihr Strandly.",
-    "paragraph1": "Die Suche nach dem perfekten Afro-Haarstylisten bedeutete früher stundenlanges Scrollen, das Speichern von Screenshots und das Hoffen auf eine Antwort. Strandly ändert das. Wir haben einen Raum geschaffen, in dem Schönheit auf Bequemlichkeit trifft: Entdecken Sie Frisuren, die Sie inspirieren – Zöpfe, Twists, Locs, Silk Presses und alles dazwischen.",
-    "paragraph2": "Verbinden Sie sich mit vertrauenswürdigen Stylisten in Ihrer Nähe, sehen Sie sich deren Arbeiten an und lesen Sie echte Bewertungen. Buchen Sie mit Vertrauen in nur wenigen Klicks, keine Anrufe oder Wartezeiten erforderlich. Und wenn ein Stylist sind, wurde Strandly auch für Sie entwickelt. Präsentieren Sie Ihr Handwerk, steigern Sie Ihre Buchungen und lassen Sie Ihr Talent glänzen, während wir uns um die Verwaltung kümmern. Ihre Haarreise verdient es, mühelos zu sein, und mit Strandly ist es das endlich.",
-    "paragraph3": "Treten Sie noch heute der Warteliste bei und erleben Sie als Erster die Zukunft der Afro-Haarpflege."
+    "intro": "Die Suche nach dem perfekten Afro-Haarstylisten bedeutete früher stundenlanges Scrollen, das Speichern von Screenshots und das Hoffen auf eine Antwort. Strandly ändert das.",
+    "features_intro": "Wir haben einen Raum geschaffen, in dem Schönheit auf Bequemlichkeit trifft.",
+    "feature1": "Entdecken Sie Frisuren, die Sie inspirieren – Zöpfe, Twists, Silk Presses und alles dazwischen.",
+    "feature2": "Verbinden Sie sich mit vertrauenswürdigen Stylisten in Ihrer Nähe, sehen Sie deren Arbeiten an und lesen Sie echte Bewertungen.",
+    "feature3": "Buchen Sie mit Vertrauen in nur wenigen Klicks, keine Anrufe oder Wartezeiten erforderlich.",
+    "stylist_section": "Und wenn Sie ein Stylist sind. Strandly wurde auch für Sie entwickelt. Präsentieren Sie Ihr Handwerk, steigern Sie Ihre Buchungen und lassen Sie Ihr Talent glänzen, während wir uns um die Verwaltung kümmern.",
+    "conclusion": "Ihre Haarreise verdient es, mühelos zu sein – und mit Strandly ist es das endlich.",
+    "cta": "Treten Sie noch heute der Warteliste bei und erleben Sie als Erster"
   },
   "cookie_consent": {
     "title": "Wir schätzen Ihre Privatsphäre",
@@ -162,6 +166,4 @@
       "description": "Dieser Dienst bietet Live-Chat-Funktionen, die es Ihnen ermöglichen, direkt mit unserem Support-Team zu kommunizieren."
     }
   }
-}
-}
 }
