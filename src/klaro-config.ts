@@ -1,94 +1,82 @@
 import { t } from 'i18next';
 
 const klaroConfig = {
+  version: 1,
+  elementID: "klaro",
+  cookieName: "klaro",
+  cookieExpiresAfterDays: 365,
+  privacyPolicy: "/datenschutzerklaerung",
+  default: false,
+  acceptAll: true,
+  hideDeclineAll: false,
   lang: 'en',
-  
   translations: {
+    de: {
+      consentModal: {
+        title: "Wir verwenden Cookies",
+        description: "Wir nutzen Cookies, um unsere Website für Sie zu optimieren und Ihnen die bestmögliche Nutzererfahrung zu bieten. Sie können selbst entscheiden, welche Kategorien Sie zulassen. Essenzielle Cookies sind für den Betrieb der Website erforderlich."
+      },
+      consentNotice: {
+        learnMore: "Einstellungen",
+        description: "Wir nutzen Cookies, um unsere Website zu optimieren. Sie können Ihre Auswahl jederzeit ändern."
+      },
+      decline: "Nur notwendige akzeptieren",
+      ok: "Alle akzeptieren",
+      save: "Einstellungen speichern"
+    },
     en: {
       consentModal: {
-        title: t('cookie_consent.title'),
-        description: t('cookie_consent.description'),
-        privacyPolicy: t('cookie_consent.privacyPolicy'),
-        imprint: t('cookie_consent.imprint'),
-        save: t('cookie_consent.save'),
-        acceptAll: t('cookie_consent.acceptAll'),
-        declineAll: t('cookie_consent.declineAll'),
+        title: "We use cookies",
+        description: "We use cookies to optimize our website and provide the best possible user experience. You can choose which categories to allow. Essential cookies are required for the basic functionality of the website."
       },
-      app: {
-        optOut: t('cookie_consent.app.optOut'),
-        optIn: t('cookie_consent.app.optIn'),
-        toggle: t('cookie_consent.app.toggle'),
-        toggleAll: t('cookie_consent.app.toggleAll'),
+      consentNotice: {
+        learnMore: "Settings",
+        description: "We use cookies to optimize our website. You can change your selection at any time."
       },
-      necessary: {
-        title: t('cookie_consent.necessary.title'),
-        description: t('cookie_consent.necessary.description'),
-      },
-      // Add other service translations here as needed
-      'google-analytics': {
-        title: t('cookie_consent.analytics.title'),
-        description: t('cookie_consent.analytics.description'),
-      },
-      'microsoft-clarity': {
-        title: t('cookie_consent.microsoft_clarity.title'),
-        description: t('cookie_consent.microsoft_clarity.description'),
-      },
-      'tawk-to': {
-        title: t('cookie_consent.tawk_to.title'),
-        description: t('cookie_consent.tawk_to.description'),
-      },
-    },
+      decline: "Accept only necessary",
+      ok: "Accept all",
+      save: "Save settings"
+    }
   },
   apps: [
     {
-      title: t('cookie_consent.necessary.title'),
-      name: 'necessary',
-      purposes: ['necessary'],
+      name: "necessary",
+      title: {
+        de: "Essentiell",
+        en: "Essential"
+      },
+      purposes: ["necessary"],
       required: true,
-      default: true,
-      description: t('cookie_consent.necessary.description'),
+      cookies: [
+        ["sessionid", "/", ".strandlyeu.com"]
+      ]
     },
     {
-      title: t('cookie_consent.analytics.title'),
-      name: 'google-analytics',
-      purposes: ['analytics'],
+      name: "analytics",
+      title: {
+        de: "Analytik",
+        en: "Analytics"
+      },
+      purposes: ["analytics"],
+      required: false,
       cookies: [
-        /^_ga/,
-        /^_gid/,
-        /^_gat/,
-        /^_gac_/,
-        /^_ga_/,
-      ],
-      default: false,
-      description: t('cookie_consent.analytics.description'),
+        ["_ga", "/", ".strandlyeu.com"],
+        ["_gid", "/", ".strandlyeu.com"]
+      ]
     },
     {
-      title: t('cookie_consent.microsoft_clarity.title'),
-      name: 'microsoft-clarity',
-      purposes: ['analytics'],
+      name: "support",
+      title: {
+        de: "Support / Chat",
+        en: "Support / Chat"
+      },
+      purposes: ["support"],
+      required: false,
       cookies: [
-        /^MUID/,
-        /^CLID/,
-        /^ANON/,
-        /^MR/,
-        /^SM/,
-        /^SR/,
-        /^__Host-MSFPC/,
-      ],
-      default: false,
-      description: t('cookie_consent.microsoft_clarity.description'),
-    },
-    {
-      title: t('cookie_consent.tawk_to.title'),
-      name: 'tawk-to',
-      purposes: ['support'],
-      cookies: [
-        /^Tawk_/, // Tawk.to cookies often start with Tawk_
-      ],
-      default: false,
-      description: t('cookie_consent.tawk_to.description'),
-    },
-  ],
+        ["tawkto_session", "/", ".strandlyeu.com"]
+      ]
+    }
+  ]
 };
 
 export default klaroConfig;
