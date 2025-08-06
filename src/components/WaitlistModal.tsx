@@ -30,7 +30,10 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
     setLoading(true);
 
     try {
-      const { error } = await supabase
+      console.log('Submitting to Supabase with data:', formData);
+      console.log('Supabase URL:', supabase.supabaseUrl);
+      
+      const { data, error } = await supabase
         .from('strandly_waitlist')
         .insert({
           first_name: formData.firstName,
@@ -38,19 +41,42 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
           email: formData.email,
           phone: formData.phone || null,
           user_type: formData.userType
-        });
+        })
+        .select();
+
+      console.log('Supabase response:', { data, error });
 
       if (error) {
+        console.error('Supabase error:', error);
         if (error.code === '23505') {
           toast({
             title: t("waitlist_modal.already_registered_title"),
             description: t("waitlist_modal.already_registered_description"),
             variant: "destructive"
           });
+        } else if (error.code === '42P01') {
+          // Table doesn't exist
+          toast({
+            title: "Database Setup Required",
+            description: "The waitlist table needs to be created. Please contact support.",
+            variant: "destructive"
+          });
+        } else if (error.code === '42501') {
+          // Permission denied
+          toast({
+            title: "Permission Error",
+            description: "Unable to access the database. Please try again later.",
+            variant: "destructive"
+          });
         } else {
-          throw error;
+          toast({
+            title: "Database Error",
+            description: `Error: ${error.message}`,
+            variant: "destructive"
+          });
         }
       } else {
+        console.log('Successfully inserted:', data);
         toast({
           title: t("waitlist_modal.welcome_title"),
           description: t("waitlist_modal.welcome_description"),
@@ -65,6 +91,7 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
         });
       }
     } catch (error) {
+      console.error('Caught error:', error);
       toast({
         title: t("waitlist_modal.error_title"),
         description: t("waitlist_modal.error_description"),
