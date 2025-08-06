@@ -6,7 +6,7 @@ const Footer = ({ id }: { id?: string }) => {
   return (
     <footer id={id} className="bg-cocoa-brown border-t border-border py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-16 md:gap-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-16 md:gap-24">
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="font-display text-2xl text-white">
@@ -16,8 +16,6 @@ const Footer = ({ id }: { id?: string }) => {
               {t("footer.brand_description")}
             </p>
           </div>
-
-          
 
           {/* Company */}
           <div className="space-y-4">
@@ -41,6 +39,30 @@ const Footer = ({ id }: { id?: string }) => {
               <Link to="/terms-of-service" className="block hover:text-caramel transition-colors">{t("footer.terms_of_service")}</Link>
               <Link to="/cookie-policy" className="block hover:text-caramel transition-colors">{t("footer.cookie_policy")}</Link>
               <Link to="/impressum" className="block hover:text-caramel transition-colors">{t("footer.impressum")}</Link>
+            </div>
+          </div>
+
+          {/* GDPR Rights */}
+          <div className="space-y-4">
+            <h4 className="font-body font-semibold text-white">
+              Your Privacy Rights
+            </h4>
+            <div className="space-y-3 font-body text-warm-white">
+              <a 
+                href="mailto:privacy@strandly.co" 
+                className="block hover:text-caramel transition-colors"
+              >
+                Exercise GDPR Rights
+              </a>
+              <a 
+                href="mailto:dpo@strandly.co" 
+                className="block hover:text-caramel transition-colors"
+              >
+                Contact DPO
+              </a>
+              <p className="text-sm text-warm-white/80">
+                Under GDPR, you have rights to access, correct, and delete your data.
+              </p>
             </div>
           </div>
         </div>
