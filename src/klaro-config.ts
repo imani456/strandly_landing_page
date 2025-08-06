@@ -2,7 +2,7 @@ import { t } from 'i18next';
 
 const klaroConfig = {
   lang: 'en',
-  theme: 'app',
+  
   translations: {
     en: {
       consentModal: {

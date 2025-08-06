@@ -121,3 +121,82 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Klaro! Custom Theming */
+.klaro .cm-modal {
+  background-color: hsl(var(--warm-white));
+  color: hsl(var(--cocoa-brown));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-elegant);
+}
+
+.klaro .cm-modal-header {
+  background-color: hsl(var(--cocoa-brown));
+  color: hsl(var(--warm-white));
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+.klaro .cm-modal-title {
+  font-family: var(--font-display);
+  color: hsl(var(--warm-white));
+}
+
+.klaro .cm-modal-description {
+  font-family: var(--font-body);
+  color: hsl(var(--cocoa-brown));
+}
+
+.klaro .cm-btn {
+  font-family: var(--font-body);
+  background-color: hsl(var(--cocoa-brown));
+  color: hsl(var(--warm-white));
+  border: none;
+  border-radius: var(--radius);
+  transition: var(--transition-smooth);
+}
+
+.klaro .cm-btn:hover {
+  background-color: hsl(var(--caramel-gold));
+  color: hsl(var(--cocoa-brown));
+}
+
+.klaro .cm-btn-secondary {
+  background-color: hsl(var(--warm-beige));
+  color: hsl(var(--cocoa-brown));
+}
+
+.klaro .cm-btn-secondary:hover {
+  background-color: hsl(var(--soft-caramel));
+}
+
+.klaro .cm-link {
+  color: hsl(var(--caramel-gold));
+  text-decoration: underline;
+}
+
+.klaro .cm-toggle-slider {
+  background-color: hsl(var(--warm-beige));
+}
+
+.klaro .cm-toggle-slider.is-active {
+  background-color: hsl(var(--caramel-gold));
+}
+
+.klaro .cm-toggle-button {
+  background-color: hsl(var(--warm-white));
+}
+
+.klaro .cm-toggle-button.is-active {
+  background-color: hsl(var(--cocoa-brown));
+}
+
+.klaro .cm-app-title {
+  font-family: var(--font-body);
+  color: hsl(var(--cocoa-brown));
+}
+
+.klaro .cm-app-description {
+  font-family: var(--font-body);
+  color: hsl(var(--cocoa-brown));
+}
