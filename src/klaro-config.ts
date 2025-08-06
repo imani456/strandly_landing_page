@@ -28,6 +28,14 @@ const klaroConfig = {
         title: t('cookie_consent.analytics.title'),
         description: t('cookie_consent.analytics.description'),
       },
+      'microsoft-clarity': {
+        title: t('cookie_consent.microsoft_clarity.title'),
+        description: t('cookie_consent.microsoft_clarity.description'),
+      },
+      'tawk-to': {
+        title: t('cookie_consent.tawk_to.title'),
+        description: t('cookie_consent.tawk_to.description'),
+      },
     },
   },
   apps: [
@@ -39,7 +47,6 @@ const klaroConfig = {
       default: true,
       description: t('cookie_consent.necessary.description'),
     },
-    // Add other services here, e.g., for Google Analytics:
     {
       title: t('cookie_consent.analytics.title'),
       name: 'google-analytics',
@@ -53,8 +60,32 @@ const klaroConfig = {
       ],
       default: false,
       description: t('cookie_consent.analytics.description'),
-      // onAccept: () => { /* Load GA script */ },
-      // onDecline: () => { /* Disable GA */ },
+    },
+    {
+      title: t('cookie_consent.microsoft_clarity.title'),
+      name: 'microsoft-clarity',
+      purposes: ['analytics'],
+      cookies: [
+        /^MUID/,
+        /^CLID/,
+        /^ANON/,
+        /^MR/,
+        /^SM/,
+        /^SR/,
+        /^__Host-MSFPC/,
+      ],
+      default: false,
+      description: t('cookie_consent.microsoft_clarity.description'),
+    },
+    {
+      title: t('cookie_consent.tawk_to.title'),
+      name: 'tawk-to',
+      purposes: ['support'],
+      cookies: [
+        /^Tawk_/, // Tawk.to cookies often start with Tawk_
+      ],
+      default: false,
+      description: t('cookie_consent.tawk_to.description'),
     },
   ],
 };

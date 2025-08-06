@@ -168,6 +168,14 @@
     "analytics": {
       "title": "Analytics Cookies",
       "description": "These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site."
+    },
+    "microsoft_clarity": {
+      "title": "Microsoft Clarity",
+      "description": "These cookies are used by Microsoft Clarity to record user sessions and generate heatmaps, helping us understand how users interact with our website."
+    },
+    "tawk_to": {
+      "title": "Live Chat (Tawk.to)",
+      "description": "This service provides live chat functionality, allowing you to communicate directly with our support team."
     }
   }
 }
