@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -14,6 +15,7 @@ interface WaitlistModalProps {
 
 const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -41,8 +43,8 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
       if (error) {
         if (error.code === '23505') {
           toast({
-            title: "Already registered",
-            description: "This email is already on our waitlist!",
+            title: t("waitlist_modal.already_registered_title"),
+            description: t("waitlist_modal.already_registered_description"),
             variant: "destructive"
           });
         } else {
@@ -50,8 +52,8 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
         }
       } else {
         toast({
-          title: "Welcome to Strandly!",
-          description: "You've been added to our waitlist. We'll be in touch soon!",
+          title: t("waitlist_modal.welcome_title"),
+          description: t("waitlist_modal.welcome_description"),
         });
         onOpenChange(false);
         setFormData({
@@ -64,8 +66,8 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
       }
     } catch (error) {
       toast({
-        title: "Something went wrong",
-        description: "Please try again later.",
+        title: t("waitlist_modal.error_title"),
+        description: t("waitlist_modal.error_description"),
         variant: "destructive"
       });
     } finally {
@@ -78,7 +80,7 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
       <DialogContent className="sm:max-w-md bg-warm-white border-soft-caramel/20">
         <DialogHeader className="text-center space-y-4">
           <DialogTitle className="font-display text-3xl text-cocoa-brown">
-            Join the Strandly Waitlist
+            {t("waitlist_modal.title")}
           </DialogTitle>
           {/* <p className="font-body text-cocoa-brown/80 leading-relaxed">
             Be the first to experience premium Afro hair services in Europe. 
@@ -91,7 +93,7 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName" className="font-body text-cocoa-brown">
-                First Name *
+                {t("waitlist_modal.first_name_label")} *
               </Label>
               <Input
                 id="firstName"
@@ -103,7 +105,7 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
             </div>
             <div className="space-y-2">
               <Label htmlFor="lastName" className="font-body text-cocoa-brown">
-                Last Name *
+                {t("waitlist_modal.last_name_label")} *
               </Label>
               <Input
                 id="lastName"
@@ -118,7 +120,7 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
           {/* Email */}
           <div className="space-y-2">
             <Label htmlFor="email" className="font-body text-cocoa-brown">
-              Email Address *
+              {t("waitlist_modal.email_label")} *
             </Label>
             <Input
               id="email"
@@ -133,7 +135,7 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
           {/* Phone */}
           <div className="space-y-2">
             <Label htmlFor="phone" className="font-body text-cocoa-brown">
-              Phone Number
+              {t("waitlist_modal.phone_label")}
             </Label>
             <Input
               id="phone"
@@ -141,14 +143,14 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
               value={formData.phone}
               onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
               className="border-soft-caramel/30 focus:border-soft-caramel"
-              placeholder="Optional"
+              placeholder={t("waitlist_modal.phone_placeholder")}
             />
           </div>
 
           {/* User Type */}
           <div className="space-y-3">
             <Label className="font-body text-cocoa-brown">
-              I'm interested as a *
+              {t("waitlist_modal.user_type_label")} *
             </Label>
             <RadioGroup
               value={formData.userType}
@@ -158,13 +160,13 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="client" id="client" />
                 <Label htmlFor="client" className="font-body text-cocoa-brown cursor-pointer">
-                  Client
+                  {t("waitlist_modal.user_type_client")}
                 </Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="stylist" id="stylist" />
                 <Label htmlFor="stylist" className="font-body text-cocoa-brown cursor-pointer">
-                  Stylist
+                  {t("waitlist_modal.user_type_stylist")}
                 </Label>
               </div>
             </RadioGroup>
@@ -176,12 +178,12 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
             disabled={loading}
             className="w-full font-body text-lg py-3 bg-gradient-warm hover:opacity-90 text-warm-white border-0"
           >
-            {loading ? "Joining..." : "Join Waitlist"}
+            {loading ? t("waitlist_modal.joining_button") : t("waitlist_modal.join_button")}
           </Button>
         </form>
 
         <p className="text-center text-sm text-cocoa-brown/60 font-body mt-4">
-          We respect your privacy. Unsubscribe at any time.
+          {t("waitlist_modal.privacy_notice")}
         </p>
       </DialogContent>
     </Dialog>
