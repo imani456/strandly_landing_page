@@ -128,8 +128,40 @@
   "learn_more": {
     "title": "Ihr Haar. Ihr Stil. Ihr Strandly.",
     "paragraph1": "Die Suche nach dem perfekten Afro-Haarstylisten bedeutete früher stundenlanges Scrollen, das Speichern von Screenshots und das Hoffen auf eine Antwort. Strandly ändert das. Wir haben einen Raum geschaffen, in dem Schönheit auf Bequemlichkeit trifft: Entdecken Sie Frisuren, die Sie inspirieren – Zöpfe, Twists, Locs, Silk Presses und alles dazwischen.",
-    "paragraph2": "Verbinden Sie sich mit vertrauenswürdigen Stylisten in Ihrer Nähe, sehen Sie sich deren Arbeiten an und lesen Sie echte Bewertungen. Buchen Sie mit Vertrauen in nur wenigen Klicks, keine Anrufe oder Wartezeiten erforderlich. Und wenn Sie ein Stylist sind, wurde Strandly auch für Sie entwickelt. Präsentieren Sie Ihr Handwerk, steigern Sie Ihre Buchungen und lassen Sie Ihr Talent glänzen, während wir uns um die Verwaltung kümmern. Ihre Haarreise verdient es, mühelos zu sein, und mit Strandly ist es das endlich.",
+    "paragraph2": "Verbinden Sie sich mit vertrauenswürdigen Stylisten in Ihrer Nähe, sehen Sie sich deren Arbeiten an und lesen Sie echte Bewertungen. Buchen Sie mit Vertrauen in nur wenigen Klicks, keine Anrufe oder Wartezeiten erforderlich. Und wenn ein Stylist sind, wurde Strandly auch für Sie entwickelt. Präsentieren Sie Ihr Handwerk, steigern Sie Ihre Buchungen und lassen Sie Ihr Talent glänzen, während wir uns um die Verwaltung kümmern. Ihre Haarreise verdient es, mühelos zu sein, und mit Strandly ist es das endlich.",
     "paragraph3": "Treten Sie noch heute der Warteliste bei und erleben Sie als Erster die Zukunft der Afro-Haarpflege."
+  },
+  "cookie_consent": {
+    "title": "Wir schätzen Ihre Privatsphäre",
+    "description": "Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren, Funktionen für soziale Medien anbieten zu können und die Zugriffe auf unsere Website zu analysieren. Außerdem geben wir Informationen zu Ihrer Nutzung unserer Website an unsere Partner für soziale Medien, Werbung und Analysen weiter. Diese Partner führen diese Informationen möglicherweise mit weiteren Daten zusammen, die Sie ihnen bereitgestellt haben oder die sie im Rahmen Ihrer Nutzung der Dienste gesammelt haben.",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "imprint": "Impressum",
+    "save": "Einstellungen speichern",
+    "acceptAll": "Alle akzeptieren",
+    "declineAll": "Alle ablehnen",
+    "app": {
+      "optOut": "Abmelden",
+      "optIn": "Anmelden",
+      "toggle": "Umschalten",
+      "toggleAll": "Alle umschalten"
+    },
+    "necessary": {
+      "title": "Unbedingt erforderliche Cookies",
+      "description": "Diese Cookies sind für den Betrieb der Website unbedingt erforderlich und können in unseren Systemen nicht deaktiviert werden. Sie werden in der Regel nur als Reaktion auf von Ihnen getätigte Aktionen gesetzt, die einer Dienstanfrage gleichkommen, wie z. B. das Festlegen Ihrer Datenschutzeinstellungen, das Anmelden oder das Ausfüllen von Formularen."
+    },
+    "analytics": {
+      "title": "Analyse-Cookies",
+      "description": "Diese Cookies ermöglichen es uns, Besuche und Verkehrsquellen zu zählen, damit wir die Leistung unserer Website messen und verbessern können. Sie helfen uns zu wissen, welche Seiten am beliebtesten und am wenigsten beliebt sind und wie sich Besucher auf der Website bewegen."
+    },
+    "microsoft_clarity": {
+      "title": "Microsoft Clarity",
+      "description": "Diese Cookies werden von Microsoft Clarity verwendet, um Benutzersitzungen aufzuzeichnen und Heatmaps zu erstellen, wodurch wir verstehen, wie Benutzer mit unserer Website interagieren."
+    },
+    "tawk_to": {
+      "title": "Live-Chat (Tawk.to)",
+      "description": "Dieser Dienst bietet Live-Chat-Funktionen, die es Ihnen ermöglichen, direkt mit unserem Support-Team zu kommunizieren."
+    }
   }
+}
 }
 }
