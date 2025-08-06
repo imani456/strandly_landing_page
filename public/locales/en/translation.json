@@ -146,5 +146,28 @@
     "stylist_section": "And if you're a stylist. Strandly was built for you too. Showcase your craft, grow your bookings, and let your talent shine while we handle the admin.",
     "conclusion": "Your hair journey deserves to feel effortless—and with Strandly, it finally does.",
     "cta": "Join the waitlist today and be first to experience"
+  },
+  "cookie_consent": {
+    "title": "We value your privacy",
+    "description": "We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services.",
+    "privacyPolicy": "Privacy Policy",
+    "imprint": "Impressum",
+    "save": "Save settings",
+    "acceptAll": "Accept all",
+    "declineAll": "Decline all",
+    "app": {
+      "optOut": "Opt-out",
+      "optIn": "Opt-in",
+      "toggle": "Toggle",
+      "toggleAll": "Toggle all"
+    },
+    "necessary": {
+      "title": "Strictly Necessary Cookies",
+      "description": "These cookies are essential for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms."
+    },
+    "analytics": {
+      "title": "Analytics Cookies",
+      "description": "These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site."
+    }
   }
 }
