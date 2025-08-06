@@ -30,9 +30,25 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
     setLoading(true);
 
     try {
-      console.log('Submitting to Supabase with data:', formData);
+      console.log('=== SUPABASE DEBUG ===');
       console.log('Supabase URL:', supabase.supabaseUrl);
+      console.log('Supabase Key (first 20 chars):', supabase.supabaseKey?.substring(0, 20) + '...');
+      console.log('Form data:', formData);
       
+      // Test basic connection first
+      const { data: testData, error: testError } = await supabase
+        .from('strandly_waitlist')
+        .select('id')
+        .limit(1);
+      
+      console.log('Test query result:', { testData, testError });
+      
+      if (testError) {
+        console.error('Test query failed:', testError);
+        throw testError;
+      }
+      
+      // Now try the insert
       const { data, error } = await supabase
         .from('strandly_waitlist')
         .insert({
@@ -44,10 +60,16 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
         })
         .select();
 
-      console.log('Supabase response:', { data, error });
+      console.log('Insert result:', { data, error });
 
       if (error) {
-        console.error('Supabase error:', error);
+        console.error('Supabase error details:', {
+          code: error.code,
+          message: error.message,
+          details: error.details,
+          hint: error.hint
+        });
+        
         if (error.code === '23505') {
           toast({
             title: t("waitlist_modal.already_registered_title"),
@@ -55,14 +77,12 @@ const WaitlistModal = ({ open, onOpenChange }: WaitlistModalProps) => {
             variant: "destructive"
           });
         } else if (error.code === '42P01') {
-          // Table doesn't exist
           toast({
             title: "Database Setup Required",
             description: "The waitlist table needs to be created. Please contact support.",
             variant: "destructive"
           });
         } else if (error.code === '42501') {
-          // Permission denied
           toast({
             title: "Permission Error",
             description: "Unable to access the database. Please try again later.",
