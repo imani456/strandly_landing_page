@@ -57,6 +57,8 @@ export default defineConfig(({ mode }) => ({
     },
     target: 'esnext',
     minify: 'esbuild',
+    outDir: 'dist',
+    assetsDir: 'assets',
   },
   esbuild: {
     jsx: 'automatic',

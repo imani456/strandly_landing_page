@@ -8,6 +8,7 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "build:prod": "NODE_ENV=production vite build",
+    "build:vercel": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "generate-sitemap": "node sitemap-generator.js"
