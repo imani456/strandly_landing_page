@@ -59,6 +59,8 @@ export default defineConfig(({ mode }) => ({
     minify: 'esbuild',
     outDir: 'dist',
     assetsDir: 'assets',
+    sourcemap: false,
+    chunkSizeWarningLimit: 1000,
   },
   esbuild: {
     jsx: 'automatic',
