@@ -36,12 +36,19 @@ interface Post {
   reading_time?: number;
 }
 
+interface PostTag {
+  id: number;
+  name: string;
+}
+
 const BlogPage: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [postTags, setPostTags] = useState<PostTag[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'title'>('newest');
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -56,14 +63,18 @@ const BlogPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchData = async () => {
       try {
-        const response = await directusFetch(
-          '/items/posts?filter[titles][_nnull]=true&fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,published_at,category.name'
-        );
+        // Fetch posts and tags in parallel
+        const [postsResponse, tagsResponse] = await Promise.all([
+          directusFetch(
+            '/items/posts?filter[titles][_nnull]=true&fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,published_at,category.name'
+          ),
+          directusFetch('/items/post_tags')
+        ]);
         
-        if (response && response.data) {
-          const postsWithReadingTime = (response.data as Post[]).map(post => ({
+        if (postsResponse && postsResponse.data) {
+          const postsWithReadingTime = (postsResponse.data as Post[]).map(post => ({
             ...post,
             reading_time: calculateReadingTime(post.content)
           }));
@@ -71,8 +82,12 @@ const BlogPage: React.FC = () => {
         } else {
           setError('No posts found.');
         }
+
+        if (tagsResponse && tagsResponse.data) {
+          setPostTags(tagsResponse.data as PostTag[]);
+        }
       } catch (err) {
-        console.error('Failed to fetch posts:', err);
+        console.error('Failed to fetch data:', err);
         
         // Fallback data for development when API is not available
         if (import.meta.env.DEV) {
@@ -106,11 +121,20 @@ const BlogPage: React.FC = () => {
             }
           ];
           
+          const fallbackTags: PostTag[] = [
+            { id: 1, name: 'Afro Hair' },
+            { id: 2, name: 'Styling' },
+            { id: 3, name: 'Academies' },
+            { id: 4, name: 'Salons' },
+            { id: 5, name: 'Europe' }
+          ];
+          
           const postsWithReadingTime = fallbackPosts.map(post => ({
             ...post,
             reading_time: calculateReadingTime(post.content)
           }));
           setPosts(postsWithReadingTime);
+          setPostTags(fallbackTags);
         } else {
         setError('Failed to load blog posts.');
         }
@@ -119,7 +143,7 @@ const BlogPage: React.FC = () => {
       }
     };
 
-    fetchPosts();
+    fetchData();
   }, []);
 
   // Get unique categories
@@ -135,7 +159,11 @@ const BlogPage: React.FC = () => {
                            post.meta_description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
                            (post.content && post.content.toLowerCase().includes(searchQuery.toLowerCase()));
       const matchesCategory = selectedCategory === 'all' || post.category?.name === selectedCategory;
-      return matchesSearch && matchesCategory;
+      const matchesTags = selectedTags.length === 0 || 
+                         selectedTags.some(selectedTag => 
+                           post.tags.some(tag => tag.post_tags_id.name === selectedTag)
+                         );
+      return matchesSearch && matchesCategory && matchesTags;
     });
 
     // Sort posts
@@ -153,7 +181,7 @@ const BlogPage: React.FC = () => {
     });
 
     return filtered;
-  }, [posts, searchQuery, selectedCategory, sortBy]);
+  }, [posts, searchQuery, selectedCategory, selectedTags, sortBy]);
 
   // Pagination
   const totalPages = Math.ceil(filteredAndSortedPosts.length / postsPerPage);
@@ -271,6 +299,48 @@ const BlogPage: React.FC = () => {
        <div className="py-0 -mt-8 relative z-10">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
+            {/* Tag Filter Section */}
+            {postTags.length > 0 && (
+              <div className="mb-8 text-center">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <Filter className="h-4 w-4 text-[#6B3F1D]" />
+                  <span className="text-sm font-medium text-[#6B3F1D]">Filter by tags:</span>
+                  {selectedTags.length > 0 && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setSelectedTags([])}
+                      className="text-xs text-[#6B3F1D]/70 hover:text-[#6B3F1D] hover:bg-[#6B3F1D]/10"
+                    >
+                      Clear all
+                    </Button>
+                  )}
+                </div>
+                <div className="flex gap-2 flex-wrap justify-center">
+                  {postTags.map((tag) => (
+                    <Button
+                      key={tag.id}
+                      variant={selectedTags.includes(tag.name) ? "default" : "outline"}
+                      onClick={() => {
+                        setSelectedTags(prev => 
+                          prev.includes(tag.name) 
+                            ? prev.filter(t => t !== tag.name)
+                            : [...prev, tag.name]
+                        );
+                      }}
+                      className={`text-sm ${
+                        selectedTags.includes(tag.name)
+                          ? "bg-[#6B3F1D] text-white hover:bg-[#8B4513]" 
+                          : "bg-[#e7cfb1] border-[#6B3F1D]/30 text-[#6B3F1D] hover:bg-[#6B3F1D]/10"
+                      }`}
+                    >
+                      {tag.name}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Search and Filters */}
             <div className="mb-12">
               <div className="flex flex-col lg:flex-row gap-4 mb-6">
@@ -360,6 +430,7 @@ const BlogPage: React.FC = () => {
                   onClick={() => {
                     setSearchQuery('');
                     setSelectedCategory('all');
+                    setSelectedTags([]);
                   }}
                   className="bg-[#6B3F1D] text-white hover:bg-[#8B4513]"
                 >
@@ -505,7 +576,9 @@ const BlogPage: React.FC = () => {
                   </Button>
                 </div>
               </div>
-            )}
+          
+          )}
+          <div className="my-8 sm:my-10 pb-8 sm:pb-10" />
           </div>
         </div>
       </div>
