@@ -1,0 +1,21 @@
+## 🎨 Design System Rules
+
+### Color Palette
+- **Primary Background**: `#e7cfb1` (warm beige) - use `bg-background` or `bg-[#e7cfb1]`
+- **Primary Text**: `#1a0f0a` (cocoa brown) - use `text-foreground` or `text-[#1a0f0a]`
+- **Accent Colors**: Use `#6B3F1D` (Strandly brown) for highlights and CTAs
+- **Avoid**: White backgrounds, use warm beige instead
+- **Gradients**: Use `bg-gradient-warm` for hero elements
+
+### Typography
+- **Headers**: Always use `font-display` (Prata serif) for h1-h6
+- **Body Text**: Use `font-body` (Open Sans) for paragraphs and descriptions
+- **Hero Titles**: Use `text-5xl md:text-6xl lg:text-8xl` with `font-display`
+- **Section Titles**: Use `text-5xl sm:text-6xl` with `font-display`
+- **Body Text**: Use `text-base md:text-2xl` with `font-body`
+
+### Layout Patterns
+- **Hero Sections**: Two-column grid with image left, content right
+- **Process Steps**: Three-column grid with connecting dashed line
+- **Dual Content**: Two-column layout with mobile mockup
+- **Mobile-First**: Always start with mobile layout, then add responsive breakpoints

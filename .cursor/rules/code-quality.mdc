@@ -1,0 +1,19 @@
+## 🔧 Code Quality Rules
+
+### TypeScript
+- Always use explicit types for props and state
+- Use interfaces for component props
+- Prefer `React.FC<Props>` for component definitions
+- Use proper event handler types
+
+### React Patterns
+- Use functional components with hooks
+- Implement proper error boundaries
+- Use React.memo for performance optimization
+- Follow the single responsibility principle
+
+### CSS Classes
+- Use Tailwind utility classes over custom CSS
+- Group related classes logically
+- Use responsive prefixes consistently
+- Avoid inline styles unless absolutely necessary

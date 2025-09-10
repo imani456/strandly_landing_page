@@ -1,0 +1,13 @@
+## 🧪 Testing Rules
+
+### Component Testing
+- Test all user interactions
+- Test responsive behavior
+- Test accessibility features
+- Test error states and loading states
+
+### Test Structure
+- Use descriptive test names
+- Group related tests with `describe`
+- Use `data-testid` for reliable selectors
+- Mock external dependencies

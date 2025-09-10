@@ -13,7 +13,8 @@ import AboutUs from "./pages/AboutUs";
 import LearnMore from "./pages/LearnMore";
 import BlogPage from "./app/blog/page";
 import BlogPost from "./pages/BlogPost";
-import Navigation from "./components/Navigation";
+import Shop from "./pages/Shop";
+import FloatingNavigation from "./components/FloatingNavigation";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navigation />
+        <FloatingNavigation />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/impressum" element={<Impressum />} />
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/learn-more" element={<LearnMore />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/shop" element={<Shop />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

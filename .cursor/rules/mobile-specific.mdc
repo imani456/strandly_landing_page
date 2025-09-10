@@ -1,0 +1,13 @@
+## 📱 Mobile-Specific Rules
+
+### Touch Interactions
+- Ensure touch targets are at least 44px
+- Use appropriate touch gestures
+- Implement proper swipe interactions
+- Test on real devices
+
+### Mobile Layout
+- Use single-column layouts on mobile
+- Stack elements vertically
+- Use full-width buttons
+- Implement proper mobile navigation

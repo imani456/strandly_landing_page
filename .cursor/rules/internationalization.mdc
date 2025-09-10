@@ -1,0 +1,13 @@
+## 🌍 Internationalization Rules
+
+### Translation Keys
+- Use namespaced keys: `home.hero_title`, `booking.form.name`
+- Keep keys descriptive and consistent
+- Use interpolation for dynamic content: `"welcome_message": "Welcome, {name}!"`
+- Always provide fallback text
+
+### Content Structure
+- Separate content from code
+- Use `useTranslation()` hook for client components
+- Use `getTranslations()` for server components
+- Support multiple locales: en, de, fr

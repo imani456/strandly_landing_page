@@ -1,0 +1,13 @@
+## 🚀 Performance Rules
+
+### Image Optimization
+- Use Next.js Image component when available
+- Provide proper alt text for accessibility
+- Use appropriate image sizes for different breakpoints
+- Implement lazy loading for below-the-fold images
+
+### Code Splitting
+- Use dynamic imports for heavy components
+- Implement proper loading states
+- Optimize bundle size with tree shaking
+- Use React.lazy for route-based splitting

@@ -1,0 +1,13 @@
+## 🚨 Error Handling Rules
+
+### User-Friendly Messages
+- Avoid technical jargon
+- Provide actionable error messages
+- Offer recovery options
+- Use consistent error styling
+
+### Error States
+- Implement proper loading states
+- Show skeleton screens for content loading
+- Provide retry mechanisms
+- Log errors for debugging

@@ -1,0 +1,81 @@
+## 🔑 Essential Development Guidelines
+
+### Design System Tokens
+- **ALWAYS** use centralized design tokens from `tailwind.config.js`
+- **NEVER** hardcode colors - use `bg-beige`, `text-cocoa`, `border-gold`
+- **ALWAYS** use semantic color names: `primary`, `secondary`, `accent`, `muted`
+- **ALWAYS** use consistent spacing scale: `space-1` through `space-24`
+- **ALWAYS** use consistent border radius: `rounded-sm`, `rounded-md`, `rounded-lg`, `rounded-xl`
+
+### Content Model & API Integration
+- **ALWAYS** define content models in Directus first
+- **ALWAYS** use generated TypeScript types from Directus
+- **ALWAYS** create custom hooks for data fetching: `useStylists()`, `useBookings()`, `useProducts()`
+- **NEVER** fetch data directly in components - use hooks
+- **ALWAYS** implement proper error handling for API calls
+
+### Authentication & Roles
+- **ALWAYS** implement role-based access control (RBAC)
+- **ALWAYS** protect routes based on user roles
+- **ALWAYS** show appropriate UI based on user permissions
+- **ALWAYS** handle authentication states: loading, authenticated, unauthenticated
+
+### State Management Rules
+- **ALWAYS** use React Query for server state
+- **ALWAYS** use React Context for global client state
+- **NEVER** use prop drilling - use context or custom hooks
+- **ALWAYS** implement optimistic updates for better UX
+- **ALWAYS** cache data appropriately with React Query
+
+### Error & Success Handling
+- **ALWAYS** provide user feedback for every action
+- **ALWAYS** use toast notifications for success/error messages
+- **ALWAYS** implement proper error boundaries
+- **ALWAYS** show loading states during async operations
+- **NEVER** leave users guessing about what happened
+
+### Testing Requirements
+- **ALWAYS** write tests for user interactions
+- **ALWAYS** test responsive behavior
+- **ALWAYS** test accessibility features
+- **ALWAYS** test error states and loading states
+- **ALWAYS** use `data-testid` for reliable selectors
+
+### Performance Optimization
+- **ALWAYS** use `React.memo` for expensive components
+- **ALWAYS** implement lazy loading for below-the-fold content
+- **ALWAYS** optimize images with proper sizing
+- **ALWAYS** use `useMemo` and `useCallback` for expensive calculations
+- **ALWAYS** implement proper code splitting
+
+### SEO & Analytics
+- **ALWAYS** implement proper meta tags
+- **ALWAYS** use semantic HTML elements
+- **ALWAYS** implement structured data for services/products
+- **ALWAYS** track user interactions with analytics
+- **ALWAYS** optimize Core Web Vitals
+
+### Content & Marketing
+- **ALWAYS** support multilingual content
+- **ALWAYS** implement proper content management
+- **ALWAYS** use consistent content structure
+- **ALWAYS** implement proper content validation
+- **ALWAYS** support content preview and staging
+
+### Development Workflow
+- **ALWAYS** use TypeScript for type safety
+- **ALWAYS** use ESLint and Prettier for code quality
+- **ALWAYS** write meaningful commit messages
+- **ALWAYS** create feature branches for new work
+- **ALWAYS** test before merging to main
+
+### Code Organization
+- **ALWAYS** use atomic design principles
+- **ALWAYS** keep components small and focused
+- **ALWAYS** use proper file naming conventions
+- **ALWAYS** organize imports logically
+- **ALWAYS** use proper TypeScript interfaces
+
+---
+
+Follow these rules to maintain consistency, quality, and accessibility across the Strandly platform. Always prioritize user experience and mobile-first design.

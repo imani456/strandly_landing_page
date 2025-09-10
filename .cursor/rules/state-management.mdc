@@ -1,0 +1,13 @@
+## 🔄 State Management Rules
+
+### Local State
+- Use useState for simple component state
+- Use useReducer for complex state logic
+- Keep state as close to where it's used as possible
+- Avoid prop drilling
+
+### Global State
+- Use React Context for theme and user state
+- Use React Query for server state
+- Implement proper error handling
+- Use optimistic updates where appropriate

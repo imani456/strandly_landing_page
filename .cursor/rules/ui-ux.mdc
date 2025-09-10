@@ -1,0 +1,205 @@
+## 📱 Responsive Design Rules
+
+### Breakpoints (Tailwind Defaults)
+- **Mobile**: `0px - 639px` (base) - Single column, stacked layout
+- **Small**: `640px - 767px` (sm:) - Small tablet adjustments
+- **Medium**: `768px - 1023px` (md:) - Tablet layouts
+- **Large**: `1024px - 1279px` (lg:) - Desktop layouts
+- **Extra Large**: `1280px+` (xl:) - Large desktop layouts
+
+### Mobile-First Approach (MANDATORY)
+- **ALWAYS** start with mobile layout in base classes
+- **ALWAYS** add responsive prefixes: `sm:`, `md:`, `lg:`, `xl:`
+- **NEVER** use desktop-first approach
+- **ALWAYS** test on mobile devices first
+
+### Responsive Typography Rules
+'''css
+/* Hero Titles */
+text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
+
+/* Section Titles */
+text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+
+/* Body Text */
+text-sm sm:text-base md:text-lg lg:text-xl
+
+/* Small Text */
+text-xs sm:text-sm md:text-base
+'''
+
+### Responsive Spacing Rules
+'''css
+/* Section Padding */
+py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24
+
+/* Container Padding */
+px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16
+
+/* Content Spacing */
+space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10
+
+/* Card Padding */
+p-4 sm:p-6 md:p-8 lg:p-10
+'''
+
+### Responsive Grid Systems
+'''css
+/* Hero Sections */
+grid grid-cols-1 lg:grid-cols-2
+
+/* Process Steps */
+grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-y-0
+
+/* Product Grids */
+grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4
+
+/* Content Sections */
+max-w-4xl sm:max-w-5xl md:max-w-6xl lg:max-w-7xl xl:max-w-8xl mx-auto
+'''
+
+### Responsive Image Rules
+'''css
+/* Hero Images */
+w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px]
+
+/* Card Images */
+w-full h-48 sm:h-56 md:h-64 lg:h-72
+
+/* Avatar Images */
+w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16
+'''
+
+### Responsive Button Rules
+'''css
+/* Button Sizes */
+text-sm sm:text-base md:text-lg px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3
+
+/* Button Groups */
+flex-col sm:flex-row gap-2 sm:gap-4
+
+/* Full Width on Mobile */
+w-full sm:w-auto
+'''
+
+### Responsive Form Rules
+'''css
+/* Input Fields */
+w-full px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4
+
+/* Form Groups */
+space-y-4 sm:space-y-6
+
+/* Form Layouts */
+grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6
+'''
+
+### Responsive Navigation Rules
+'''css
+/* Mobile Navigation */
+hidden lg:flex (desktop nav)
+flex lg:hidden (mobile nav)
+
+/* Navigation Items */
+text-sm sm:text-base md:text-lg
+
+/* Navigation Spacing */
+space-y-2 sm:space-y-0 sm:space-x-4 lg:space-x-6
+'''
+
+### Responsive Card Rules
+'''css
+/* Card Layouts */
+grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8
+
+/* Card Content */
+p-4 sm:p-6 md:p-8
+
+/* Card Images */
+h-48 sm:h-56 md:h-64 lg:h-72
+'''
+
+### Responsive Modal/Dialog Rules
+'''css
+/* Modal Sizes */
+w-full sm:w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2
+
+/* Modal Padding */
+p-4 sm:p-6 md:p-8
+
+/* Modal Spacing */
+space-y-4 sm:space-y-6
+'''
+
+### Responsive Text Rules
+'''css
+/* Line Height */
+leading-tight sm:leading-snug md:leading-normal lg:leading-relaxed
+
+/* Text Alignment */
+text-center sm:text-left (mobile center, desktop left)
+text-left sm:text-center (mobile left, desktop center)
+
+/* Text Truncation */
+truncate sm:whitespace-normal (mobile truncate, desktop wrap)
+'''
+
+### Responsive Visibility Rules
+'''css
+/* Show/Hide Elements */
+hidden sm:block (hide on mobile, show on tablet+)
+block sm:hidden (show on mobile, hide on tablet+)
+hidden md:block (hide on mobile/tablet, show on desktop+)
+'''
+
+### Responsive Touch Targets
+- **Minimum Size**: 44px × 44px for all interactive elements
+- **Button Padding**: `px-4 py-3` minimum on mobile
+- **Link Spacing**: `py-2` minimum for text links
+- **Icon Buttons**: `w-10 h-10` minimum size
+
+### Responsive Testing Checklist
+- [ ] Test on mobile (320px - 640px)
+- [ ] Test on tablet (768px - 1024px)
+- [ ] Test on desktop (1024px+)
+- [ ] Test on large desktop (1280px+)
+- [ ] Verify touch targets are 44px+
+- [ ] Check text readability at all sizes
+- [ ] Ensure images scale properly
+- [ ] Test navigation on all devices
+- [ ] Verify forms work on mobile
+- [ ] Check modal/dialog responsiveness
+
+### Responsive Performance Rules
+- Use `loading="lazy"` for below-the-fold images
+- Implement responsive images with `srcset`
+- Use `object-fit: cover` for consistent image scaling
+- Optimize images for different screen densities
+- Use CSS `clamp()` for fluid typography when appropriate
+
+### Responsive Accessibility Rules
+- Ensure 4.5:1 contrast ratio at all breakpoints
+- Test with screen readers on mobile and desktop
+- Verify keyboard navigation works on all devices
+- Ensure focus indicators are visible on all screen sizes
+- Test with zoom up to 200% on all breakpoints
+
+## 🎨 Visual Hierarchy Rules
+
+### Spacing
+- **Section Padding**: `py-16 sm:py-20 md:py-24` for main sections
+- **Content Spacing**: `space-y-8` for vertical rhythm
+- **Card Spacing**: `p-6` or `p-8` for internal padding
+- **Button Spacing**: `gap-4` for button groups
+
+### Shadows and Depth
+- **Soft Shadows**: `shadow-soft` for subtle elevation
+- **Elegant Shadows**: `shadow-elegant` for cards and modals
+- **Warm Shadows**: `shadow-warm` for hero elements
+- **Drop Shadows**: `drop-shadow-elegant` for images
+
+### Borders and Radius
+- **Standard Radius**: `rounded-lg` (12px) for cards
+- **Large Radius**: `rounded-xl` (16px) for hero elements
+- **Full Radius**: `rounded-full` for badges and avatars
+- **Borders**: Use `border-[#6B3F1D]/30` for subtle borders

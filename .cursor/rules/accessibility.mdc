@@ -1,0 +1,19 @@
+## ♿ Accessibility Rules
+
+### WCAG AA Compliance
+- Ensure 4.5:1 contrast ratio for normal text
+- Provide proper heading hierarchy (h1 > h2 > h3)
+- Use semantic HTML elements
+- Implement proper focus management
+
+### Keyboard Navigation
+- All interactive elements must be keyboard accessible
+- Use proper tab order
+- Provide visible focus indicators
+- Implement skip links for main content
+
+### Screen Reader Support
+- Use proper ARIA labels
+- Provide descriptive alt text for images
+- Use semantic HTML elements
+- Test with screen readers

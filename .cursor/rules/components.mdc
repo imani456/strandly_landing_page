@@ -1,0 +1,20 @@
+## 🧩 Component Rules
+
+### Button Variants
+- **Hero**: `variant="hero"` - Primary CTA buttons
+- **Hero Outline**: `variant="hero-outline"` - Secondary CTA buttons
+- **Primary**: `variant="primary"` - Standard primary buttons
+- **Secondary**: `variant="secondary"` - Standard secondary buttons
+- **Sizes**: Use `size="xl"` for hero CTAs, `size="lg"` for important actions
+
+### Card Components
+- **Background**: Always use `bg-background` or `bg-[#e7cfb1]`
+- **Shadows**: Use `shadow-warm` or `shadow-elegant` for depth
+- **Borders**: Use `border-[#6B3F1D]/30` for subtle borders
+- **Padding**: Use `p-6` or `p-8` for standard cards
+
+### Form Elements
+- **Inputs**: Use `bg-[#e7cfb1]` background with `border-[#6B3F1D]/30`
+- **Focus States**: Use `focus:border-[#6B3F1D]` and `focus:ring-[#6B3F1D]`
+- **Labels**: Use `text-foreground` with proper contrast
+- **Error States**: Use `text-destructive` for error messages
