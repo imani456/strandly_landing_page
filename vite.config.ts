@@ -35,11 +35,19 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
-    include: ['@directus/sdk'],
+    include: ['@directus/sdk', 'react', 'react-dom'],
   },
   build: {
     commonjsOptions: {
       include: [/node_modules\/@directus\/sdk/],
     },
+    rollupOptions: {
+      external: [],
+    },
+    target: 'es2020',
+    minify: 'esbuild',
+  },
+  esbuild: {
+    jsx: 'automatic',
   },
 }));
