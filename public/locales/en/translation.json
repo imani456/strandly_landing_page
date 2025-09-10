@@ -1,6 +1,8 @@
 {
   "navigation": {
     "home": "Home",
+    "about_us": "About us",
+    "learn_more": "Learn more",
     "how_it_works": "How it works",
     "for_stylists": "For stylists",
     "contact": "Contact",

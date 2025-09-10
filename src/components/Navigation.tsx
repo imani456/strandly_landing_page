@@ -33,26 +33,18 @@ const Navigation = () => {
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground rounded-lg shadow-lg z-50 mb-8 sm:mb-12">
         <div className="flex items-center justify-center h-12 px-3 space-x-2 md:h-16 md:px-6 md:space-x-4">
           <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="#how-it-works"
+            <NavLink
+              to="/about"
               className="font-body text-primary-foreground hover:underline transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
-              }}
             >
-              {t("navigation.how_it_works")}
-            </a>
-            <a
-              href="#for-stylists"
+              {t("navigation.about_us")}
+            </NavLink>
+            <NavLink
+              to="/learn-more"
               className="font-body text-primary-foreground hover:underline transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('for-stylists')?.scrollIntoView({ behavior: 'smooth' });
-              }}
             >
-              {t("navigation.for_stylists")}
-            </a>
+              {t("navigation.learn_more")}
+            </NavLink>
             <a
               href="#contact"
               className="font-body text-primary-foreground hover:underline transition-colors"
