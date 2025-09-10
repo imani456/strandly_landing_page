@@ -5,4 +5,4 @@ services:
     rootDir: .
     buildCommand: npm ci && npm run build:prod
     staticPublishPath: dist
-    nodeVersion: 18.20.4
+    nodeVersion: 20.11.0

@@ -27,15 +27,26 @@ export default defineConfig(({ mode }) => ({
     }
   },
   plugins: [
-    react(),
+    react({
+      jsxImportSource: 'react',
+    }),
   ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "react": "react",
+      "react-dom": "react-dom",
     },
   },
   optimizeDeps: {
-    include: ['@directus/sdk', 'react', 'react-dom'],
+    include: [
+      '@directus/sdk', 
+      'react', 
+      'react-dom',
+      '@radix-ui/react-context',
+      '@radix-ui/react-compose-refs',
+      '@radix-ui/react-slot'
+    ],
   },
   build: {
     commonjsOptions: {
@@ -44,10 +55,11 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       external: [],
     },
-    target: 'es2020',
+    target: 'esnext',
     minify: 'esbuild',
   },
   esbuild: {
     jsx: 'automatic',
+    jsxImportSource: 'react',
   },
 }));
