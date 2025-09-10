@@ -1,0 +1,242 @@
+# Strandly Cursor Rules
+
+## 🎯 Project Overview
+Strandly is a premium Afro hair styling platform connecting clients with professional stylists across Europe. Built with React + Vite, TypeScript, TailwindCSS, and Shadcn UI.
+
+## 🎨 Design System Rules
+
+### Color Palette
+- **Primary Background**: `#e7cfb1` (warm beige) - use `bg-background` or `bg-[#e7cfb1]`
+- **Primary Text**: `#1a0f0a` (cocoa brown) - use `text-foreground` or `text-[#1a0f0a]`
+- **Accent Colors**: Use `#6B3F1D` (Strandly brown) for highlights and CTAs
+- **Avoid**: White backgrounds, use warm beige instead
+- **Gradients**: Use `bg-gradient-warm` for hero elements
+
+### Typography
+- **Headers**: Always use `font-display` (Prata serif) for h1-h6
+- **Body Text**: Use `font-body` (Open Sans) for paragraphs and descriptions
+- **Hero Titles**: Use `text-5xl md:text-6xl lg:text-8xl` with `font-display`
+- **Section Titles**: Use `text-5xl sm:text-6xl` with `font-display`
+- **Body Text**: Use `text-base md:text-2xl` with `font-body`
+
+### Layout Patterns
+- **Hero Sections**: Two-column grid with image left, content right
+- **Process Steps**: Three-column grid with connecting dashed line
+- **Dual Content**: Two-column layout with mobile mockup
+- **Mobile-First**: Always start with mobile layout, then add responsive breakpoints
+
+## 🧩 Component Rules
+
+### Button Variants
+- **Hero**: `variant="hero"` - Primary CTA buttons
+- **Hero Outline**: `variant="hero-outline"` - Secondary CTA buttons
+- **Primary**: `variant="primary"` - Standard primary buttons
+- **Secondary**: `variant="secondary"` - Standard secondary buttons
+- **Sizes**: Use `size="xl"` for hero CTAs, `size="lg"` for important actions
+
+### Card Components
+- **Background**: Always use `bg-background` or `bg-[#e7cfb1]`
+- **Shadows**: Use `shadow-warm` or `shadow-elegant` for depth
+- **Borders**: Use `border-[#6B3F1D]/30` for subtle borders
+- **Padding**: Use `p-6` or `p-8` for standard cards
+
+### Form Elements
+- **Inputs**: Use `bg-[#e7cfb1]` background with `border-[#6B3F1D]/30`
+- **Focus States**: Use `focus:border-[#6B3F1D]` and `focus:ring-[#6B3F1D]`
+- **Labels**: Use `text-foreground` with proper contrast
+- **Error States**: Use `text-destructive` for error messages
+
+## 📱 Responsive Design Rules
+
+### Breakpoints
+- **Mobile**: `0px - 767px` - Single column, stacked layout
+- **Tablet**: `768px - 1023px` - Two-column layouts
+- **Desktop**: `1024px+` - Full multi-column layouts
+
+### Mobile-First Approach
+- Start with mobile layout in base classes
+- Add responsive prefixes: `sm:`, `md:`, `lg:`, `xl:`
+- Use `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` patterns
+- Ensure touch targets are at least 44px
+
+### Grid Systems
+- **Hero**: `grid lg:grid-cols-2` with image/content split
+- **Process Steps**: `grid gap-y-12 md:grid-cols-3` with connecting line
+- **Product Grids**: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3`
+- **Content Sections**: `max-w-6xl mx-auto px-4 sm:px-6 md:px-12`
+
+## 🎨 Visual Hierarchy Rules
+
+### Spacing
+- **Section Padding**: `py-16 sm:py-20 md:py-24` for main sections
+- **Content Spacing**: `space-y-8` for vertical rhythm
+- **Card Spacing**: `p-6` or `p-8` for internal padding
+- **Button Spacing**: `gap-4` for button groups
+
+### Shadows and Depth
+- **Soft Shadows**: `shadow-soft` for subtle elevation
+- **Elegant Shadows**: `shadow-elegant` for cards and modals
+- **Warm Shadows**: `shadow-warm` for hero elements
+- **Drop Shadows**: `drop-shadow-elegant` for images
+
+### Borders and Radius
+- **Standard Radius**: `rounded-lg` (12px) for cards
+- **Large Radius**: `rounded-xl` (16px) for hero elements
+- **Full Radius**: `rounded-full` for badges and avatars
+- **Borders**: Use `border-[#6B3F1D]/30` for subtle borders
+
+## 🔧 Code Quality Rules
+
+### TypeScript
+- Always use explicit types for props and state
+- Use interfaces for component props
+- Prefer `React.FC<Props>` for component definitions
+- Use proper event handler types
+
+### React Patterns
+- Use functional components with hooks
+- Implement proper error boundaries
+- Use React.memo for performance optimization
+- Follow the single responsibility principle
+
+### CSS Classes
+- Use Tailwind utility classes over custom CSS
+- Group related classes logically
+- Use responsive prefixes consistently
+- Avoid inline styles unless absolutely necessary
+
+## 🌍 Internationalization Rules
+
+### Translation Keys
+- Use namespaced keys: `home.hero_title`, `booking.form.name`
+- Keep keys descriptive and consistent
+- Use interpolation for dynamic content: `"welcome_message": "Welcome, {name}!"`
+- Always provide fallback text
+
+### Content Structure
+- Separate content from code
+- Use `useTranslation()` hook for client components
+- Use `getTranslations()` for server components
+- Support multiple locales: en, de, fr
+
+## 🧪 Testing Rules
+
+### Component Testing
+- Test all user interactions
+- Test responsive behavior
+- Test accessibility features
+- Test error states and loading states
+
+### Test Structure
+- Use descriptive test names
+- Group related tests with `describe`
+- Use `data-testid` for reliable selectors
+- Mock external dependencies
+
+## 🚀 Performance Rules
+
+### Image Optimization
+- Use Next.js Image component when available
+- Provide proper alt text for accessibility
+- Use appropriate image sizes for different breakpoints
+- Implement lazy loading for below-the-fold images
+
+### Code Splitting
+- Use dynamic imports for heavy components
+- Implement proper loading states
+- Optimize bundle size with tree shaking
+- Use React.lazy for route-based splitting
+
+## ♿ Accessibility Rules
+
+### WCAG AA Compliance
+- Ensure 4.5:1 contrast ratio for normal text
+- Provide proper heading hierarchy (h1 > h2 > h3)
+- Use semantic HTML elements
+- Implement proper focus management
+
+### Keyboard Navigation
+- All interactive elements must be keyboard accessible
+- Use proper tab order
+- Provide visible focus indicators
+- Implement skip links for main content
+
+### Screen Reader Support
+- Use proper ARIA labels
+- Provide descriptive alt text for images
+- Use semantic HTML elements
+- Test with screen readers
+
+## 📝 Content Rules
+
+### Voice and Tone
+- Warm and professional
+- Inclusive and celebratory of Afro hair
+- Clear and direct language
+- Encouraging and supportive
+
+### Content Guidelines
+- Use active voice
+- Keep sentences concise
+- Use bullet points for lists
+- Provide clear CTAs
+
+## 🔄 State Management Rules
+
+### Local State
+- Use useState for simple component state
+- Use useReducer for complex state logic
+- Keep state as close to where it's used as possible
+- Avoid prop drilling
+
+### Global State
+- Use React Context for theme and user state
+- Use React Query for server state
+- Implement proper error handling
+- Use optimistic updates where appropriate
+
+## 🎯 SEO Rules
+
+### Meta Tags
+- Use descriptive page titles
+- Provide meta descriptions
+- Use proper heading hierarchy
+- Implement structured data
+
+### Performance
+- Optimize Core Web Vitals
+- Use proper image formats
+- Implement lazy loading
+- Minimize JavaScript bundle size
+
+## 🚨 Error Handling Rules
+
+### User-Friendly Messages
+- Avoid technical jargon
+- Provide actionable error messages
+- Offer recovery options
+- Use consistent error styling
+
+### Error States
+- Implement proper loading states
+- Show skeleton screens for content loading
+- Provide retry mechanisms
+- Log errors for debugging
+
+## 📱 Mobile-Specific Rules
+
+### Touch Interactions
+- Ensure touch targets are at least 44px
+- Use appropriate touch gestures
+- Implement proper swipe interactions
+- Test on real devices
+
+### Mobile Layout
+- Use single-column layouts on mobile
+- Stack elements vertically
+- Use full-width buttons
+- Implement proper mobile navigation
+
+---
+
+Follow these rules to maintain consistency, quality, and accessibility across the Strandly platform. Always prioritize user experience and mobile-first design.

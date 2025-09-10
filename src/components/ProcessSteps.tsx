@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
-import lensSvg from "/public/lens.svg";
-import phoneSvg from "/public/phone.svg";
-import hairSvg from "/public/hair.svg";
+import lensSvg from "/public/lens.svg?url";
+import phoneSvg from "/public/phone.svg?url";
+import hairSvg from "/public/hair.svg?url";
 
 const ProcessSteps = ({ id }: { id?: string }) => {
   const { t } = useTranslation();

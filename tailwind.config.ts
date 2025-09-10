@@ -75,7 +75,8 @@ export default {
 				'display': ['var(--font-display)'],
 				'accent': ['var(--font-accent)'],
 				'body': ['var(--font-body)'],
-				'sans': ['var(--font-body)']
+				'sans': ['var(--font-body)'],
+				'prata': ['Prata', 'serif']
 			},
 			backgroundImage: {
 				'gradient-warm': 'var(--gradient-warm)',

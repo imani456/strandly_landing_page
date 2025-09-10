@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { Button } from "./ui/button";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom"; // Added NavLink import
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -62,6 +63,12 @@ const Navigation = () => {
             >
               {t("navigation.contact")}
             </a>
+            <NavLink
+              to="/blog"
+              className="font-body text-primary-foreground hover:underline transition-colors"
+            >
+              {t("navigation.blog")}
+            </NavLink>
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
