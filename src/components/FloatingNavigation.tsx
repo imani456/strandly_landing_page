@@ -67,14 +67,16 @@ const FloatingNavigation = () => {
 
   const navigationItems = [
     {
-      label: t("navigation.how_it_works"),
-      href: "#how-it-works",
-      onClick: () => scrollToSection("how-it-works")
+      label: t("navigation.about_us"),
+      href: "/about-us",
+      isActive: isActiveRoute("/about-us"),
+      onClick: () => navigateToRoute("/about-us")
     },
     {
-      label: t("navigation.for_stylists"),
-      href: "#for-stylists", 
-      onClick: () => scrollToSection("for-stylists")
+      label: t("navigation.learn_more"),
+      href: "/learn-more",
+      isActive: isActiveRoute("/learn-more"),
+      onClick: () => navigateToRoute("/learn-more")
     },
     {
       label: t("navigation.contact"),

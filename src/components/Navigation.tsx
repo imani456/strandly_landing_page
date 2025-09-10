@@ -34,7 +34,7 @@ const Navigation = () => {
         <div className="flex items-center justify-center h-12 px-3 space-x-2 md:h-16 md:px-6 md:space-x-4">
           <div className="hidden md:flex items-center space-x-4">
             <NavLink
-              to="/about"
+              to="/about-us"
               className="font-body text-primary-foreground hover:underline transition-colors"
             >
               {t("navigation.about_us")}
