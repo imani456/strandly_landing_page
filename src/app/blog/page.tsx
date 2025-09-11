@@ -68,7 +68,8 @@ const BlogPage: React.FC = () => {
         // Fetch posts and tags in parallel
         const [postsResponse, tagsResponse] = await Promise.all([
           directusFetch(
-            '/items/posts?filter[titles][_nnull]=true&fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,published_at,category.name'
+            // fetch all published posts; remove restrictive title filter
+            '/items/posts?fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,published_at,category.name&filter[status][_eq]=published&sort[]=-published_at&limit=-1'
           ),
           directusFetch('/items/post_tags')
         ]);
@@ -230,7 +231,8 @@ const BlogPage: React.FC = () => {
           </div>
         </div>
       </div>
-    );
+    </div>
+  );
   }
 
   if (error) {
