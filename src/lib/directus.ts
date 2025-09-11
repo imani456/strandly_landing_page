@@ -1,4 +1,4 @@
-const DIRECTUS_URL = import.meta.env.DEV ? '/api' : 'https://strandly.onrender.com';
+const DIRECTUS_URL = '/api';
 const DIRECTUS_TOKEN = '3h9pr1rXhkBhbF7xFj6QwUkDKeCmcUzS';
 
 export const directusFetch = async (endpoint: string, options?: RequestInit) => {
@@ -8,6 +8,7 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
     
     const response = await fetch(url, {
       method: 'GET',
+      // Using same-origin proxy; CORS mode is fine but not required
       mode: 'cors',
       headers: {
         'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
@@ -19,7 +20,7 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.errors[0]?.message || 'Failed to fetch data from Directus');
+      throw new Error(errorData.errors?.[0]?.message || 'Failed to fetch data from Directus');
     }
 
     return response.json();
