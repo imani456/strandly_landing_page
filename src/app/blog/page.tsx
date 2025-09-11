@@ -68,8 +68,8 @@ const BlogPage: React.FC = () => {
         // Fetch posts and tags in parallel
         const [postsResponse, tagsResponse] = await Promise.all([
           directusFetch(
-            // fetch all published posts; remove restrictive title filter
-            '/items/posts?fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,published_at,category.name&filter[status][_eq]=published&sort[]=-published_at&limit=-1'
+            // fetch many posts without restrictive status filter; order by newest
+            '/items/posts?fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,published_at,category.name&sort=-published_at&limit=1000'
           ),
           directusFetch('/items/post_tags')
         ]);
@@ -195,39 +195,27 @@ const BlogPage: React.FC = () => {
   return (
     <div className="bg-background min-h-screen py-10">
       <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            {/* Hero Skeleton */}
-            <div className="text-center mb-12">
-              <Skeleton className="h-16 w-96 mx-auto mb-4" />
-              <Skeleton className="h-6 w-64 mx-auto mb-8" />
-              <Skeleton className="h-12 w-80 mx-auto" />
-            </div>
-            
-            {/* Filters Skeleton */}
-            <div className="flex flex-col md:flex-row gap-4 mb-8">
-              <Skeleton className="h-10 w-full md:w-80" />
-              <Skeleton className="h-10 w-32" />
-              <Skeleton className="h-10 w-32" />
-              <Skeleton className="h-10 w-32" />
-            </div>
-            
-            {/* Posts Grid Skeleton */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <Card key={i} className="overflow-hidden">
-                  <Skeleton className="h-48 w-full" />
-                  <CardHeader>
-                    <Skeleton className="h-6 w-3/4 mb-2" />
-                    <Skeleton className="h-4 w-full mb-2" />
-                    <Skeleton className="h-4 w-2/3" />
-                  </CardHeader>
-                  <CardContent>
-                    <Skeleton className="h-4 w-full mb-2" />
-                    <Skeleton className="h-4 w-5/6" />
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <Skeleton className="h-16 w-96 mx-auto mb-4" />
+            <Skeleton className="h-6 w-64 mx-auto mb-8" />
+            <Skeleton className="h-12 w-80 mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <Card key={i} className="overflow-hidden">
+                <Skeleton className="h-48 w-full" />
+                <CardHeader>
+                  <Skeleton className="h-6 w-3/4 mb-2" />
+                  <Skeleton className="h-4 w-full mb-2" />
+                  <Skeleton className="h-4 w-2/3" />
+                </CardHeader>
+                <CardContent>
+                  <Skeleton className="h-4 w-full mb-2" />
+                  <Skeleton className="h-4 w-5/6" />
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
