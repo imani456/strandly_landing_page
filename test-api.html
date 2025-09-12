@@ -13,25 +13,39 @@
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = 'Testing...';
             
-            try {
-                const response = await fetch('https://strandly.onrender.com/api/items/posts?limit=5', {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': 'Bearer 3h9pr1rXhkBhbF7xFj6QwUkDKeCmcUzS',
-                        'Content-Type': 'application/json',
-                    },
-                    mode: 'cors'
-                });
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
-                } else {
-                    resultDiv.innerHTML = `Error: ${response.status} - ${response.statusText}`;
+            const proxies = [
+                'https://strandly.onrender.com/api/items/posts?limit=5',
+                'https://cors-anywhere.herokuapp.com/https://strandly.onrender.com/api/items/posts?limit=5',
+                'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://strandly.onrender.com/api/items/posts?limit=5'),
+                'https://thingproxy.freeboard.io/fetch/https://strandly.onrender.com/api/items/posts?limit=5'
+            ];
+            
+            for (let i = 0; i < proxies.length; i++) {
+                try {
+                    resultDiv.innerHTML = `Testing proxy ${i + 1}/${proxies.length}: ${proxies[i]}`;
+                    
+                    const response = await fetch(proxies[i], {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': 'Bearer 3h9pr1rXhkBhbF7xFj6QwUkDKeCmcUzS',
+                            'Content-Type': 'application/json',
+                        },
+                        mode: 'cors'
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        resultDiv.innerHTML = `<h3>Success with proxy ${i + 1}!</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+                        return;
+                    } else {
+                        resultDiv.innerHTML += `<br>Proxy ${i + 1} failed: ${response.status} - ${response.statusText}`;
+                    }
+                } catch (error) {
+                    resultDiv.innerHTML += `<br>Proxy ${i + 1} error: ${error.message}`;
                 }
-            } catch (error) {
-                resultDiv.innerHTML = `CORS Error: ${error.message}`;
             }
+            
+            resultDiv.innerHTML += '<br><br>All proxies failed!';
         }
     </script>
 </body>

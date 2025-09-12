@@ -34,29 +34,36 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
   } catch (error) {
     console.error('Directus fetch error:', error);
     
-    // If CORS fails, try with a CORS proxy
-    try {
-      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://strandly.onrender.com/api${endpoint}`)}`;
-      console.log('Trying CORS proxy:', proxyUrl);
-      
-      const proxyResponse = await fetch(proxyUrl, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        ...options,
-      });
+    // If CORS fails, try with different CORS proxies
+    const proxies = [
+      `https://cors-anywhere.herokuapp.com/https://strandly.onrender.com/api${endpoint}`,
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://strandly.onrender.com/api${endpoint}`)}`,
+      `https://thingproxy.freeboard.io/fetch/https://strandly.onrender.com/api${endpoint}`,
+    ];
 
-      if (!proxyResponse.ok) {
-        throw new Error(`Proxy error: ${proxyResponse.status}`);
+    for (const proxyUrl of proxies) {
+      try {
+        console.log('Trying CORS proxy:', proxyUrl);
+        
+        const proxyResponse = await fetch(proxyUrl, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          ...options,
+        });
+
+        if (proxyResponse.ok) {
+          return proxyResponse.json();
+        }
+      } catch (proxyError) {
+        console.error('Proxy failed:', proxyUrl, proxyError);
+        continue; // Try next proxy
       }
-
-      return proxyResponse.json();
-    } catch (proxyError) {
-      console.error('CORS proxy also failed:', proxyError);
-      throw error; // Throw original error
     }
+    
+    throw error; // All proxies failed
   }
 };
