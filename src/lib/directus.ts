@@ -1,4 +1,4 @@
-const DIRECTUS_URL = 'https://strandly.onrender.com/api';
+const DIRECTUS_URL = 'https://strandly.onrender.com';
 const DIRECTUS_TOKEN = '3h9pr1rXhkBhbF7xFj6QwUkDKeCmcUzS';
 
 export const directusFetch = async (endpoint: string, options?: RequestInit) => {
@@ -36,9 +36,9 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
     
     // If CORS fails, try with different CORS proxies
     const proxies = [
-      `https://cors-anywhere.herokuapp.com/https://strandly.onrender.com/api${endpoint}`,
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://strandly.onrender.com/api${endpoint}`)}`,
-      `https://thingproxy.freeboard.io/fetch/https://strandly.onrender.com/api${endpoint}`,
+      `https://cors-anywhere.herokuapp.com/https://strandly.onrender.com${endpoint}`,
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://strandly.onrender.com${endpoint}`)}`,
+      `https://thingproxy.freeboard.io/fetch/https://strandly.onrender.com${endpoint}`,
     ];
 
     for (const proxyUrl of proxies) {
