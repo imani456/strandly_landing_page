@@ -1,8 +1,8 @@
 services:
-  - type: staticSite
+  - type: web
     name: strandly-europage-glow
-    env: static
+    env: node
     rootDir: .
     buildCommand: npm ci && npm run build:prod
-    staticPublishPath: dist
+    startCommand: npm start
     nodeVersion: 20.11.0

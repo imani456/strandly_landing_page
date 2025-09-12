@@ -1,4 +1,4 @@
-const DIRECTUS_URL = import.meta.env.DEV ? '/api' : 'https://strandly.onrender.com/api';
+const DIRECTUS_URL = '/api';
 const DIRECTUS_TOKEN = '3h9pr1rXhkBhbF7xFj6QwUkDKeCmcUzS';
 
 export const directusFetch = async (endpoint: string, options?: RequestInit) => {
