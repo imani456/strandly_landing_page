@@ -1,10 +1,10 @@
-const DIRECTUS_URL = 'https://strandly.onrender.com';
-const DIRECTUS_TOKEN = '3h9pr1rXhkBhbF7xFj6QwUkDKeCmcUzS';
+const DIRECTUS_URL = import.meta.env.VITE_DIRECTUS_URL || 'https://strandly.onrender.com';
+const DIRECTUS_TOKEN = import.meta.env.VITE_DIRECTUS_TOKEN || '3h9pr1rXhkBhbF7xFj6QwUkDKeCmcUzS';
 
 export const directusFetch = async (endpoint: string, options?: RequestInit) => {
   try {
     // Try direct API call first
-    const directUrl = `https://strandly.onrender.com${endpoint}`;
+    const directUrl = `${DIRECTUS_URL}${endpoint}`;
     console.log('Fetching from:', directUrl);
     
     const response = await fetch(directUrl, {
@@ -35,9 +35,9 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
     
     // If CORS fails, try with different CORS proxies
     const proxies = [
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://strandly.onrender.com${endpoint}`)}`,
-      `https://corsproxy.io/?${encodeURIComponent(`https://strandly.onrender.com${endpoint}`)}`,
-      `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(`https://strandly.onrender.com${endpoint}`)}`
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(`${DIRECTUS_URL}${endpoint}`)}`,
+      `https://corsproxy.io/?${encodeURIComponent(`${DIRECTUS_URL}${endpoint}`)}`,
+      `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(`${DIRECTUS_URL}${endpoint}`)}`
     ];
 
     for (let i = 0; i < proxies.length; i++) {
