@@ -10,7 +10,7 @@
     "build:prod": "NODE_ENV=production vite build",
     "build:vercel": "vite build",
     "build:netlify": "vite build",
-    "start": "node server.js",
+    "start": "node server.cjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "generate-sitemap": "node sitemap-generator.js"
