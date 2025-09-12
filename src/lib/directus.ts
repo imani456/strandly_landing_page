@@ -34,29 +34,41 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
   } catch (error) {
     console.error('Directus fetch error:', error);
     
-    // If CORS fails, try with a CORS proxy
-    try {
-      const proxyUrl = `https://thingproxy.freeboard.io/fetch/https://strandly.onrender.com${endpoint}`;
-      console.log('Trying CORS proxy:', proxyUrl);
-      
-      const proxyResponse = await fetch(proxyUrl, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        ...options,
-      });
+    // If CORS fails, try with different CORS proxies
+    const proxies = [
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://strandly.onrender.com${endpoint}`)}`,
+      `https://cors-anywhere.herokuapp.com/https://strandly.onrender.com${endpoint}`,
+      `https://thingproxy.freeboard.io/fetch/https://strandly.onrender.com${endpoint}`
+    ];
 
-      if (proxyResponse.ok) {
-        return proxyResponse.json();
-      } else {
-        throw new Error(`Proxy error: ${proxyResponse.status}`);
+    for (let i = 0; i < proxies.length; i++) {
+      try {
+        const proxyUrl = proxies[i];
+        console.log(`Trying CORS proxy ${i + 1}/${proxies.length}:`, proxyUrl);
+        
+        const proxyResponse = await fetch(proxyUrl, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          ...options,
+        });
+
+        if (proxyResponse.ok) {
+          console.log(`CORS proxy ${i + 1} succeeded!`);
+          return proxyResponse.json();
+        } else {
+          console.log(`CORS proxy ${i + 1} failed with status:`, proxyResponse.status);
+        }
+      } catch (proxyError) {
+        console.log(`CORS proxy ${i + 1} failed:`, proxyError.message);
+        if (i === proxies.length - 1) {
+          console.error('All CORS proxies failed');
+          throw error; // Throw original error
+        }
       }
-    } catch (proxyError) {
-      console.error('CORS proxy also failed:', proxyError);
-      throw error; // Throw original error
     }
   }
 };
