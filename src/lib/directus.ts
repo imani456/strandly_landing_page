@@ -11,7 +11,6 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
       method: 'GET',
       mode: 'cors',
       headers: {
-        'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
@@ -37,8 +36,8 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
     // If CORS fails, try with different CORS proxies
     const proxies = [
       `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://strandly.onrender.com${endpoint}`)}`,
-      `https://cors-anywhere.herokuapp.com/https://strandly.onrender.com${endpoint}`,
-      `https://thingproxy.freeboard.io/fetch/https://strandly.onrender.com${endpoint}`
+      `https://corsproxy.io/?${encodeURIComponent(`https://strandly.onrender.com${endpoint}`)}`,
+      `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(`https://strandly.onrender.com${endpoint}`)}`
     ];
 
     for (let i = 0; i < proxies.length; i++) {
@@ -49,7 +48,6 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
         const proxyResponse = await fetch(proxyUrl, {
           method: 'GET',
           headers: {
-            'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           },
