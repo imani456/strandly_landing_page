@@ -32,6 +32,29 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
     return response.json();
   } catch (error) {
     console.error('Directus fetch error:', error);
-    throw error;
+    
+    // If CORS fails, try with a CORS proxy
+    try {
+      const proxyUrl = `https://thingproxy.freeboard.io/fetch/https://strandly.onrender.com${endpoint}`;
+      console.log('Trying CORS proxy:', proxyUrl);
+      
+      const proxyResponse = await fetch(proxyUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        ...options,
+      });
+
+      if (proxyResponse.ok) {
+        return proxyResponse.json();
+      } else {
+        throw new Error(`Proxy error: ${proxyResponse.status}`);
+      }
+    } catch (proxyError) {
+      console.error('CORS proxy also failed:', proxyError);
+      throw error; // Throw original error
+    }
   }
 };
