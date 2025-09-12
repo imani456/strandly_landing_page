@@ -11,6 +11,7 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
       method: 'GET',
       mode: 'cors',
       headers: {
+        'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
@@ -41,6 +42,7 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
       const proxyResponse = await fetch(proxyUrl, {
         method: 'GET',
         headers: {
+          'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
