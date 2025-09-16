@@ -18,7 +18,18 @@ class DirectusFetchError extends Error {
 
 export const directusFetch = async (endpoint: string, options?: RequestInit) => {
   // Use server-side proxy to avoid CORS issues
-  const proxyUrl = `/api${endpoint}`;
+  let proxyUrl = `/api${endpoint}`;
+  if (DIRECTUS_TOKEN) {
+    try {
+      const url = new URL(proxyUrl, typeof window !== 'undefined' ? window.location.origin : 'http://localhost');
+      if (!url.searchParams.has('access_token')) {
+        url.searchParams.set('access_token', DIRECTUS_TOKEN);
+      }
+      proxyUrl = url.pathname + url.search;
+    } catch {
+      // noop
+    }
+  }
   if (import.meta.env.DEV) {
     console.log('[Directus] Proxy request →', proxyUrl);
   }
@@ -54,7 +65,18 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
     // Fallback to direct API call
     try {
       console.log('[Directus] Falling back to direct API call...');
-      const directUrl = `${DIRECTUS_URL}${endpoint}`;
+      let directUrl = `${DIRECTUS_URL}${endpoint}`;
+      if (DIRECTUS_TOKEN) {
+        try {
+          const url = new URL(directUrl);
+          if (!url.searchParams.has('access_token')) {
+            url.searchParams.set('access_token', DIRECTUS_TOKEN);
+          }
+          directUrl = url.toString();
+        } catch {
+          // noop
+        }
+      }
       
       const response = await fetch(directUrl, {
         method: 'GET',
