@@ -1,10 +1,27 @@
 const DIRECTUS_URL = import.meta.env.VITE_DIRECTUS_URL || 'https://strandly.onrender.com';
-const DIRECTUS_TOKEN = import.meta.env.VITE_DIRECTUS_TOKEN || '3h9pr1rXhkBhbF7xFj6QwUkDKeCmcUzS';
+const DIRECTUS_TOKEN = import.meta.env.VITE_DIRECTUS_TOKEN || '';
+
+class DirectusFetchError extends Error {
+  status?: number;
+  endpoint: string;
+  url: string;
+  details?: unknown;
+  constructor(message: string, info: { status?: number; endpoint: string; url: string; details?: unknown }) {
+    super(message);
+    this.name = 'DirectusFetchError';
+    this.status = info.status;
+    this.endpoint = info.endpoint;
+    this.url = info.url;
+    this.details = info.details;
+  }
+}
 
 export const directusFetch = async (endpoint: string, options?: RequestInit) => {
   // Use server-side proxy to avoid CORS issues
   const proxyUrl = `/api${endpoint}`;
-  console.log('Fetching from proxy:', proxyUrl);
+  if (import.meta.env.DEV) {
+    console.log('[Directus] Proxy request →', proxyUrl);
+  }
   
   try {
     const response = await fetch(proxyUrl, {
@@ -12,64 +29,109 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
+        ...(DIRECTUS_TOKEN ? { Authorization: `Bearer ${DIRECTUS_TOKEN}` } : {}),
       },
       ...options,
     });
 
     if (!response.ok) {
       let message = 'Failed to fetch data from Directus';
+      let details: unknown = undefined;
       try {
-        const errorData = await response.json();
-        message = errorData.errors?.[0]?.message || message;
+        details = await response.json();
+        // @ts-expect-error best-effort message extraction
+        message = details?.errors?.[0]?.message || message;
       } catch (_e) {
         // ignore JSON parse error
       }
-      throw new Error(message);
+      throw new DirectusFetchError(message, { status: response.status, endpoint, url: proxyUrl, details });
     }
 
     return response.json();
   } catch (error) {
-    console.error('Directus proxy fetch error:', error);
+    console.error('[Directus] Proxy error', error);
     
-    // Fallback to direct API call with no-cors mode
+    // Fallback to direct API call
     try {
-      console.log('Trying direct API call with no-cors mode...');
+      console.log('[Directus] Falling back to direct API call...');
       const directUrl = `${DIRECTUS_URL}${endpoint}`;
       
       const response = await fetch(directUrl, {
         method: 'GET',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          ...(DIRECTUS_TOKEN ? { Authorization: `Bearer ${DIRECTUS_TOKEN}` } : {}),
         },
         ...options,
       });
 
-      // Note: no-cors mode returns an opaque response
-      // We can't read the response body, but we can check if the request was made
-      if (response.type === 'opaque') {
-        console.log('Direct API call made (opaque response)');
-        // Return mock data or handle gracefully
-        throw new Error('CORS blocked - using fallback data');
+      if (!response.ok) {
+        let message = 'Failed to fetch data from Directus (direct)';
+        let details: unknown = undefined;
+        try {
+          details = await response.json();
+          // @ts-expect-error best-effort
+          message = details?.errors?.[0]?.message || message;
+        } catch (_e) {
+          // ignore
+        }
+        throw new DirectusFetchError(message, { status: response.status, endpoint, url: directUrl, details });
       }
 
       return response.json();
     } catch (directError) {
-      console.error('Direct API call also failed:', directError);
-      
-      // Final fallback: return mock/empty data
-      console.log('All API calls failed, returning fallback data');
-      const { fallbackPosts, fallbackTags } = await import('./fallback-data');
-      
-      // Return appropriate fallback data based on endpoint
-      if (endpoint.includes('post_tags')) {
-        return fallbackTags;
-      } else if (endpoint.includes('posts')) {
-        return fallbackPosts;
-      }
-      
-      return { data: [], meta: { total_count: 0 } };
+      console.error('[Directus] Direct call failed', directError);
+      throw directError;
     }
   }
+};
+
+export const getDirectusAssetUrl = (assetId: string, params?: Record<string, string | number | boolean>) => {
+  const isAbsolute = /^https?:\/\//i.test(assetId);
+  const base = isAbsolute ? assetId : `${DIRECTUS_URL}/assets/${assetId}`;
+  const usp = new URLSearchParams();
+  if (params) {
+    for (const [k, v] of Object.entries(params)) {
+      usp.set(k, String(v));
+    }
+  }
+  // Append access token only for Directus-hosted assets (not for external URLs)
+  try {
+    const directusOrigin = new URL(DIRECTUS_URL).origin;
+    const baseOrigin = isAbsolute ? new URL(base).origin : directusOrigin;
+    const isDirectusHost = baseOrigin === directusOrigin;
+    if (isDirectusHost && DIRECTUS_TOKEN && !usp.has('access_token')) {
+      usp.set('access_token', DIRECTUS_TOKEN);
+    }
+  } catch {
+    // if URL parsing fails, skip token injection
+  }
+  const query = usp.toString();
+  return query ? `${base}?${query}` : base;
+};
+
+export const buildSrcSet = (assetId: string, widths: number[], opts?: { format?: 'webp' | 'jpg' | 'png'; quality?: number }) => {
+  const { format, quality = 80 } = opts || {};
+  const isAbsolute = /^https?:\/\//i.test(assetId);
+  // If it's not a Directus asset id or URL, we can't transform -> no srcset
+  if (isAbsolute) {
+    try {
+      const isDirectus = new URL(assetId).origin === new URL(DIRECTUS_URL).origin;
+      if (!isDirectus) return '';
+    } catch {
+      return '';
+    }
+  }
+  return widths
+    .map((w) => {
+      const url = getDirectusAssetUrl(assetId, {
+        width: w,
+        quality,
+        ...(format ? { format } : {}),
+        fit: 'cover',
+      });
+      return `${url} ${w}w`;
+    })
+    .join(', ');
 };

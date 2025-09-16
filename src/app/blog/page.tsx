@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { directusFetch } from '@/lib/directus';
+import { directusFetch, getDirectusAssetUrl, buildSrcSet } from '@/lib/directus';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -74,12 +74,49 @@ const BlogPage: React.FC = () => {
           directusFetch('/items/post_tags')
         ]);
         
+        const getLocalizedString = (value: unknown): string => {
+          if (typeof value === 'string') return value;
+          if (value && typeof value === 'object') {
+            const obj = value as Record<string, unknown>;
+            const preferred = obj['en'];
+            if (typeof preferred === 'string') return preferred;
+            const first = Object.values(obj).find(v => typeof v === 'string');
+            if (typeof first === 'string') return first;
+          }
+          return '';
+        };
+
         if (postsResponse && postsResponse.data) {
-          const postsWithReadingTime = (postsResponse.data as Post[]).map(post => ({
-            ...post,
-            reading_time: calculateReadingTime(post.content)
-          }));
-          setPosts(postsWithReadingTime);
+          const normalized = (postsResponse.data as any[]).map((raw) => {
+            const normalizedPost: Post = {
+              id: String(raw.id),
+              titles: getLocalizedString(raw.titles),
+              slugs: getLocalizedString(raw.slugs),
+              content: ((): string | null => {
+                const c = raw.content;
+                const str = getLocalizedString(c);
+                return str || (typeof c === 'string' ? c : null);
+              })(),
+              featured_image: raw.featured_image ? String(raw.featured_image) : null,
+              tags: Array.isArray(raw.tags) ? raw.tags : [],
+              meta_description: ((): string | null => {
+                const md = getLocalizedString(raw.meta_description);
+                return md || null;
+              })(),
+              author: {
+                id: raw.author?.id ? String(raw.author.id) : '0',
+                first_name: raw.author?.first_name || '',
+                last_name: raw.author?.last_name || ''
+              },
+              published_at: raw.published_at || new Date().toISOString(),
+              category: raw.category?.name ? { id: raw.category.id ? String(raw.category.id) : '0', name: raw.category.name } : undefined,
+            };
+            return {
+              ...normalizedPost,
+              reading_time: calculateReadingTime(normalizedPost.content)
+            };
+          });
+          setPosts(normalized);
         } else {
           setError('No posts found.');
         }
@@ -87,58 +124,20 @@ const BlogPage: React.FC = () => {
         if (tagsResponse && tagsResponse.data) {
           setPostTags(tagsResponse.data as PostTag[]);
         }
-      } catch (err) {
-        console.error('Failed to fetch data:', err);
-        
-        // Fallback data for development when API is not available
-        if (import.meta.env.DEV) {
-          console.log('Using fallback data for development');
-          const fallbackPosts: Post[] = [
-            {
-              id: '1',
-              titles: 'Weekly Streak: Maintained a 7-day activity streak',
-              slugs: 'weekly-streak-maintained-7-day-activity-streak',
-              content: '<h2>Introduction</h2><p>This is a sample blog post about maintaining a weekly streak. In this article, we\'ll explore the benefits of consistency and how it can help you achieve your goals.</p><h3>Key Benefits</h3><ul><li>Improved consistency</li><li>Better habit formation</li><li>Increased motivation</li></ul><p>Remember, consistency is key to success in any endeavor.</p>',
-              featured_image: null,
-              tags: [{ post_tags_id: { name: 'Lifestyle' } }, { post_tags_id: { name: 'Habits' } }],
-              meta_description: 'Learn how to maintain a consistent weekly streak and build better habits.',
-              author: { id: '1', first_name: 'John', last_name: 'Doe' },
-              published_at: '2024-01-15T10:00:00Z',
-              category: { id: '1', name: 'Lifestyle' },
-              reading_time: 3
-            },
-            {
-              id: '2',
-              titles: 'The Art of Hair Care: A Complete Guide',
-              slugs: 'art-of-hair-care-complete-guide',
-              content: '<h2>Understanding Your Hair Type</h2><p>Every hair type requires different care approaches. Understanding your specific hair type is the first step towards proper hair care.</p><h3>Hair Care Tips</h3><ol><li>Use the right shampoo for your hair type</li><li>Condition regularly</li><li>Protect from heat damage</li><li>Maintain a healthy diet</li></ol>',
-              featured_image: null,
-              tags: [{ post_tags_id: { name: 'Hair Care' } }, { post_tags_id: { name: 'Beauty' } }],
-              meta_description: 'A comprehensive guide to proper hair care techniques and tips.',
-              author: { id: '2', first_name: 'Jane', last_name: 'Smith' },
-              published_at: '2024-01-10T14:30:00Z',
-              category: { id: '2', name: 'Beauty' },
-              reading_time: 5
-            }
-          ];
-          
-          const fallbackTags: PostTag[] = [
-            { id: 1, name: 'Afro Hair' },
-            { id: 2, name: 'Styling' },
-            { id: 3, name: 'Academies' },
-            { id: 4, name: 'Salons' },
-            { id: 5, name: 'Europe' }
-          ];
-          
-          const postsWithReadingTime = fallbackPosts.map(post => ({
-            ...post,
-            reading_time: calculateReadingTime(post.content)
-          }));
-          setPosts(postsWithReadingTime);
-          setPostTags(fallbackTags);
-        } else {
-        setError('Failed to load blog posts.');
+      } catch (err: any) {
+        console.groupCollapsed('%cBlog data fetch failed', 'color:#b45309');
+        console.error('Reason:', err?.message || err);
+        if (err && typeof err === 'object') {
+          // @ts-expect-error structured from DirectusFetchError
+          if (err.endpoint || err.url || err.status) {
+            // @ts-expect-error
+            console.table([{ endpoint: err.endpoint, url: err.url, status: err.status }]);
+            // @ts-expect-error
+            if (err.details) console.debug('Details:', err.details);
+          }
         }
+        console.groupEnd();
+        setError('We’re having trouble loading articles right now. Please try again shortly.');
       } finally {
         setLoading(false);
       }
@@ -155,10 +154,11 @@ const BlogPage: React.FC = () => {
 
   // Filter and sort posts
   const filteredAndSortedPosts = useMemo(() => {
+    const safeLower = (v: string | null | undefined) => (v || '').toLowerCase();
     let filtered = posts.filter(post => {
-      const matchesSearch = post.titles.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           post.meta_description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           (post.content && post.content.toLowerCase().includes(searchQuery.toLowerCase()));
+      const matchesSearch = safeLower(post.titles).includes(safeLower(searchQuery)) ||
+                           safeLower(post.meta_description).includes(safeLower(searchQuery)) ||
+                           safeLower(post.content || '').includes(safeLower(searchQuery));
       const matchesCategory = selectedCategory === 'all' || post.category?.name === selectedCategory;
       const matchesTags = selectedTags.length === 0 || 
                          selectedTags.some(selectedTag => 
@@ -175,7 +175,7 @@ const BlogPage: React.FC = () => {
         case 'oldest':
           return new Date(a.published_at).getTime() - new Date(b.published_at).getTime();
         case 'title':
-          return a.titles.localeCompare(b.titles);
+          return (a.titles || '').localeCompare(b.titles || '');
         default:
           return 0;
       }
@@ -444,15 +444,19 @@ const BlogPage: React.FC = () => {
                       }`}>
                 {post.featured_image ? (
                   <img
-                    src={`https://strandly.onrender.com/assets/${post.featured_image}`}
+                    src={getDirectusAssetUrl(post.featured_image, { width: 800, quality: 80, fit: 'cover', format: 'webp' })}
+                    srcSet={buildSrcSet(post.featured_image, [400, 600, 800, 1200], { format: 'webp', quality: 80 }) || undefined}
+                    sizes={viewMode === 'list' ? '(min-width: 1024px) 320px, 100vw' : '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw'}
                     alt={post.titles}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-[#e7cfb1] to-[#6B3F1D]/20 flex items-center justify-center">
-                            <BookOpen className="h-12 w-12 text-[#6B3F1D]" />
-                          </div>
-                        )}
+                  <div className="w-full h-full bg-gradient-to-br from-[#e7cfb1] to-[#6B3F1D]/20 flex items-center justify-center">
+                    <BookOpen className="h-12 w-12 text-[#6B3F1D]" />
+                  </div>
+                )}
                         <div className="absolute top-4 left-4">
                           {post.category && (
                             <Badge className="bg-[#6B3F1D]/10 text-[#6B3F1D] hover:bg-[#6B3F1D]/20 border-[#6B3F1D]/30">
