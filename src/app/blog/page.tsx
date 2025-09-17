@@ -68,8 +68,8 @@ const BlogPage: React.FC = () => {
         // Fetch posts and tags in parallel
         const [postsResponse, tagsResponse] = await Promise.all([
           directusFetch(
-            // fetch many posts without restrictive status filter; order by newest
-            '/items/posts?fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,published_at,category.name&sort=-published_at&limit=1000'
+            // fetch only published posts; order by newest
+            '/items/posts?fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,published_at,category.name&filter[status][_eq]=published&sort=-published_at&limit=1000'
           ),
           directusFetch('/items/post_tags')
         ]);
@@ -162,7 +162,7 @@ const BlogPage: React.FC = () => {
       const matchesCategory = selectedCategory === 'all' || post.category?.name === selectedCategory;
       const matchesTags = selectedTags.length === 0 || 
                          selectedTags.some(selectedTag => 
-                           post.tags.some(tag => tag.post_tags_id.name === selectedTag)
+                           post.tags.some(tag => tag?.post_tags_id?.name === selectedTag)
                          );
       return matchesSearch && matchesCategory && matchesTags;
     });
@@ -192,53 +192,85 @@ const BlogPage: React.FC = () => {
   );
 
   if (loading) {
-  return (
-    <div className="bg-background min-h-screen py-10">
-      <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <Skeleton className="h-16 w-96 mx-auto mb-4" />
-            <Skeleton className="h-6 w-64 mx-auto mb-8" />
-            <Skeleton className="h-12 w-80 mx-auto" />
+    return (
+      <div className="bg-[#e7cfb1] min-h-screen flex items-center justify-center">
+        <div className="text-center space-y-8">
+          {/* Animated Logo */}
+          <div className="relative">
+            <div className="w-20 h-20 bg-gradient-to-br from-[#6B3F1D] to-[#8B4513] rounded-full flex items-center justify-center shadow-elegant mx-auto animate-pulse">
+              <span className="text-white font-bold text-2xl font-display">S</span>
+            </div>
+            <div className="absolute inset-0 w-20 h-20 bg-gradient-to-br from-[#6B3F1D] to-[#8B4513] rounded-full animate-ping opacity-20"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <Card key={i} className="overflow-hidden">
-                <Skeleton className="h-48 w-full" />
-                <CardHeader>
-                  <Skeleton className="h-6 w-3/4 mb-2" />
-                  <Skeleton className="h-4 w-full mb-2" />
-                  <Skeleton className="h-4 w-2/3" />
-                </CardHeader>
-                <CardContent>
-                  <Skeleton className="h-4 w-full mb-2" />
-                  <Skeleton className="h-4 w-5/6" />
-                </CardContent>
-              </Card>
-            ))}
+          
+          {/* Loading Text */}
+          <div className="space-y-4">
+            <h2 className="font-display text-3xl md:text-4xl text-[#1a0f0a]">
+              Loading Articles
+            </h2>
+            <p className="font-body text-lg text-[#1a0f0a]/70">
+              Fetching the latest insights...
+            </p>
+          </div>
+          
+          {/* Loading Dots */}
+          <div className="flex justify-center space-x-2">
+            <div className="w-3 h-3 bg-[#6B3F1D] rounded-full animate-bounce"></div>
+            <div className="w-3 h-3 bg-[#6B3F1D] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+            <div className="w-3 h-3 bg-[#6B3F1D] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
   }
 
   if (error) {
     return (
-      <div className="bg-background min-h-screen py-10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <Card className="p-8">
-              <CardContent className="space-y-4">
-                <div className="text-6xl">😕</div>
-                <h1 className="text-2xl font-bold text-red-600">Oops! Something went wrong</h1>
-                <p className="text-muted-foreground">{error}</p>
-                <Button onClick={() => window.location.reload()} className="mt-4">
+      <div className="bg-[#e7cfb1] min-h-screen flex items-center justify-center">
+        <div className="max-w-2xl mx-auto text-center px-4">
+          <Card className="p-8 md:p-12 bg-[#e7cfb1] border-[#6B3F1D]/20 shadow-elegant">
+            <CardContent className="space-y-8">
+              {/* Error Icon */}
+              <div className="relative">
+                <div className="w-24 h-24 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center shadow-elegant mx-auto">
+                  <span className="text-white text-4xl">⚠️</span>
+                </div>
+                <div className="absolute inset-0 w-24 h-24 bg-gradient-to-br from-red-400 to-red-600 rounded-full animate-ping opacity-20"></div>
+              </div>
+              
+              {/* Error Content */}
+              <div className="space-y-4">
+                <h1 className="font-display text-3xl md:text-4xl text-[#1a0f0a]">
+                  Oops! Something went wrong
+                </h1>
+                <p className="font-body text-lg text-[#1a0f0a]/70">
+                  We're having trouble loading the articles right now.
+                </p>
+                <div className="bg-[#6B3F1D]/10 border border-[#6B3F1D]/20 rounded-lg p-4">
+                  <p className="font-body text-sm text-[#6B3F1D] font-medium">
+                    {error}
+                  </p>
+                </div>
+              </div>
+              
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  onClick={() => window.location.reload()} 
+                  className="bg-[#6B3F1D] hover:bg-[#8B4513] text-white font-body px-8 py-3"
+                >
                   Try Again
                 </Button>
-              </CardContent>
-            </Card>
-          </div>
+                <Button 
+                  variant="hero-outline"
+                  onClick={() => window.location.href = '/'}
+                  className="border-[#6B3F1D]/30 text-[#6B3F1D] hover:bg-[#6B3F1D]/10 font-body px-8 py-3"
+                >
+                  Go Home
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     );
@@ -451,6 +483,13 @@ const BlogPage: React.FC = () => {
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // Fallback to original URL if Directus transformation fails
+                      const target = e.target as HTMLImageElement;
+                      if (target.src !== post.featured_image) {
+                        target.src = post.featured_image;
+                      }
+                    }}
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-[#e7cfb1] to-[#6B3F1D]/20 flex items-center justify-center">
@@ -476,17 +515,20 @@ const BlogPage: React.FC = () => {
                           {/* Tags */}
                           {post.tags && post.tags.length > 0 && (
                             <div className="flex flex-wrap gap-1 mt-1">
-                              {post.tags.slice(0, 3).map((tag) => (
-                                <Badge key={tag.post_tags_id.name} className="text-xs bg-[#6B3F1D] text-[#e7cfb1] hover:bg-[#8B4513] rounded-full px-3 py-1 font-medium">
-                        {tag.post_tags_id.name}
-                      </Badge>
-                    ))}
-                              {post.tags.length > 3 && (
+                              {post.tags
+                                .filter(tag => tag?.post_tags_id?.name)
+                                .slice(0, 3)
+                                .map((tag, index) => (
+                                <Badge key={tag.post_tags_id?.name || index} className="text-xs bg-[#6B3F1D] text-[#e7cfb1] hover:bg-[#8B4513] rounded-full px-3 py-1 font-medium">
+                                  {tag.post_tags_id.name}
+                                </Badge>
+                              ))}
+                              {post.tags.filter(tag => tag?.post_tags_id?.name).length > 3 && (
                                 <Badge className="text-xs bg-[#e7cfb1] text-[#6B3F1D] border-[#6B3F1D]/30 hover:bg-[#6B3F1D]/10 rounded-full px-3 py-1 font-medium">
-                                  +{post.tags.length - 3} more
+                                  +{post.tags.filter(tag => tag?.post_tags_id?.name).length - 3} more
                                 </Badge>
                               )}
-                  </div>
+                            </div>
                           )}
                 </CardHeader>
 

@@ -1,4 +1,4 @@
-const DIRECTUS_URL = import.meta.env.VITE_DIRECTUS_URL || 'https://strandly.onrender.com';
+const DIRECTUS_URL = import.meta.env.VITE_DIRECTUS_URL || 'https://kopilot.sliplane.app';
 const DIRECTUS_TOKEN = import.meta.env.VITE_DIRECTUS_TOKEN || '';
 
 class DirectusFetchError extends Error {
@@ -40,7 +40,6 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        ...(DIRECTUS_TOKEN ? { Authorization: `Bearer ${DIRECTUS_TOKEN}` } : {}),
       },
       ...options,
     });
@@ -83,7 +82,6 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          ...(DIRECTUS_TOKEN ? { Authorization: `Bearer ${DIRECTUS_TOKEN}` } : {}),
         },
         ...options,
       });
@@ -109,15 +107,20 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
   }
 };
 
-export const getDirectusAssetUrl = (assetId: string, params?: Record<string, string | number | boolean>) => {
+export const getDirectusAssetUrl = (assetId: string | null | undefined, params?: Record<string, string | number | boolean>) => {
+  // Handle null/undefined/empty values
+  if (!assetId) return '';
+  
   const isAbsolute = /^https?:\/\//i.test(assetId);
   const base = isAbsolute ? assetId : `${DIRECTUS_URL}/assets/${assetId}`;
   const usp = new URLSearchParams();
+  
   if (params) {
     for (const [k, v] of Object.entries(params)) {
       usp.set(k, String(v));
     }
   }
+  
   // Append access token only for Directus-hosted assets (not for external URLs)
   try {
     const directusOrigin = new URL(DIRECTUS_URL).origin;
@@ -129,13 +132,24 @@ export const getDirectusAssetUrl = (assetId: string, params?: Record<string, str
   } catch {
     // if URL parsing fails, skip token injection
   }
+  
   const query = usp.toString();
-  return query ? `${base}?${query}` : base;
+  const finalUrl = query ? `${base}?${query}` : base;
+  
+  if (import.meta.env.DEV) {
+    console.log('[Directus] Asset URL:', finalUrl);
+  }
+  
+  return finalUrl;
 };
 
-export const buildSrcSet = (assetId: string, widths: number[], opts?: { format?: 'webp' | 'jpg' | 'png'; quality?: number }) => {
+export const buildSrcSet = (assetId: string | null | undefined, widths: number[], opts?: { format?: 'webp' | 'jpg' | 'png'; quality?: number }) => {
+  // Handle null/undefined/empty values
+  if (!assetId) return '';
+  
   const { format, quality = 80 } = opts || {};
   const isAbsolute = /^https?:\/\//i.test(assetId);
+  
   // If it's not a Directus asset id or URL, we can't transform -> no srcset
   if (isAbsolute) {
     try {
@@ -145,6 +159,7 @@ export const buildSrcSet = (assetId: string, widths: number[], opts?: { format?:
       return '';
     }
   }
+  
   return widths
     .map((w) => {
       const url = getDirectusAssetUrl(assetId, {

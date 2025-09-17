@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { directusFetch } from '@/lib/directus';
+import { directusFetch, getDirectusAssetUrl, buildSrcSet } from '@/lib/directus';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import { Card, CardContent } from '@/components/ui/card';
@@ -89,7 +89,7 @@ const BlogPost: React.FC = () => {
     const fetchPost = async () => {
       try {
         const response = await directusFetch(
-          `/items/posts?filter[slugs][_eq]=${slug}&fields=*,author.first_name,author.last_name,category.name,tags.post_tags_id.name,titles`
+          `/items/posts?filter[slugs][_eq]=${slug}&filter[status][_eq]=published&fields=*,author.first_name,author.last_name,category.name,tags.post_tags_id.name,titles`
         );
         if (response && response.data && response.data.length > 0) {
           const fetchedPost = response.data[0] as Post;
@@ -117,7 +117,7 @@ const BlogPost: React.FC = () => {
           const ogDescriptionTag = document.querySelector('meta[property="og:description"]');
           if (ogDescriptionTag) ogDescriptionTag.setAttribute('content', fetchedPost.meta_description || '');
           const ogImageTag = document.querySelector('meta[property="og:image"]');
-          if (ogImageTag) ogImageTag.setAttribute('content', `https://strandly.onrender.com/assets/${fetchedPost.og_image}` || '');
+          if (ogImageTag) ogImageTag.setAttribute('content', getDirectusAssetUrl(fetchedPost.og_image, { width: 1200, quality: 85 }) || '');
 
         } else {
           setError('Post not found.');
@@ -316,13 +316,24 @@ const BlogPost: React.FC = () => {
           {post.featured_image && (
               <div className="relative mb-12 rounded-3xl overflow-hidden shadow-2xl">
             <img
-              src={`https://strandly.onrender.com/assets/${post.featured_image}`}
+              src={getDirectusAssetUrl(post.featured_image, { width: 1200, quality: 85, fit: 'cover', format: 'webp' })}
+              srcSet={buildSrcSet(post.featured_image, [600, 900, 1200, 1600], { format: 'webp', quality: 85 }) || undefined}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
               alt={post.titles}
-                  className="w-full h-64 md:h-96 lg:h-[500px] object-cover"
+              loading="eager"
+              decoding="async"
+              className="w-full h-64 md:h-96 lg:h-[500px] object-cover"
+              onError={(e) => {
+                // Fallback to original URL if Directus transformation fails
+                const target = e.target as HTMLImageElement;
+                if (target.src !== post.featured_image) {
+                  target.src = post.featured_image;
+                }
+              }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#6B3F1D]/20 to-transparent" />
               </div>
-            )}
+          )}
 
             {/* Article Content */}
             <div className="py-8">

@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const DIRECTUS_URL = 'https://strandly.onrender.com';
+const DIRECTUS_URL = 'https://kopilot.sliplane.app';
 const DIRECTUS_TOKEN = '3h9pr1rXhkBhbF7xFj6QwUkDKeCmcUzS';
 
 async function generateSitemap() {
   try {
     const response = await fetch(
-      `${DIRECTUS_URL}/items/posts?fields=slugs&filter[titles][_nnull]=true`,
+      `${DIRECTUS_URL}/items/posts?fields=slugs&filter[status][_eq]=published&filter[titles][_nnull]=true`,
       {
         headers: {
           'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
