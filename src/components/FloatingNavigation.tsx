@@ -7,14 +7,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-// Mobile navigation components commented out
-// import {
-//   Sheet,
-//   SheetContent,
-//   SheetTrigger,
-// } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { 
-  Globe
+  Globe,
+  Menu
 } from "lucide-react";
 
 const languageFlags: Record<string, string> = {
@@ -147,20 +147,30 @@ const FloatingNavigation = () => {
         </div>
       </nav>
 
-      {/* Mobile Navigation - Commented out for now as it's not essential */}
-      {/* 
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground lg:hidden">
+      {/* Mobile Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground border-b border-[#6B3F1D]/20 lg:hidden">
         <div className="flex items-center justify-between px-4 py-3">
-          <div className="flex items-center space-x-2">
+          {/* Logo / Brand */}
+          <button
+            className="flex items-center space-x-2 active:opacity-90"
+            aria-label="Go to home"
+            onClick={() => navigateToRoute('/')}
+          >
+            <div className="w-8 h-8 bg-gradient-to-br from-[#6B3F1D] to-[#8B4513] rounded-full flex items-center justify-center shadow-md">
+              <span className="text-white font-bold text-sm font-display">S</span>
+            </div>
             <span className="font-display text-lg text-primary-foreground font-semibold">
               Strandly
             </span>
-          </div>
-          <div className="flex items-center space-x-2">
+          </button>
+
+          <div className="flex items-center gap-2">
+            {/* Language */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" size="sm" className="text-primary-foreground">
                   {languageFlags[i18n.language]} <Globe className="h-4 w-4" />
+                  <span className="sr-only">Change language</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
@@ -174,10 +184,44 @@ const FloatingNavigation = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+
+            {/* Hamburger Menu */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="default"
+                  size="sm"
+                  className="bg-[#6B3F1D] text-white hover:bg-[#8B4513] focus:ring-2 focus:ring-offset-2 focus:ring-[#6B3F1D] focus:ring-offset-[#e7cfb1]"
+                  aria-label="Open menu"
+                >
+                  <Menu className="h-5 w-5 text-white transition-transform duration-300" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent 
+                side="right" 
+                className="group bg-[#e7cfb1] border-[#6B3F1D]/20 transition-all duration-300 ease-out translate-x-full data-[state=open]:translate-x-0 data-[state=closed]:translate-x-full data-[state=open]:shadow-elegant"
+              >
+                <div className="mt-8 space-y-4">
+                  {navigationItems.map((item, i) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="block font-body text-lg text-[#1a0f0a] hover:text-[#6B3F1D] transform transition-all duration-300 opacity-0 translate-x-3 group-data-[state=open]:opacity-100 group-data-[state=open]:translate-x-0"
+                      style={{ transitionDelay: `${i * 60}ms` }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        item.onClick();
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </nav>
-      */}
     </>
   );
 };
