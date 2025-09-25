@@ -31,7 +31,7 @@ interface Post {
   tags: { post_tags_id: { name: string } }[];
   meta_description: string | null;
   author: { id: string; first_name: string; last_name: string };
-  published_at: string;
+  date_created: string;
   category?: { id: string; name: string };
   reading_time?: number;
 }
@@ -69,7 +69,7 @@ const BlogPage: React.FC = () => {
         const [postsResponse, tagsResponse] = await Promise.all([
           directusFetch(
             // fetch only published posts; order by newest
-            '/items/posts?fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,published_at,category.name&filter[status][_eq]=published&sort=-published_at&limit=1000'
+            '/items/posts?fields=id,titles,slugs,content,featured_image,tags.post_tags_id.name,meta_description,author.first_name,author.last_name,date_created,category.name&filter[status][_eq]=published&sort=-date_created&limit=1000'
           ),
           directusFetch('/items/post_tags')
         ]);
@@ -108,7 +108,7 @@ const BlogPage: React.FC = () => {
                 first_name: raw.author?.first_name || '',
                 last_name: raw.author?.last_name || ''
               },
-              published_at: raw.published_at || new Date().toISOString(),
+              date_created: raw.date_created || new Date().toISOString(),
               category: raw.category?.name ? { id: raw.category.id ? String(raw.category.id) : '0', name: raw.category.name } : undefined,
             };
             return {
@@ -171,9 +171,9 @@ const BlogPage: React.FC = () => {
     filtered.sort((a, b) => {
       switch (sortBy) {
         case 'newest':
-          return new Date(b.published_at).getTime() - new Date(a.published_at).getTime();
+          return new Date(b.date_created).getTime() - new Date(a.date_created).getTime();
         case 'oldest':
-          return new Date(a.published_at).getTime() - new Date(b.published_at).getTime();
+          return new Date(a.date_created).getTime() - new Date(b.date_created).getTime();
         case 'title':
           return (a.titles || '').localeCompare(b.titles || '');
         default:
@@ -549,7 +549,7 @@ const BlogPage: React.FC = () => {
                               <div className="text-sm min-w-0 flex-1">
                                 <p className="font-medium truncate">{post.author?.first_name} {post.author?.last_name}</p>
                                 <p className="text-muted-foreground text-xs">
-                                  {new Date(post.published_at).toLocaleDateString('en-US', { 
+                                  {new Date(post.date_created).toLocaleDateString('en-US', { 
                                     month: 'short', 
                                     day: 'numeric',
                                     year: 'numeric'

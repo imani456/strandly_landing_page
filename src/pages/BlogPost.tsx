@@ -20,7 +20,7 @@ interface Post {
   featured_image: string;
   author: { id: string; first_name: string; last_name: string };
   category: { id: string; name: string };
-  published_at: string;
+  date_created: string;
   meta_title: string;
   meta_description: string;
   og_image: string;
@@ -136,7 +136,7 @@ const BlogPost: React.FC = () => {
             featured_image: null,
             author: { id: '1', first_name: 'John', last_name: 'Doe' },
             category: { id: '1', name: 'Lifestyle' },
-            published_at: '2024-01-15T10:00:00Z',
+            date_created: '2024-01-15T10:00:00Z',
             meta_title: 'Weekly Streak: Maintained a 7-day activity streak',
             meta_description: 'Learn how to maintain a consistent weekly streak and build better habits.',
             og_image: null
@@ -291,7 +291,7 @@ const BlogPost: React.FC = () => {
                 <div className="flex items-center space-x-8 text-sm">
                   <div className="flex items-center space-x-2">
                     <Calendar className="h-5 w-5" />
-                    <span className="font-medium">{new Date(post.published_at).toLocaleDateString('en-US', { 
+                    <span className="font-medium">{new Date(post.date_created).toLocaleDateString('en-US', { 
                       year: 'numeric', 
                       month: 'long', 
                       day: 'numeric' 
