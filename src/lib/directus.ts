@@ -32,6 +32,8 @@ export const directusFetch = async (endpoint: string, options?: RequestInit) => 
   }
   if (import.meta.env.DEV) {
     console.log('[Directus] Proxy request →', proxyUrl);
+    console.log('[Directus] Token available:', !!DIRECTUS_TOKEN);
+    console.log('[Directus] Token preview:', DIRECTUS_TOKEN ? `${DIRECTUS_TOKEN.substring(0, 10)}...` : 'none');
   }
   
   try {

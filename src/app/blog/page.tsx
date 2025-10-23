@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { directusFetch, getDirectusAssetUrl, buildSrcSet } from '@/lib/directus';
+import { fallbackPosts, fallbackTags } from '@/lib/fallback-data';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -149,11 +150,12 @@ const BlogPage: React.FC = () => {
           }
         }
         console.groupEnd();
-        setError("We're having trouble loading articles right now. Please try again shortly.");
+        console.warn('⚠️ Using fallback data due to API failure');
         
-        // Set fallback data when API is completely unavailable
-        setPosts([]);
-        setPostTags([]);
+        // Use fallback data when API is completely unavailable
+        setPosts(fallbackPosts.data as unknown as Post[]);
+        setPostTags(fallbackTags.data as PostTag[]);
+        setError(null); // Clear error since we have fallback data
       } finally {
         setLoading(false);
       }
@@ -168,9 +170,20 @@ const BlogPage: React.FC = () => {
     return ['all', ...Array.from(new Set(cats))];
   }, [posts]);
 
+  // Helper function to extract text from multilingual objects
+  const getText = (v: string | object | null | undefined) => {
+    if (typeof v === 'string') return v;
+    if (v && typeof v === 'object' && 'en' in v) return (v as any).en || '';
+    return '';
+  };
+
   // Filter and sort posts
   const filteredAndSortedPosts = useMemo(() => {
-    const safeLower = (v: string | null | undefined) => (v || '').toLowerCase();
+    const safeLower = (v: string | object | null | undefined) => {
+      if (typeof v === 'string') return v.toLowerCase();
+      if (v && typeof v === 'object' && 'en' in v) return (v as any).en?.toLowerCase() || '';
+      return '';
+    };
     let filtered = posts.filter(post => {
       const matchesSearch = safeLower(post.titles).includes(safeLower(searchQuery)) ||
                            safeLower(post.meta_description).includes(safeLower(searchQuery)) ||
@@ -569,7 +582,7 @@ const BlogPage: React.FC = () => {
                       : 'grid-cols-1 max-w-4xl mx-auto'
                   }`}>
                     {paginatedPosts.map((post) => (
-                      <Link to={`/blog/${post.slugs}`} key={post.id} className="group">
+                      <Link to={`/blog/${getText(post.slugs)}`} key={post.id} className="group">
                         <Card className={`h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-[#e7cfb1] border-[#6B3F1D]/30 ${
                           viewMode === 'list' ? 'flex-row' : ''
                         }`}>
@@ -612,7 +625,7 @@ const BlogPage: React.FC = () => {
                           <div className="flex-1 flex flex-col">
                             <CardHeader className="pb-2">
                               <CardTitle className="line-clamp-2 group-hover:text-[#8B4513] transition-colors duration-200 font-prata">
-                                {post.titles}
+                                {getText(post.titles)}
                               </CardTitle>
                               
                               {/* Tags */}
@@ -637,7 +650,7 @@ const BlogPage: React.FC = () => {
 
                             <CardContent className="flex-1 pb-1 min-h-[80px]">
                               <p className="text-muted-foreground line-clamp-3 text-sm leading-relaxed">
-                                {post.meta_description || (post.content ? post.content.replace(/<[^>]*>/g, '').substring(0, 150) + '...' : 'No description available')}
+                                {getText(post.meta_description) || (getText(post.content) ? getText(post.content).replace(/<[^>]*>/g, '').substring(0, 150) + '...' : 'No description available')}
                               </p>
                             </CardContent>
 
